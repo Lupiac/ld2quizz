@@ -1,0 +1,29 @@
+{
+  "requires": true,
+  "lockfileVersion": 1,
+  "dependencies": {
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "nano": "^7.1.1",
+    "xmlhttprequest": "^1.8.0"
+  },
+  "name": "quizzbackend",
+  "version": "1.0.0",
+  "description": "backend for quizz app",
+  "main": "routes/quizRoutes.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SebastienDegand/QuizzBackend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SebastienDegand/QuizzBackend/issues"
+  },
+  "homepage": "https://github.com/SebastienDegand/QuizzBackend#readme"
+}

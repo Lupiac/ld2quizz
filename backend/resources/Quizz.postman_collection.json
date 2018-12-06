@@ -1,0 +1,692 @@
+{
+	"info": {
+		"_postman_id": "9b66f61c-9176-4978-9e40-330b7b8e7142",
+		"name": "Quizz",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "add quiz",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "test",
+							"type": "text"
+						},
+						{
+							"key": "image_url",
+							"value": "https://upload.wikimedia.org/wikipedia/commons/c/c5/Quizz.png",
+							"type": "text"
+						},
+						{
+							"key": "nbQuestion",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "questions",
+							"value": "[{\"question\": \"2+2 ?\",\"response\": \"4\",\"distractors\": [\"22\",\"8\",\"2\"]}]",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "this is a mathematics quizz",
+							"type": "text"
+						},
+						{
+							"key": "domains",
+							"value": "[\"maths\", \"arithmetic\"]",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "sebi3",
+							"type": "text"
+						},
+						{
+							"key": "token",
+							"value": "1111",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/quizzes/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"quizzes",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "send answer",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "answer",
+							"value": "1969",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/quizzes/1f0f3f9b54768ed5e8583b4bab006f95/questions/0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"quizzes",
+						"1f0f3f9b54768ed5e8583b4bab006f95",
+						"questions",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add Math Quiz",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "maths",
+							"type": "text"
+						},
+						{
+							"key": "image_url",
+							"value": "https://upload.wikimedia.org/wikipedia/commons/c/c5/Quizz.png",
+							"type": "text"
+						},
+						{
+							"key": "questions",
+							"value": "[{\"question\": \"2+2 ?\",\"answer\": \"4\",\"distractors\": [\"22\",\"8\",\"2\"], \"clue\": \"a clue\", \"clueResource\": \"http:clue.com\"},{\"question\": \"3*3 ?\",\"answer\": \"9\",\"distractors\": [\"33\",\"6\",\"13\"], \"clue\": \"a clue\", \"clueResource\": \"http:clue.com\"}]",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "un quizz de mathèmatiques",
+							"type": "text"
+						},
+						{
+							"key": "categories",
+							"value": "[\"mathèmatiques\", \"arithmetique\"]",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "sebi",
+							"type": "text"
+						},
+						{
+							"key": "token",
+							"value": "1111",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/quizzes/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"quizzes",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add Space Quiz",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "Mission Apollo",
+							"type": "text"
+						},
+						{
+							"key": "image_url",
+							"value": "https://upload.wikimedia.org/wikipedia/commons/9/9c/Aldrin_Apollo_11.jpg",
+							"type": "text"
+						},
+						{
+							"key": "questions",
+							"value": "[{\"question\": \"En quelle année le premier homme a marché sur la lune ?\",\"answer\": \"1969\",\"distractors\": [\"2000\",\"1979\",\"1993\"], \"clue\": \"this is the clue\", \"clueResource\": \"http://resource.clue\", \"categories\": [\"espace\", \"apollo\"], \"enabled\": false},{\"question\": \"Qui a marché pour la première fois sur la lune ?\",\"answer\": \"Neil Armstrong\",\"distractors\": [\"Thomas Pesquet\",\"Harrison Schmitt\",\"Alan Shepard\"], \"clue\": \"this is the clue\", \"clueResource\": \"http://resource.clue\", \"categories\": [\"espace\", \"apollo\"], \"enabled\": true}]",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "un quizz sur la mission Apollo",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "sebi",
+							"type": "text"
+						},
+						{
+							"key": "token",
+							"value": "1111",
+							"type": "text"
+						},
+						{
+							"key": "taxBloom",
+							"value": "[\"Analyse\"]",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/quizzes/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"quizzes",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add Space not well formed",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "Mission Apollo",
+							"type": "text"
+						},
+						{
+							"key": "image_url",
+							"value": "https://upload.wikimedia.org/wikipedia/commons/9/9c/Aldrin_Apollo_11.jpg",
+							"type": "text"
+						},
+						{
+							"key": "questions",
+							"value": "[{\"question\": \"En quelle année le premier homme a marché sur la lune ?\",\"answer\": \"1969\",\"distractors\": [\"2000\",\"1979\",\"1993\"]},{\"question\": \"Qui a marché pour la première fois sur la lune ?\",\"answer\": \"Neil Armstrong\",\"distractors\": [4,\"Harrison Schmitt\",\"Alan Shepard\"]}]",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "un quizz sur la mission Apollo",
+							"type": "text"
+						},
+						{
+							"key": "categories",
+							"value": "[\"espace\", \"apollo\"]",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "sebi3",
+							"type": "text"
+						},
+						{
+							"key": "token",
+							"value": "1111",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/quizzes/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"quizzes",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update Quiz",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "Mission Apollo",
+							"type": "text"
+						},
+						{
+							"key": "image_url",
+							"value": "https://upload.wikimedia.org/wikipedia/commons/9/9c/Aldrin_Apollo_11.jpg",
+							"type": "text"
+						},
+						{
+							"key": "questions",
+							"value": "[{\"question\": \"EEn quelle année le premier homme a marché sur la lune ?\",\"answer\": \"1969\",\"distractors\": [\"2000\",\"1979\",\"1993\"], \"clue\": \"this is the clue\", \"clueResource\": \"http://resource.clue\", \"categories\": [\"espace\", \"apollo\", \"histoire\"], \"enabled\": true},{\"question\": \"Qui a marché pour la première fois sur la lune ?\",\"answer\": \"Neil Armstrong\",\"distractors\": [\"Thomas Pesquet\",\"Harrison Schmitt\",\"Alan Shepard\"], \"clue\": \"this is the clue\", \"clueResource\": \"http://resource.clue\", \"categories\": [\"espace\", \"apollo\"], \"enabled\": true}]",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "un quizz sur la mission Apolloo",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "sebi",
+							"type": "text"
+						},
+						{
+							"key": "token",
+							"value": "1111",
+							"type": "text"
+						},
+						{
+							"key": "taxBloom",
+							"value": "[\"Analyse\", \"Analyse\"]",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/quizzes/1f0f3f9b54768ed5e8583b4bab006f95",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"quizzes",
+						"1f0f3f9b54768ed5e8583b4bab006f95"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all quizzes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/quizzes?keywords=apollo+espace",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"quizzes"
+					],
+					"query": [
+						{
+							"key": "keywords",
+							"value": "apollo+espace"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add user",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "sebi",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "1234",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/users/",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "sebi",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "1234",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/authentication/",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"authentication",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "logout",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "sebi",
+							"type": "text"
+						},
+						{
+							"key": "token",
+							"value": "1111",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/authentication/",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"authentication",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get quizzes by username",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:3000/users/sebi/quizzes?token=1111",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"sebi",
+						"quizzes"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "1111"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get questions and answers",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:3000/users/sebi/quizzes/1f0f3f9b54768ed5e8583b4bab006f95/questions?token=1111",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"sebi",
+						"quizzes",
+						"1f0f3f9b54768ed5e8583b4bab006f95",
+						"questions"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "1111"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get questions",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "localhost:3000/quizzes/1f0f3f9b54768ed5e8583b4bab006f95/questions",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"quizzes",
+						"1f0f3f9b54768ed5e8583b4bab006f95",
+						"questions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "generate",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "domain_description",
+							"value": "hello",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "sebi",
+							"type": "text"
+						},
+						{
+							"key": "token",
+							"value": "1111",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/generator",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"generator"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

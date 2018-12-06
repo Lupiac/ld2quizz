@@ -1,0 +1,737 @@
+{
+  "quiz": [
+    {
+      "answer": "Raisonnement par cas",
+      "answer_abstract": "Pour r\u00e9soudre les probl\u00e8mes de la vie quotidienne, nous faisons naturellement appel \u00e0 notre exp\u00e9rience. Nous nous rem\u00e9morons les situations semblables d\u00e9j\u00e0 rencontr\u00e9es. Puis nous les comparons \u00e0 la situation actuelle pour construire une nouvelle solution qui, \u00e0 son tour, s\u2019ajoutera \u00e0 notre exp\u00e9rience.Le raisonnement \u00e0 partir de cas (R\u00e0PC) (nomm\u00e9 en anglais case-based_reasoning (CBR)) copie ce comportement humain. Il r\u00e9sout les probl\u00e8mes en retrouvant des cas analogues dans sa base de connaissances et en les adaptant au cas consid\u00e9r\u00e9. Cette technologie est apparue il y a une quinzaine d\u2019ann\u00e9es mais les travaux initiaux sur le sujet remontent cependant aux exp\u00e9riences de Schank et Abelson en 1977 \u00e0 l'Universit\u00e9 Yale. Elle reste pourtant encore assez m\u00e9connue par rapport \u00e0 d\u2019autres technologies appartenant au domaine des sciences cognitives comme le data mining. Elle diff\u00e8re de cette derni\u00e8re par son approche. En effet, ici, on n\u2019utilise qu\u2019indirectement les donn\u00e9es pour retrouver les cas proches, \u00e0 partir desquels on va g\u00e9n\u00e9rer une solution.",
+      "answer_resource": "http://fr.dbpedia.org/resource/Raisonnement_par_cas",
+      "categories": [
+        "http://fr.dbpedia.org/resource/Cat\u00e9gorie:Intelligence_artificielle",
+        "http://fr.dbpedia.org/resource/Cat\u00e9gorie:M\u00e9thode_d'analyse",
+        "http://fr.dbpedia.org/resource/Cat\u00e9gorie:Programmation_informatique"
+      ],
+      "distractors": [
+        {
+          "Label": "Exploration de donn\u00e9es",
+          "Resource": "http://fr.dbpedia.org/resource/Exploration_de_donn\u00e9es"
+        },
+        {
+          "Label": "Apprentissage par probl\u00e8mes",
+          "Resource": "http://fr.dbpedia.org/resource/Apprentissage_par_probl\u00e8mes"
+        },
+        {
+          "Label": "Roger Schank",
+          "Resource": "http://fr.dbpedia.org/resource/Roger_Schank"
+        }
+      ],
+      "question": "Est apparue il y a une quinzaine d\u2019ann\u00e9es mais les travaux initiaux sur le sujet remontent cependant aux exp\u00e9riences de schank et abelson en 1977 \u00e0 l'universit\u00e9 yale."
+    },
+    {
+      "answer": "Diagnostic (intelligence artificielle)",
+      "answer_abstract": "Le diagnostic est une discipline de l'intelligence artificielle qui vise le d\u00e9veloppement d'algorithmes permettant de d\u00e9terminer si le comportement d'un syst\u00e8me est conforme au comportement esp\u00e9r\u00e9. Dans le cas contraire, l'algorithme doit \u00eatre capable de d\u00e9terminer aussi pr\u00e9cis\u00e9ment que possible quelles parties du syst\u00e8me sont fautives et de quels types de dysfonctionnements elles souffrent. Le calcul se base sur les observations, qui sont des informations sur le comportement.Le terme diagnostic fait \u00e9galement r\u00e9f\u00e9rence au calcul ainsi qu'au r\u00e9sultat du calcul. Ce terme vient du domaine m\u00e9dical o\u00f9 un diagnostic repr\u00e9sente l'explication des sympt\u00f4mes du patient.",
+      "answer_resource": "http://fr.dbpedia.org/resource/Diagnostic_(intelligence_artificielle)",
+      "categories": [
+        "http://fr.dbpedia.org/resource/Cat\u00e9gorie:Intelligence_artificielle"
+      ],
+      "distractors": [
+        {
+          "Label": "Intelligence artificielle",
+          "Resource": "http://fr.dbpedia.org/resource/Intelligence_artificielle"
+        },
+        {
+          "Label": "Mod\u00e8le",
+          "Resource": "http://fr.dbpedia.org/resource/Mod\u00e8le"
+        }
+      ],
+      "question": "Est une discipline de l'intelligence artificielle qui vise le d\u00e9veloppement d'algorithmes permettant de d\u00e9terminer si le comportement d'un syst\u00e8me est conforme au comportement esp\u00e9r\u00e9."
+    },
+    {
+      "answer": "Recherche de chemin",
+      "answer_abstract": "La recherche de chemin, couramment appel\u00e9e pathfinding, est un probl\u00e8me de l'intelligence artificielle qui se rattache plus g\u00e9n\u00e9ralement au domaine de la planification et de la recherche de solution. Il consiste \u00e0 trouver comment se d\u00e9placer dans un environnement entre un point de d\u00e9part et un point d'arriv\u00e9e en prenant en compte diff\u00e9rentes contraintes.",
+      "answer_resource": "http://fr.dbpedia.org/resource/Recherche_de_chemin",
+      "categories": [
+        "http://fr.dbpedia.org/resource/Cat\u00e9gorie:Algorithme_de_recherche",
+        "http://fr.dbpedia.org/resource/Cat\u00e9gorie:Intelligence_artificielle",
+        "http://fr.dbpedia.org/resource/Cat\u00e9gorie:Th\u00e9orie_des_graphes"
+      ],
+      "distractors": [
+        {
+          "Label": "Intelligence artificielle",
+          "Resource": "http://fr.dbpedia.org/resource/Intelligence_artificielle"
+        },
+        {
+          "Label": "Algorithme A*",
+          "Resource": "http://fr.dbpedia.org/resource/Algorithme_A*"
+        },
+        {
+          "Label": "Probl\u00e8mes de cheminement",
+          "Resource": "http://fr.dbpedia.org/resource/Probl\u00e8mes_de_cheminement"
+        }
+      ],
+      "question": "Est un probl\u00e8me de l'intelligence artificielle qui se rattache plus g\u00e9n\u00e9ralement au domaine de la planification et de la recherche de solution."
+    },
+    {
+      "answer": "Cybern\u00e9tique",
+      "answer_abstract": "La cybern\u00e9tique (en anglais cybernetics) est un terme, form\u00e9 \u00e0 partir du grec \u03ba\u1fe0\u03b2\u03b5\u03c1\u03bd\u03ae\u03c4\u03b7\u03c2 (kubern\u00eat\u00eas) \u00ab pilote, gouverneur \u00bb, propos\u00e9 en 1947 par le math\u00e9maticien am\u00e9ricain Norbert Wiener pour promouvoir une vision unifi\u00e9e des domaines naissants de l'automatique, de l'\u00e9lectronique et de la th\u00e9orie math\u00e9matique de l'information, en tant que \u00ab th\u00e9orie enti\u00e8re de la commande et de la communication, aussi bien chez l'animal que dans la machine \u00bb. Des scientifiques d'horizons tr\u00e8s divers et parmi les plus brillants de l'\u00e9poque particip\u00e8rent, autour des \u00ab conf\u00e9rences Macy \u00bb organis\u00e9es de 1946 \u00e0 1953, \u00e0 ce projet interdisciplinaire : math\u00e9maticiens, logiciens, ing\u00e9nieurs, physiologistes, anthropologues, psychologues\u2026 Les contours parfois flous de cet ensemble de recherches s'articulent toutefois autour du concept cl\u00e9 de r\u00e9troaction (en anglais feedback) ou m\u00e9canisme t\u00e9l\u00e9ologique.L'ouvrage Cybernetics or Control and Communication in the Animal and the Machine de Wiener, publi\u00e9 en 1948, est consid\u00e9r\u00e9 comme fondateur de la cybern\u00e9tique et assura \u00e0 celle-ci une large diffusion publique. Malgr\u00e9 le succ\u00e8s populaire du terme, son usage d\u00e9clina rapidement dans le contexte scientifique apr\u00e8s la dispersion des participants aux conf\u00e9rences Macy et la mort de Norbert Wiener en 1964. L'ambition d\u00e9velopp\u00e9e par la cybern\u00e9tique a pourtant constitu\u00e9 un creuset formidable pour l'\u00e9laboration des sciences cognitives, de l'intelligence artificielle, des th\u00e9rapies syst\u00e9miques de l'\u00e9cole de Palo Alto, ou encore des th\u00e9ories biologiques de l'auto-organisation.",
+      "answer_resource": "http://fr.dbpedia.org/resource/Cybern\u00e9tique",
+      "categories": [
+        "http://fr.dbpedia.org/resource/Cat\u00e9gorie:Cybern\u00e9tique",
+        "http://fr.dbpedia.org/resource/Cat\u00e9gorie:R\u00e9gulation",
+        "http://fr.dbpedia.org/resource/Cat\u00e9gorie:Syst\u00e9mique"
+      ],
+      "distractors": [
+        {
+          "Label": "Jean-Pierre Dupuy",
+          "Resource": "http://fr.dbpedia.org/resource/Jean-Pierre_Dupuy"
+        },
+        {
+          "Label": "Gregory Bateson",
+          "Resource": "http://fr.dbpedia.org/resource/Gregory_Bateson"
+        },
+        {
+          "Label": "Norbert Wiener",
+          "Resource": "http://fr.dbpedia.org/resource/Norbert_Wiener"
+        }
+      ],
+      "question": "Est un terme, form\u00e9 \u00e0 partir du grec \u03ba\u1fe0\u03b2\u03b5\u03c1\u03bd\u03ae\u03c4\u03b7\u03c2 (kubern\u00eat\u00eas) \u00ab pilote, gouverneur \u00bb, propos\u00e9 en 1947 par le math\u00e9maticien am\u00e9ricain norbert wiener pour promouvoir une vision unifi\u00e9e des domaines naissants de l'automatique, de l'\u00e9lectronique et de la th\u00e9orie math\u00e9matique de l'information, en tant que \u00ab th\u00e9orie enti\u00e8re de la commande et de la communication, aussi bien chez l'animal que dans la machine \u00bb."
+    },
+    {
+      "answer": "Planification (intelligence artificielle)",
+      "answer_abstract": "La planification (Automated planning) est une discipline de l'intelligence artificielle qui vise le d\u00e9veloppement d'algorithmes pour produire des plans (en d'autre termes, une planification), typiquement pour l'ex\u00e9cution par un robot ou tout autre agent. Les logiciels de planification qui incorporent ces algorithmes se nomment planificateurs.  Un planificateur typique manipule trois entr\u00e9es (toutes cod\u00e9es dans un langage formel tel que STRIPS qui utilise des pr\u00e9dicats logiques) :  une description de l'\u00e9tat initial d'un monde,  une description d'un but \u00e0 atteindre et un ensemble d'actions possibles (parfois appel\u00e9s op\u00e9rateurs)Chaque action sp\u00e9cifie g\u00e9n\u00e9ralement des pr\u00e9conditions qui doivent \u00eatre pr\u00e9sentes dans l'\u00e9tat actuel pour qu'elle puisse \u00eatre appliqu\u00e9e, et des postconditions (effets sur l'\u00e9tat actuel). La difficult\u00e9 du probl\u00e8me de planification d\u00e9pend des hypoth\u00e8ses de simplification qu'on tient pour acquis, par exemple un temps atomique, un temps d\u00e9terministe, une observabilit\u00e9 compl\u00e8te, etc.",
+      "answer_resource": "http://fr.dbpedia.org/resource/Planification_(intelligence_artificielle)",
+      "categories": [
+        "http://fr.dbpedia.org/resource/Cat\u00e9gorie:Intelligence_artificielle"
+      ],
+      "distractors": [
+        {
+          "Label": "Intelligence artificielle",
+          "Resource": "http://fr.dbpedia.org/resource/Intelligence_artificielle"
+        },
+        {
+          "Label": "STRIPS",
+          "Resource": "http://fr.dbpedia.org/resource/STRIPS"
+        },
+        {
+          "Label": "Algorithme A*",
+          "Resource": "http://fr.dbpedia.org/resource/Algorithme_A*"
+        }
+      ],
+      "question": "Est une discipline de l'intelligence artificielle qui vise le d\u00e9veloppement d'algorithmes pour produire des plans (en d'autre termes, une planification), typiquement pour l'ex\u00e9cution par un robot ou tout autre agent."
+    },
+    {
+      "answer": "Connexionnisme",
+      "answer_abstract": "Le connexionnisme est une approche utilis\u00e9e en sciences cognitives, neurosciences, psychologie et philosophie de l'esprit. Le connexionnisme mod\u00e9lise les ph\u00e9nom\u00e8nes mentaux ou comportementaux comme des processus \u00e9mergents de r\u00e9seaux d'unit\u00e9s simples interconnect\u00e9es. Le plus souvent les connexionnistes mod\u00e9lisent ces ph\u00e9nom\u00e8nes \u00e0 l'aide de r\u00e9seaux de neurones. Il s'agit d'une th\u00e9orie qui a \u00e9merg\u00e9 \u00e0 la fin des ann\u00e9es 1980 en tant qu'alternative au computationnalisme (Putnam, Fodor, etc.) alors dominant.\u00c0 ne pas confondre avec le connectivisme, qui a peu \u00e0 voir.",
+      "answer_resource": "http://fr.dbpedia.org/resource/Connexionnisme",
+      "categories": [
+        "http://fr.dbpedia.org/resource/Cat\u00e9gorie:Cybern\u00e9tique",
+        "http://fr.dbpedia.org/resource/Cat\u00e9gorie:Neurosciences",
+        "http://fr.dbpedia.org/resource/Cat\u00e9gorie:Neurosciences_cognitives",
+        "http://fr.dbpedia.org/resource/Cat\u00e9gorie:Philosophie_de_l'esprit",
+        "http://fr.dbpedia.org/resource/Cat\u00e9gorie:Psychologie_cognitive",
+        "http://fr.dbpedia.org/resource/Cat\u00e9gorie:Sciences_cognitives"
+      ],
+      "distractors": [
+        {
+          "Label": "Computationnalisme",
+          "Resource": "http://fr.dbpedia.org/resource/Computationnalisme"
+        }
+      ],
+      "question": "Est une approche utilis\u00e9e en sciences cognitives, neurosciences, psychologie et philosophie de l'esprit."
+    },
+    {
+      "answer": "Cerveau artificiel",
+      "answer_abstract": "Un cerveau artificiel  est un mod\u00e8le informatique, bas\u00e9 sur la simulation de l\u2019activit\u00e9 de populations de neurones, qui poss\u00e8de ou d\u00e9veloppe des facult\u00e9s cognitives similaires aux cerveaux biologiques.Diverses approches sont envisag\u00e9es : Simuler l'activit\u00e9 biologique des neurones Simuler l'activit\u00e9 fonctionnelle des neurones produire un exocortex qui serait un syst\u00e8me externe artificielle de traitement de l'information susceptible de compl\u00e9ter les processus cognitifs de haut niveau biologiques d'un cerveau via une interface cerveau-ordinateur directement, faisant de ces extensions fonctionnellement partie de l'esprit de l'individu. Un tel dispositif rel\u00e8ve encore de la science fiction, mais des  interfaces cerveau-machine commencent \u00e0 apparaitre (permettant par exemple de commander le d\u00e9placement d'une balle sur un \u00e9cran par la pens\u00e9e).L\u2019architecture des circuits neuronaux (aires fonctionnelles du cortex, colonnes corticales) joue un r\u00f4le essentiel dans l\u2019\u00e9mergence de propri\u00e9t\u00e9s cognitives. Depuis les ann\u00e9es 1960 (dans le cadre de ce qui se nommait alors encore cybern\u00e9tique) ont \u00e9t\u00e9 propos\u00e9s des mod\u00e8les de cognition utilisant des tables associatives (hashs), sans r\u00e9sultats probants sur les machines de cette \u00e9poque (dont une taille typique \u00e9tait de 256 kilooctets). Une partie de ces mod\u00e8les fonctionnaient d'ailleurs sur des mondes pr\u00e9-conceptualis\u00e9s, c'est-\u00e0-dire ne d\u00e9gageaient pas de nouveaux concepts sur des observations brutes, mais sur des observations li\u00e9es \u00e0 un canevas pr\u00e9\u00e9tabli.Le relatif succ\u00e8s des r\u00e9seaux de neurones apr\u00e8s une p\u00e9riode de travers\u00e9e du d\u00e9sert de 1965 \u00e0 1984, ainsi que l'existence de superordinateurs ont remis en selle ce type de projets.",
+      "answer_resource": "http://fr.dbpedia.org/resource/Cerveau_artificiel",
+      "categories": [
+        "http://fr.dbpedia.org/resource/Cat\u00e9gorie:Cognition",
+        "http://fr.dbpedia.org/resource/Cat\u00e9gorie:Intelligence_artificielle",
+        "http://fr.dbpedia.org/resource/Cat\u00e9gorie:Intelligence_artificielle_distribu\u00e9e",
+        "http://fr.dbpedia.org/resource/Cat\u00e9gorie:Neurosciences",
+        "http://fr.dbpedia.org/resource/Cat\u00e9gorie:Neurosciences_cognitives",
+        "http://fr.dbpedia.org/resource/Cat\u00e9gorie:Robotique",
+        "http://fr.dbpedia.org/resource/Cat\u00e9gorie:Sciences_cognitives",
+        "http://fr.dbpedia.org/resource/Cat\u00e9gorie:Vie_artificielle"
+      ],
+      "distractors": [
+        {
+          "Label": "Cognition",
+          "Resource": "http://fr.dbpedia.org/resource/Cognition"
+        },
+        {
+          "Label": "Intelligence artificielle",
+          "Resource": "http://fr.dbpedia.org/resource/Intelligence_artificielle"
+        },
+        {
+          "Label": "Syst\u00e8me multi-agents",
+          "Resource": "http://fr.dbpedia.org/resource/Syst\u00e8me_multi-agents"
+        }
+      ],
+      "question": "Est un mod\u00e8le informatique, bas\u00e9 sur la simulation de l\u2019activit\u00e9 de populations de neurones, qui poss\u00e8de ou d\u00e9veloppe des facult\u00e9s cognitives similaires aux cerveaux biologiques."
+    },
+    {
+      "answer": "Singularit\u00e9 technologique",
+      "answer_abstract": "La singularit\u00e9 technologique (ou simplement la singularit\u00e9) est un concept, selon lequel, \u00e0 partir d'un point hypoth\u00e9tique de son \u00e9volution technologique, la civilisation humaine conna\u00eetra une croissance technologique d'un ordre sup\u00e9rieur. Pour beaucoup, il est question d'intelligence artificielle, quelle que soit la m\u00e9thode pour la cr\u00e9er. Au-del\u00e0 de ce point, le progr\u00e8s ne serait plus l\u2019\u0153uvre que d\u2019intelligences artificielles, elles-m\u00eames en constante progression. Il induit des changements tels sur la soci\u00e9t\u00e9 humaine que l\u2019individu humain d\u2019avant la singularit\u00e9 ne peut ni les appr\u00e9hender ni les pr\u00e9dire de mani\u00e8re fiable. Le risque en est la perte de pouvoir humain, politique, sur son destin.Cet \u00e9v\u00e8nement est ainsi nomm\u00e9 par analogie avec l\u2019impuissance de la physique moderne \u00e0 proximit\u00e9 de la singularit\u00e9 gravitationnelle d'un trou noir, les forces en \u0153uvre \u00e9tant \u00e9normes bien que non infinies.De telles cons\u00e9quences ont \u00e9t\u00e9 d\u00e9battues dans les ann\u00e9es 1960 par I. J. Good (voir l\u2019article Intelligence artificielle). Selon Ray Kurzweil, cette notion de singularit\u00e9 technologique aurait \u00e9t\u00e9 envisag\u00e9e par John von Neumann dans les ann\u00e9es 1950. La singularit\u00e9 a acquis une certaine popularit\u00e9 dans les ann\u00e9es 1980 gr\u00e2ce \u00e0 Vernor Vinge. La venue \u00e9ventuelle et la date de la singularit\u00e9 sont sujettes \u00e0 d\u00e9bat, mais les futurologues et les transhumanistes l\u2019attendent en g\u00e9n\u00e9ral pour la troisi\u00e8me d\u00e9cennie du XXIe si\u00e8cle.[r\u00e9f. n\u00e9cessaire] Les hypoth\u00e8ses relatives \u00e0 la singularit\u00e9 sont r\u00e9guli\u00e8rement critiqu\u00e9es pour leur manque de solidit\u00e9 scientifique.",
+      "answer_resource": "http://fr.dbpedia.org/resource/Singularit\u00e9_technologique",
+      "categories": [
+        "http://fr.dbpedia.org/resource/Cat\u00e9gorie:Concept_de_la_science-fiction",
+        "http://fr.dbpedia.org/resource/Cat\u00e9gorie:Futurologie",
+        "http://fr.dbpedia.org/resource/Cat\u00e9gorie:Transhumanisme"
+      ],
+      "distractors": [
+        {
+          "Label": "Intelligence artificielle",
+          "Resource": "http://fr.dbpedia.org/resource/Intelligence_artificielle"
+        },
+        {
+          "Label": "Transhumanisme",
+          "Resource": "http://fr.dbpedia.org/resource/Transhumanisme"
+        },
+        {
+          "Label": "Accelerando",
+          "Resource": "http://fr.dbpedia.org/resource/Accelerando"
+        }
+      ],
+      "question": "Est un concept, selon lequel, \u00e0 partir d'un point hypoth\u00e9tique de son \u00e9volution technologique, la civilisation humaine conna\u00eetra une croissance technologique d'un ordre sup\u00e9rieur."
+    },
+    {
+      "answer": "Intelligence artificielle",
+      "answer_abstract": "L'intelligence artificielle est l'intelligence des machines et des logiciels. C'est une discipline scientifique qui recherche des m\u00e9thodes de cr\u00e9ation ou simulation de l'intelligence.",
+      "answer_resource": "http://fr.dbpedia.org/resource/Intelligence_artificielle",
+      "categories": [
+        "http://fr.dbpedia.org/resource/Cat\u00e9gorie:Concept_de_la_science-fiction",
+        "http://fr.dbpedia.org/resource/Cat\u00e9gorie:Intelligence_artificielle",
+        "http://fr.dbpedia.org/resource/Cat\u00e9gorie:Syst\u00e9mique",
+        "http://fr.dbpedia.org/resource/Cat\u00e9gorie:Terminologie_du_jeu_vid\u00e9o",
+        "http://fr.dbpedia.org/resource/Cat\u00e9gorie:Transhumanisme"
+      ],
+      "distractors": [
+        {
+          "Label": "John McCarthy",
+          "Resource": "http://fr.dbpedia.org/resource/John_McCarthy"
+        },
+        {
+          "Label": "Association for the Advancement of Artificial Intelligence",
+          "Resource": "http://fr.dbpedia.org/resource/Association_for_the_Advancement_of_Artificial_Intelligence"
+        },
+        {
+          "Label": "G\u00e9rard Sabah",
+          "Resource": "http://fr.dbpedia.org/resource/G\u00e9rard_Sabah"
+        }
+      ],
+      "question": "Est l'intelligence des machines et des logiciels."
+    },
+    {
+      "answer": "Association for the Advancement of Artificial Intelligence",
+      "answer_abstract": "The Association for the Advancement of Artificial Intelligence ( ou AAAI) est une association internationale d\u00e9di\u00e9e \u00e0 l'intelligence artificielle. Son but est de soutenir les travaux ayant pour but une meilleure compr\u00e9hension des ph\u00e9nom\u00e8nes d'intelligence artificielle, et leur mise en pratique, ainsi que de promouvoir ce domaine aupr\u00e8s du public.Dans le pass\u00e9 l'association portait le nom : American Association For Artificial Intelligence",
+      "answer_resource": "http://fr.dbpedia.org/resource/Association_for_the_Advancement_of_Artificial_Intelligence",
+      "categories": [
+        "http://fr.dbpedia.org/resource/Cat\u00e9gorie:Association_d'informatique",
+        "http://fr.dbpedia.org/resource/Cat\u00e9gorie:Intelligence_artificielle",
+        "http://fr.dbpedia.org/resource/Cat\u00e9gorie:Soci\u00e9t\u00e9_savante"
+      ],
+      "distractors": [
+        {
+          "Label": "Intelligence artificielle",
+          "Resource": "http://fr.dbpedia.org/resource/Intelligence_artificielle"
+        }
+      ],
+      "question": "Est une association internationale d\u00e9di\u00e9e \u00e0 l'intelligence artificielle."
+    },
+    {
+      "answer": "Syst\u00e8me expert",
+      "answer_abstract": "D'une mani\u00e8re g\u00e9n\u00e9rale, un syst\u00e8me expert est un outil capable de reproduire les m\u00e9canismes cognitifs d'un expert, dans un domaine particulier. Il s'agit de l'une des voies tentant d'aboutir \u00e0 l'intelligence artificielle.Plus pr\u00e9cis\u00e9ment, un syst\u00e8me expert est un logiciel capable de r\u00e9pondre \u00e0 des questions, en effectuant un raisonnement \u00e0 partir de faits et de r\u00e8gles connus. Il peut servir notamment comme outil d'aide \u00e0 la d\u00e9cision. Le premier syst\u00e8me expert est DENDRAL. Il permettait d'identifier les constituants chimiques.Un syst\u00e8me expert se compose de 3 parties : une base de faits, une base de r\u00e8gles et un moteur d'inf\u00e9rence.Le moteur d'inf\u00e9rence est capable d'utiliser faits et r\u00e8gles pour produire de nouveaux faits, jusqu'\u00e0 parvenir \u00e0 la r\u00e9ponse \u00e0 la question experte pos\u00e9e.La plupart des syst\u00e8mes experts existants reposent sur des m\u00e9canismes de logique formelle (logique aristot\u00e9licienne) et utilisent le raisonnement d\u00e9ductif. Pour l'essentiel, ils utilisent la r\u00e8gle d'inf\u00e9rence suivante (syllogisme) : si P est vrai (fait ou pr\u00e9misse) et si on sait que P implique Q (r\u00e8gle) alors, Q est vrai (nouveau fait ou conclusion).Les plus simples des syst\u00e8mes experts s'appuient sur la logique des propositions (dite aussi \u00ab logique d'ordre 0 \u00bb). Dans cette logique, on n'utilise que des propositions, qui sont vraies, ou fausses. D'autres syst\u00e8mes s'appuient sur la logique des pr\u00e9dicats du premier ordre (dite aussi \u00ab logique d'ordre 1 \u00bb), que des algorithmes permettent de manipuler ais\u00e9ment.Il faut maintenir une certaine coh\u00e9rence de l'ensemble des r\u00e8gles: Incompatibilit\u00e9 (R1: Si A et B alors C; R2: Si A et B alors D;) Redondance (R1: Si A alors B; R2 : Si C alors B; Sauf si on applique des coefficients de certitude diff\u00e9rents) Bouclage (R1: Si A alors B; R2: Si B alors C; R3: Si C alors A;)Enfin, pour faciliter la description de probl\u00e8mes r\u00e9els sous forme de r\u00e8gles logiques, on a recours \u00e0 des op\u00e9rateurs ou des valeurs suppl\u00e9mentaires (notions de n\u00e9cessit\u00e9/possibilit\u00e9, coefficients de plausibilit\u00e9, etc.).",
+      "answer_resource": "http://fr.dbpedia.org/resource/Syst\u00e8me_expert",
+      "categories": [
+        "http://fr.dbpedia.org/resource/Cat\u00e9gorie:Intelligence_artificielle",
+        "http://fr.dbpedia.org/resource/Cat\u00e9gorie:Syst\u00e8me"
+      ],
+      "distractors": [
+        {
+          "Label": "Intelligence artificielle",
+          "Resource": "http://fr.dbpedia.org/resource/Intelligence_artificielle"
+        },
+        {
+          "Label": "Sciences cognitives",
+          "Resource": "http://fr.dbpedia.org/resource/Sciences_cognitives"
+        },
+        {
+          "Label": "Dendral",
+          "Resource": "http://fr.dbpedia.org/resource/Dendral"
+        }
+      ],
+      "question": "Est un outil capable de reproduire les m\u00e9canismes cognitifs d'un expert, dans un domaine particulier."
+    },
+    {
+      "answer": "Transhumanisme",
+      "answer_abstract": "Le transhumanisme est un mouvement culturel et intellectuel international pr\u00f4nant l'usage des sciences et des techniques, ainsi que les croyances spirituelles afin d'am\u00e9liorer les caract\u00e9ristiques physiques et mentales des \u00eatres humains. Le transhumanisme consid\u00e8re certains aspects de la condition humaine tels que le handicap, la souffrance, la maladie, le vieillissement ou la mort subie comme inutiles et ind\u00e9sirables. Dans cette optique, les penseurs transhumanistes comptent sur les biotechnologies et sur d'autres techniques \u00e9mergentes. Les dangers comme les avantages que pr\u00e9sentent de telles \u00e9volutions pr\u00e9occupent aussi le mouvement transhumaniste.Le terme \u00ab transhumanisme \u00bb est symbolis\u00e9 par \u00ab H+ \u00bb (anciennement \u00ab H \u00bb) et est souvent employ\u00e9 comme synonyme d'\u00ab am\u00e9lioration humaine \u00bb. Bien que le premier usage connu du mot \u00ab transhumanisme \u00bb remonte \u00e0 1957, son sens actuel trouve son origine dans les ann\u00e9es 1980, lorsque certains futurologues am\u00e9ricains ont commenc\u00e9 \u00e0 structurer ce qui est devenu le mouvement transhumaniste. Les penseurs transhumanistes pr\u00e9disent que les \u00eatres humains pourraient \u00eatre capables de se transformer en \u00eatres dot\u00e9s de capacit\u00e9s telles qu'ils m\u00e9riteraient l'\u00e9tiquette de \u00ab posthumains \u00bb. Ainsi, le transhumanisme est parfois consid\u00e9r\u00e9 comme un posthumanisme ou encore comme une forme d'activisme caract\u00e9ris\u00e9 par une grande volont\u00e9 de changement et influenc\u00e9 par les id\u00e9aux posthumanistes. En France, ce mouvement est principalement repr\u00e9sent\u00e9 par l'Association fran\u00e7aise transhumaniste.  Il existe des groupes de r\u00e9flexion, comme Neohumanitas, en Suisse, qui encouragent la r\u00e9flexion et la discussion sur les cons\u00e9quences socio-\u00e9thiques de l'utilisation des biotechnologies sur l'\u00eatre humain et qui abordent certains enjeux du transhumanisme. Le grand nombre d'approches transhumanistes diff\u00e9rentes sont refl\u00e9t\u00e9s au sein m\u00eame de ces diff\u00e9rents groupes.La perspective transhumaniste d'une humanit\u00e9 transform\u00e9e a suscit\u00e9 de nombreuses r\u00e9actions, tant positives que n\u00e9gatives, \u00e9manant d'horizons de pens\u00e9e tr\u00e8s divers. Francis Fukuyama a ainsi d\u00e9clar\u00e9, \u00e0 propos du transhumanisme, qu'il s'agit de l'id\u00e9e la plus dangereuse du monde, ce \u00e0 quoi un de ses promoteurs, Ronald Bailey, r\u00e9pond que c'est, au contraire, le \u00ab mouvement qui incarne les aspirations les plus audacieuses, courageuses, imaginatives et id\u00e9alistes de l'humanit\u00e9 \u00bb.",
+      "answer_resource": "http://fr.dbpedia.org/resource/Transhumanisme",
+      "categories": [
+        "http://fr.dbpedia.org/resource/Cat\u00e9gorie:Eug\u00e9nisme",
+        "http://fr.dbpedia.org/resource/Cat\u00e9gorie:Transhumanisme",
+        "http://fr.dbpedia.org/resource/Cat\u00e9gorie:Humanisme"
+      ],
+      "distractors": [
+        {
+          "Label": "Greg Bear",
+          "Resource": "http://fr.dbpedia.org/resource/Greg_Bear"
+        },
+        {
+          "Label": "FM-2030",
+          "Resource": "http://fr.dbpedia.org/resource/FM-2030"
+        },
+        {
+          "Label": "Immortalit\u00e9",
+          "Resource": "http://fr.dbpedia.org/resource/Immortalit\u00e9"
+        }
+      ],
+      "question": "Est un mouvement culturel et intellectuel international pr\u00f4nant l'usage des sciences et des techniques, ainsi que les croyances spirituelles afin d'am\u00e9liorer les caract\u00e9ristiques physiques et mentales des \u00eatres humains."
+    },
+    {
+      "answer": "Architecture cognitive",
+      "answer_abstract": "Une architecture cognitive est un processus calculatoire artificiel qui tente de simuler le comportement d'un syst\u00e8me cognitif (g\u00e9n\u00e9ralement celui d'un humain), ou qui agit intelligemment sous respect d'une certaine d\u00e9finition. Le terme architecture implique une approche qui tente de mod\u00e9liser les propri\u00e9t\u00e9s internes du syst\u00e8me cognitif repr\u00e9sent\u00e9 et non seulement le comportement ext\u00e9rieur.",
+      "answer_resource": "http://fr.dbpedia.org/resource/Architecture_cognitive",
+      "categories": [
+        "http://fr.dbpedia.org/resource/Cat\u00e9gorie:Intelligence_artificielle"
+      ],
+      "distractors": [
+        {
+          "Label": "Intelligence artificielle",
+          "Resource": "http://fr.dbpedia.org/resource/Intelligence_artificielle"
+        },
+        {
+          "Label": "Soar (architecture cognitive)",
+          "Resource": "http://fr.dbpedia.org/resource/Soar_(architecture_cognitive)"
+        }
+      ],
+      "question": "Est un processus calculatoire artificiel qui tente de simuler le comportement d'un syst\u00e8me cognitif (g\u00e9n\u00e9ralement celui d'un humain), ou qui agit intelligemment sous respect d'une certaine d\u00e9finition."
+    },
+    {
+      "answer": "Watson (intelligence artificielle)",
+      "answer_abstract": "Watson est un programme informatique d'intelligence artificielle con\u00e7u par IBM dans le but de r\u00e9pondre \u00e0 des questions formul\u00e9es en langue naturelle. Il s'int\u00e8gre dans un programme de d\u00e9veloppement plus vaste, le DeepQA research project. Le nom \u00ab Watson \u00bb fait r\u00e9f\u00e9rence \u00e0 Thomas John Watson, qui joindra la CTR Computing Tabulating Recording Company en 1914, soci\u00e9t\u00e9 qui deviendra IBM en 1924.Watson a particip\u00e9 en f\u00e9vrier 2011 \u00e0 3 \u00e9pisodes du jeu t\u00e9l\u00e9vis\u00e9 Jeopardy!, au terme desquels il a remport\u00e9 le jeu. Il est capable de comprendre l\u2019\u00e9nonc\u00e9 des questions, buzzer pour prendre la main, trouver les r\u00e9ponses en quelques secondes, et, gr\u00e2ce \u00e0 une synth\u00e8se vocale, \u00e9noncer les r\u00e9ponses et choisir le th\u00e8me et le montant de la prochaine question, comme l'exigent les r\u00e8gles du jeu.",
+      "answer_resource": "http://fr.dbpedia.org/resource/Watson_(intelligence_artificielle)",
+      "categories": [
+        "http://fr.dbpedia.org/resource/Cat\u00e9gorie:Superordinateur",
+        "http://fr.dbpedia.org/resource/Cat\u00e9gorie:Architecture_Power",
+        "http://fr.dbpedia.org/resource/Cat\u00e9gorie:Intelligence_artificielle",
+        "http://fr.dbpedia.org/resource/Cat\u00e9gorie:Traitement_automatique_du_langage_naturel",
+        "http://fr.dbpedia.org/resource/Cat\u00e9gorie:Logiciel_IBM"
+      ],
+      "distractors": [
+        {
+          "Label": "Intelligence artificielle",
+          "Resource": "http://fr.dbpedia.org/resource/Intelligence_artificielle"
+        },
+        {
+          "Label": "Jeopardy!",
+          "Resource": "http://fr.dbpedia.org/resource/Jeopardy!"
+        }
+      ],
+      "question": "Est un programme informatique d'intelligence artificielle con\u00e7u par ibm dans le but de r\u00e9pondre \u00e0 des questions formul\u00e9es en langue naturelle."
+    },
+    {
+      "answer": "Th\u00e8se de Church",
+      "answer_abstract": "La th\u00e8se de Church \u2013 du nom du math\u00e9maticien Alonzo Church \u2013 est une th\u00e8se concernant la d\u00e9finition de la notion de calculabilit\u00e9.Dans une forme dite \u00ab physique \u00bb, elle affirme que la notion physique de la calculabilit\u00e9, d\u00e9finie comme \u00e9tant tout traitement syst\u00e9matique r\u00e9alisable par un processus physique ou m\u00e9canique, peut \u00eatre exprim\u00e9e par un ensemble de r\u00e8gles de calcul, d\u00e9fini de plusieurs fa\u00e7ons dont on a pu d\u00e9montrer math\u00e9matiquement qu'elles sont \u00e9quivalentes.Dans sa forme dite \u00ab psychologique \u00bb elle affirme que la notion intuitive de calculabilit\u00e9, qui est li\u00e9e \u00e0 ce qu'un \u00eatre humain consid\u00e8re comme effectivement calculable ou non, peut \u00e9galement \u00eatre exprim\u00e9e par ces m\u00eames ensembles de r\u00e8gles de calcul formelles.Stephen Kleene a appel\u00e9 le premier \u00ab th\u00e8se de Church \u00bb (en 1943 et 1952) ce que ce dernier pr\u00e9sentait comme une d\u00e9finition de la calculabilit\u00e9 effective. Elle est \u00e9galement connue, sous le nom plus r\u00e9cent de th\u00e8se de Church-Turing, terminologie propos\u00e9e par certains sp\u00e9cialistes dans les ann\u00e9es 1990. Bien que Church soit sans nul doute le premier, au d\u00e9but des ann\u00e9es 1930, \u00e0 avoir pens\u00e9 pouvoir d\u00e9finir formellement la calculabilit\u00e9 intuitive (par la \u03bb-d\u00e9finissabilit\u00e9), c'est cependant l'article d'Alan Turing de 1936 et son mod\u00e8le m\u00e9canique de calculabilit\u00e9, qui ont d\u00e9finitivement emport\u00e9 l'adh\u00e9sion, selon G\u00f6del, Kleene et Church lui-m\u00eame.",
+      "answer_resource": "http://fr.dbpedia.org/resource/Th\u00e8se_de_Church",
+      "categories": [
+        "http://fr.dbpedia.org/resource/Cat\u00e9gorie:Calculabilit\u00e9",
+        "http://fr.dbpedia.org/resource/Cat\u00e9gorie:Intelligence_artificielle"
+      ],
+      "distractors": [
+        {
+          "Label": "Alonzo Church",
+          "Resource": "http://fr.dbpedia.org/resource/Alonzo_Church"
+        },
+        {
+          "Label": "Calculabilit\u00e9",
+          "Resource": "http://fr.dbpedia.org/resource/Calculabilit\u00e9"
+        },
+        {
+          "Label": "Turing-complet",
+          "Resource": "http://fr.dbpedia.org/resource/Turing-complet"
+        }
+      ],
+      "question": "Est une th\u00e8se concernant la d\u00e9finition de la notion de calculabilit\u00e9."
+    },
+    {
+      "answer": "Roger Schank",
+      "answer_abstract": "Roger Schank (n\u00e9 en 1946) est un sp\u00e9cialiste et pr\u00e9curseur en intelligence artificielle. Il est pr\u00e9sident et Chief executive officer de la soci\u00e9t\u00e9 Socratic Arts.",
+      "answer_resource": "http://fr.dbpedia.org/resource/Roger_Schank",
+      "categories": [
+        "http://fr.dbpedia.org/resource/Cat\u00e9gorie:Naissance_en_1946",
+        "http://fr.dbpedia.org/resource/Cat\u00e9gorie:Scientifique_am\u00e9ricain",
+        "http://fr.dbpedia.org/resource/Cat\u00e9gorie:Intelligence_artificielle"
+      ],
+      "distractors": [
+        {
+          "Label": "Intelligence artificielle",
+          "Resource": "http://fr.dbpedia.org/resource/Intelligence_artificielle"
+        },
+        {
+          "Label": "Raisonnement par cas",
+          "Resource": "http://fr.dbpedia.org/resource/Raisonnement_par_cas"
+        }
+      ],
+      "question": "Est un sp\u00e9cialiste et pr\u00e9curseur en intelligence artificielle."
+    },
+    {
+      "answer": "Test de Turing",
+      "answer_abstract": "Le test de Turing est une proposition de test d\u2019intelligence artificielle fond\u00e9e sur la facult\u00e9 d\u2019imiter la conversation humaine. D\u00e9crit par Alan Turing en 1950 dans sa publication Computing machinery and intelligence, ce test consiste \u00e0 mettre en confrontation verbale un humain avec un ordinateur et un autre humain \u00e0 l\u2019aveugle. Si l\u2019homme qui engage les conversations n\u2019est pas capable de dire lequel de ses interlocuteurs est un ordinateur, on peut consid\u00e9rer que le logiciel de l\u2019ordinateur a pass\u00e9 avec succ\u00e8s le test. Cela sous-entend que l\u2019ordinateur et l\u2019homme essaieront d\u2019avoir une apparence s\u00e9mantique humaine. Pour conserver la simplicit\u00e9 et l\u2019universalit\u00e9 du test, la conversation est limit\u00e9e \u00e0 des messages textuels entre les protagonistes.",
+      "answer_resource": "http://fr.dbpedia.org/resource/Test_de_Turing",
+      "categories": [
+        "http://fr.dbpedia.org/resource/Cat\u00e9gorie:Intelligence_artificielle"
+      ],
+      "distractors": [
+        {
+          "Label": "Computing machinery and intelligence",
+          "Resource": "http://fr.dbpedia.org/resource/Computing_machinery_and_intelligence"
+        },
+        {
+          "Label": "Alan Turing",
+          "Resource": "http://fr.dbpedia.org/resource/Alan_Turing"
+        },
+        {
+          "Label": "Intelligence artificielle",
+          "Resource": "http://fr.dbpedia.org/resource/Intelligence_artificielle"
+        }
+      ],
+      "question": "Est de turing est une proposition de test d\u2019intelligence artificielle fond\u00e9e sur la facult\u00e9 d\u2019imiter la conversation humaine."
+    },
+    {
+      "answer": "Reconnaissance de formes",
+      "answer_abstract": "La reconnaissance de formes (ou parfois reconnaissance de motifs) est un ensemble de techniques et m\u00e9thodes visant \u00e0 identifier des motifs informatiques \u00e0 partir de donn\u00e9es brutes afin de prendre une d\u00e9cision d\u00e9pendant de la cat\u00e9gorie attribu\u00e9e \u00e0 ce motif. On consid\u00e8re que c'est une branche de l'intelligence artificielle qui fait largement appel aux techniques d'apprentissage automatique et aux statistiques.Le mot forme est au sens tr\u00e8s g\u00e9n\u00e9ral, il ne s'agit pas que de forme g\u00e9om\u00e9trique. Les formes ou motifs \u00e0 reconna\u00eetre peuvent \u00eatre de natures tr\u00e8s vari\u00e9es. Il peut s'agir de contenu visuel (code barre, visage, empreinte digitale...) ou sonore (reconnaissance de parole), d'images m\u00e9dicales (rayon X, EEG, IRM...) ou multispectrales (images satellitaires) et bien d'autres.",
+      "answer_resource": "http://fr.dbpedia.org/resource/Reconnaissance_de_formes",
+      "categories": [
+        "http://fr.dbpedia.org/resource/Cat\u00e9gorie:Intelligence_artificielle"
+      ],
+      "distractors": [
+        {
+          "Label": "Transform\u00e9e de Hough",
+          "Resource": "http://fr.dbpedia.org/resource/Transform\u00e9e_de_Hough"
+        },
+        {
+          "Label": "Reconnaissance de l'\u00e9criture manuscrite",
+          "Resource": "http://fr.dbpedia.org/resource/Reconnaissance_de_l'\u00e9criture_manuscrite"
+        },
+        {
+          "Label": "Classifieur lin\u00e9aire",
+          "Resource": "http://fr.dbpedia.org/resource/Classifieur_lin\u00e9aire"
+        }
+      ],
+      "question": "Est un ensemble de techniques et m\u00e9thodes visant \u00e0 identifier des motifs informatiques \u00e0 partir de donn\u00e9es brutes afin de prendre une d\u00e9cision d\u00e9pendant de la cat\u00e9gorie attribu\u00e9e \u00e0 ce motif."
+    },
+    {
+      "answer": "HAL 9000",
+      "answer_abstract": "HAL 9000 (ou CARL 500 en VF) est un puissant ordinateur dot\u00e9 d'intelligence artificielle, g\u00e9rant le vaisseau spatial Discovery One dans la saga des Odyss\u00e9es de l'espace d'Arthur C. Clarke, dont les deux premiers romans ont \u00e9t\u00e9 adapt\u00e9s au cin\u00e9ma, d'abord dans  2001, l'Odyss\u00e9e de l'espace de Stanley Kubrick (1968) et dans 2010 : L'Ann\u00e9e du premier contact de Peter Hyams (1984).",
+      "answer_resource": "http://fr.dbpedia.org/resource/HAL_9000",
+      "categories": [
+        "http://fr.dbpedia.org/resource/Cat\u00e9gorie:Robot_ou_ordinateur_de_fiction",
+        "http://fr.dbpedia.org/resource/Cat\u00e9gorie:2001,_l'Odyss\u00e9e_de_l'espace",
+        "http://fr.dbpedia.org/resource/Cat\u00e9gorie:Intelligence_artificielle"
+      ],
+      "distractors": [
+        {
+          "Label": "Liste d'ordinateurs de fiction",
+          "Resource": "http://fr.dbpedia.org/resource/Liste_d'ordinateurs_de_fiction"
+        },
+        {
+          "Label": "Intelligence artificielle",
+          "Resource": "http://fr.dbpedia.org/resource/Intelligence_artificielle"
+        },
+        {
+          "Label": "2010 : L'Ann\u00e9e du premier contact",
+          "Resource": "http://fr.dbpedia.org/resource/2010_:_L'Ann\u00e9e_du_premier_contact"
+        }
+      ],
+      "question": "Est un puissant ordinateur dot\u00e9 d'intelligence artificielle, g\u00e9rant le vaisseau spatial discovery one dans la saga des odyss\u00e9es de l'espace d'arthur c."
+    },
+    {
+      "answer": "Logique floue",
+      "answer_abstract": "La logique floue (fuzzy logic, en anglais) est une extension de la logique classique aux raisonnements approch\u00e9s. Par ses aspects num\u00e9riques, elle s'oppose aux logiques modales.Formalis\u00e9e par Lotfi Zadeh en 1965, outil de l'intelligence artificielle, elle est utilis\u00e9e dans des domaines aussi vari\u00e9s que : l'automatisme (freins ABS, conduite de processus), la robotique (reconnaissance de formes), la gestion de la circulation routi\u00e8re (feux rouges), le contr\u00f4le a\u00e9rien (gestion du trafic a\u00e9rien), l'environnement (m\u00e9t\u00e9orologie, climatologie, sismologie, analyse du cycle de vie), la m\u00e9decine (aide au diagnostic), l'assurance (s\u00e9lection et pr\u00e9vention des risques)et bien d'autres. Elle s'appuie sur la th\u00e9orie math\u00e9matique des ensembles flous de Lotfi Zadeh qui pr\u00e9sente une extension de la th\u00e9orie des ensembles classiques aux ensembles d\u00e9finis de fa\u00e7on impr\u00e9cise.Partant d'un concept de fonction d'appartenance \u00e0 valeur dans [0, 1], Lotfi Zadeh : red\u00e9finit ce qu'est un sous-ensemble d'un univers donn\u00e9, b\u00e2tit un mod\u00e8le complet de propri\u00e9t\u00e9s et de d\u00e9finitions formelles, montre que cette th\u00e9orie des sous-ensembles flous se r\u00e9duit \u00e0 la th\u00e9orie des sous-ensembles classiques dans le cas o\u00f9 les fonctions d'appartenance ne prennent que les valeurs binaires de {0,1}.La logique floue pr\u00e9sente aussi l'int\u00e9r\u00eat d'\u00eatre plus facile et moins ch\u00e8re \u00e0 impl\u00e9menter qu'une logique probabiliste, bien que cette derni\u00e8re seule soit stricto sensu coh\u00e9rente (voir Th\u00e9or\u00e8me de Cox-Jaynes). Par exemple la courbe Ev(p) peut \u00eatre remplac\u00e9e par trois segments de droite sans perte excessive de pr\u00e9cision pour beaucoup d'applications consid\u00e9r\u00e9es ci-dessus.",
+      "answer_resource": "http://fr.dbpedia.org/resource/Logique_floue",
+      "categories": [
+        "http://fr.dbpedia.org/resource/Cat\u00e9gorie:Automatique",
+        "http://fr.dbpedia.org/resource/Cat\u00e9gorie:Intelligence_artificielle",
+        "http://fr.dbpedia.org/resource/Cat\u00e9gorie:Logique"
+      ],
+      "distractors": [
+        {
+          "Label": "Lotfi Zadeh",
+          "Resource": "http://fr.dbpedia.org/resource/Lotfi_Zadeh"
+        },
+        {
+          "Label": "Information partielle lin\u00e9aire",
+          "Resource": "http://fr.dbpedia.org/resource/Information_partielle_lin\u00e9aire"
+        },
+        {
+          "Label": "Aristote",
+          "Resource": "http://fr.dbpedia.org/resource/Aristote"
+        }
+      ],
+      "question": "Est une extension de la logique classique aux raisonnements approch\u00e9s."
+    },
+    {
+      "answer": "Autonomic computing",
+      "answer_abstract": "L'autonomic computing ou informatique autonome est l'approche consistant \u00e0 munir les logiciels et les mat\u00e9riels de garde-fous internes ou externes leur permettant de restaurer automatiquement leur fonction en cas d'alt\u00e9ration non planifi\u00e9e.Suscit\u00e9e par la croissance et complexit\u00e9 des syst\u00e8mes informatiques, elle a \u00e9t\u00e9 introduite par IBM en 2001 et s'inspire fortement des recherches en agents autonomes et syst\u00e8mes multi-agents.",
+      "answer_resource": "http://fr.dbpedia.org/resource/Autonomic_computing",
+      "categories": [
+        "http://fr.dbpedia.org/resource/Cat\u00e9gorie:Intelligence_artificielle"
+      ],
+      "distractors": [],
+      "question": "Est l'approche consistant \u00e0 munir les logiciels et les mat\u00e9riels de garde-fous internes ou externes leur permettant de restaurer automatiquement leur fonction en cas d'alt\u00e9ration non planifi\u00e9e."
+    },
+    {
+      "answer": "Histoire de l'intelligence artificielle",
+      "answer_abstract": "Les  premiers jalons historiques de l'intelligence artificielle (ou IA) datent de la Protohistoire, o\u00f9 mythes, l\u00e9gendes et rumeurs dotent des \u00eatres artificiels, r\u00e9alis\u00e9s par des ma\u00eetres-artisans, d'une intelligence ou d'une conscience ; comme l'\u00e9crit Pamela McCorduck, l'intelligence artificielle commence avec \u00ab le vieux souhait de jouer \u00e0 Dieu \u00bb.L'intelligence artificielle comme nous l'entendons aujourd'hui a \u00e9t\u00e9 initi\u00e9e par les philosophes classiques, dont Leibniz avec son calculus ratiocinator, qui essaient de d\u00e9crire le processus de la pens\u00e9e humaine comme la manipulation m\u00e9canique de symboles, sans pour autant vouloir fabriquer des sp\u00e9cimens. Cette r\u00e9flexion s'est concr\u00e9tis\u00e9e avec l'invention de l'ordinateur programmable dans les ann\u00e9es 1940. Cet instrument et les id\u00e9es qu'il sous-tend ont inspir\u00e9 les scientifiques qui ont commenc\u00e9 \u00e0 \u00e9voquer s\u00e9rieusement la faisabilit\u00e9 d'un \u00ab cerveau \u00e9lectronique \u00bb.La recherche en intelligence artificielle a vraiment commenc\u00e9 apr\u00e8s une conf\u00e9rence tenue sur le campus de Dartmouth College pendant l'\u00e9t\u00e9 1956. \u00c0 la suite de cette r\u00e9union, certains participants se sont investis dans une recherche sur l'intelligence artificielle. Certains utopistes ont pronostiqu\u00e9 qu'une machine aussi intelligente qu'un \u00eatre humain existerait en moins d'une g\u00e9n\u00e9ration et des millions de dollars ont alors \u00e9t\u00e9 investis pour r\u00e9ifier cette pr\u00e9diction. Avec le temps, il est apparu que les difficult\u00e9s inh\u00e9rentes \u00e0 cette annonce avaient \u00e9t\u00e9 grossi\u00e8rement sous-estim\u00e9es. En 1973, en r\u00e9ponse aux critiques des scientifiques, notamment de James Lighthill et aux pressions continuelles des parlementaires, les gouvernements britannique et am\u00e9ricain stoppent les subventions \u00e0 la recherche en intelligence artificielle sans orientation. Sept ans plus tard, \u00e0 la suite de l'initiative proph\u00e9tique du Cabinet du Japon, les gouvernements et l'industrie  r\u00e9investissent dans  l'intelligence artificielle, mais \u00e0 la fin des ann\u00e9es 1980 les d\u00e9cideurs d\u00e9sabus\u00e9s retirent \u00e0 nouveaux leurs fonds. On peut donc dire que ce cycle en dents de scie, o\u00f9 alternent p\u00e9riodes de gel et de d\u00e9gel, caract\u00e9rise le soutien \u00e0 l'intelligence artificielle. Mais il reste toujours des id\u00e9alistes pour faire des pr\u00e9dictions os\u00e9es.Quoi qu'il en soit, malgr\u00e9 des hauts et des bas et malgr\u00e9 les r\u00e9ticences des technocrates et des investisseurs, l'intelligence artificielle progresse. Des probl\u00e8mes qu'on pensait inaccessibles en 1970 ont \u00e9t\u00e9 r\u00e9solus et leurs solutions sont distribu\u00e9es commercialement. Cela est aussi d\u00fb aux progr\u00e8s de l'algorithmique qui a permis de programmer des solutions que l'on ne pouvait atteindre autrefois que par des heuristiques. N\u00e9anmoins, aucune machine dot\u00e9e d'une intelligence artificielle forte n'a encore \u00e9t\u00e9 construite, contrairement aux pr\u00e9visions optimistes de la premi\u00e8re g\u00e9n\u00e9ration de chercheurs. \u00ab Nous ne pouvons  qu'entrevoir le court terme \u00bb a conc\u00e9d\u00e9 Alan Turing, dans un article c\u00e9l\u00e8bre de 1950 qui pr\u00e9figure la recherche moderne sur les machines pensantes. \u00ab Mais, \u00bb ajoute-t-il, \u00ab nous ne pouvons pas envisager l'ampleur du travail qui reste \u00e0 accomplir \u00bb.Au d\u00e9part, deux approches se confrontent : l'approche logiciste ou symbolique, qui vise \u00e0 recr\u00e9er les \u00ab lois universelles \u00bb de la pens\u00e9e et s'inspirent du concept de machine de Turing, et l'approche neuronale, incarn\u00e9e par Frank Rosenblatt, qui essaie d'imiter les processus biologiques c\u00e9r\u00e9braux. Si l'approche logiciste, inspir\u00e9e des travaux de Russell, Frege, du cercle de Vienne, de logique math\u00e9matique, etc., l'emporte \u00e0 la DARPA, principal organisme finan\u00e7ant les recherches en intelligence artificielle, l'approche neuronale refait surface dans les ann\u00e9es 1980, inspirant les travaux sur le connexionnisme.Comme l'intelligence artificielle s'est d\u00e9velopp\u00e9e surtout au d\u00e9part aux \u00c9tats-Unis, cet article se focalisera donc essentiellement sur ce pays.",
+      "answer_resource": "http://fr.dbpedia.org/resource/Histoire_de_l'intelligence_artificielle",
+      "categories": [
+        "http://fr.dbpedia.org/resource/Cat\u00e9gorie:Histoire_des_sciences",
+        "http://fr.dbpedia.org/resource/Cat\u00e9gorie:Intelligence_artificielle"
+      ],
+      "distractors": [
+        {
+          "Label": "Intelligence artificielle",
+          "Resource": "http://fr.dbpedia.org/resource/Intelligence_artificielle"
+        },
+        {
+          "Label": "Frank Rosenblatt",
+          "Resource": "http://fr.dbpedia.org/resource/Frank_Rosenblatt"
+        },
+        {
+          "Label": "Jacques Pitrat",
+          "Resource": "http://fr.dbpedia.org/resource/Jacques_Pitrat"
+        }
+      ],
+      "question": "Est concr\u00e9tis\u00e9e avec l'invention de l'ordinateur programmable dans les ann\u00e9es 1940."
+    },
+    {
+      "answer": "Principaux projets et r\u00e9alisations en intelligence artificielle",
+      "answer_abstract": "Cette liste indique les principaux projets et r\u00e9alisations marquants dans le domaine de l\u2019intelligence artificielle. La quasi-totalit\u00e9 de ces travaux ont \u00e9t\u00e9 accomplis aux \u00c9tats-Unis, et il est \u00e0 noter que nombre d\u2019entre eux ont \u00e9t\u00e9 financ\u00e9s par l\u2019arm\u00e9e am\u00e9ricaine. L\u2019un des principaux financeurs de ces travaux fut la DARPA (Defense Advanced Research Projects Agency), c\u00e9l\u00e8bre pour avoir initi\u00e9 le r\u00e9seau Arpanet, qui a donn\u00e9 naissance \u00e0 Internet.La liste est organis\u00e9e par ordre chronologique.",
+      "answer_resource": "http://fr.dbpedia.org/resource/Principaux_projets_et_r\u00e9alisations_en_intelligence_artificielle",
+      "categories": [
+        "http://fr.dbpedia.org/resource/Cat\u00e9gorie:Intelligence_artificielle",
+        "http://fr.dbpedia.org/resource/Cat\u00e9gorie:Liste_en_rapport_avec_l'informatique"
+      ],
+      "distractors": [
+        {
+          "Label": "Intelligence artificielle",
+          "Resource": "http://fr.dbpedia.org/resource/Intelligence_artificielle"
+        }
+      ],
+      "question": "Est \u00e0 noter que nombre d\u2019entre eux ont \u00e9t\u00e9 financ\u00e9s par l\u2019arm\u00e9e am\u00e9ricaine."
+    },
+    {
+      "answer": "Agent virtuel",
+      "answer_abstract": "Les agents virtuels, dits encore agents intelligents ou assistants virtuels, sont des avatars anim\u00e9s, capables de mener une multitude de conversations simples simultan\u00e9ment.",
+      "answer_resource": "http://fr.dbpedia.org/resource/Agent_virtuel",
+      "categories": [
+        "http://fr.dbpedia.org/resource/Cat\u00e9gorie:Gestion_de_la_relation_client",
+        "http://fr.dbpedia.org/resource/Cat\u00e9gorie:Intelligence_artificielle"
+      ],
+      "distractors": [
+        {
+          "Label": "VirtuOz",
+          "Resource": "http://fr.dbpedia.org/resource/VirtuOz"
+        },
+        {
+          "Label": "Intelligence artificielle",
+          "Resource": "http://fr.dbpedia.org/resource/Intelligence_artificielle"
+        },
+        {
+          "Label": "Avatar (informatique)",
+          "Resource": "http://fr.dbpedia.org/resource/Avatar_(informatique)"
+        }
+      ],
+      "question": "Sont des avatars anim\u00e9s, capables de mener une multitude de conversations simples simultan\u00e9ment."
+    },
+    {
+      "answer": "Algorithme g\u00e9n\u00e9tique",
+      "answer_abstract": "Les algorithmes g\u00e9n\u00e9tiques appartiennent \u00e0 la famille des algorithmes \u00e9volutionnistes. Leur but est d'obtenir une solution approch\u00e9e \u00e0 un probl\u00e8me d'optimisation, lorsqu'il n'existe pas de m\u00e9thode exacte (ou que la solution est inconnue) pour le r\u00e9soudre en un temps raisonnable. Les algorithmes g\u00e9n\u00e9tiques utilisent la notion de s\u00e9lection naturelle et l'appliquent \u00e0 une population de solutions potentielles au probl\u00e8me donn\u00e9. La solution est approch\u00e9e par \u00ab bonds \u00bb successifs, comme dans une proc\u00e9dure de s\u00e9paration et \u00e9valuation, \u00e0 ceci pr\u00e8s que ce sont des formules qui sont recherch\u00e9es et non plus directement des valeurs.",
+      "answer_resource": "http://fr.dbpedia.org/resource/Algorithme_g\u00e9n\u00e9tique",
+      "categories": [
+        "http://fr.dbpedia.org/resource/Cat\u00e9gorie:Algorithme_d'exploration_de_donn\u00e9es",
+        "http://fr.dbpedia.org/resource/Cat\u00e9gorie:Intelligence_artificielle",
+        "http://fr.dbpedia.org/resource/Cat\u00e9gorie:M\u00e9taheuristique",
+        "http://fr.dbpedia.org/resource/Cat\u00e9gorie:Recherche_op\u00e9rationnelle"
+      ],
+      "distractors": [
+        {
+          "Label": "Probl\u00e8me du voyageur de commerce",
+          "Resource": "http://fr.dbpedia.org/resource/Probl\u00e8me_du_voyageur_de_commerce"
+        },
+        {
+          "Label": "John Henry Holland",
+          "Resource": "http://fr.dbpedia.org/resource/John_Henry_Holland"
+        },
+        {
+          "Label": "Optimisation (math\u00e9matiques)",
+          "Resource": "http://fr.dbpedia.org/resource/Optimisation_(math\u00e9matiques)"
+        }
+      ],
+      "question": "Est d'obtenir une solution approch\u00e9e \u00e0 un probl\u00e8me d'optimisation, lorsqu'il n'existe pas de m\u00e9thode exacte (ou que la solution est inconnue) pour le r\u00e9soudre en un temps raisonnable."
+    },
+    {
+      "answer": "Agent conversationnel",
+      "answer_abstract": "Un agent conversationnel ou chatbot est un agent qui dialogue avec un utilisateur. La recherche sur cette Interface Homme-machine est influenc\u00e9e par la comp\u00e9tition sur le test de Turing (1950) : donner l'illusion qu'un programme pense par un dialogue sens\u00e9. Un utilisateur est invit\u00e9 \u00e0 formuler sa demande en langage naturel, elle est affin\u00e9e par un \u00e9change convivial, dont le logiciel interpr\u00e8te une requ\u00eate op\u00e9rationnelle pour son syst\u00e8me d'information. Un agent conversationnel peut en plus rechercher l'Effet ELIZA. ELIZA, un des premiers chatterbots, simulait un psychoth\u00e9rapeute rog\u00e9rien, plusieurs personnes en seraient devenues d\u00e9pendantes sur le plan \u00e9motionnel. Les agents conversationnels d\u00e9bordent donc la recherche ou le divertissement, ils mettent en \u0153uvre des connaissances linguistiques, psychologiques, et bien s\u00fbr informatiques.",
+      "answer_resource": "http://fr.dbpedia.org/resource/Agent_conversationnel",
+      "categories": [
+        "http://fr.dbpedia.org/resource/Cat\u00e9gorie:Architecture_logicielle",
+        "http://fr.dbpedia.org/resource/Cat\u00e9gorie:Intelligence_artificielle"
+      ],
+      "distractors": [
+        {
+          "Label": "Intelligence artificielle",
+          "Resource": "http://fr.dbpedia.org/resource/Intelligence_artificielle"
+        },
+        {
+          "Label": "Prix Loebner",
+          "Resource": "http://fr.dbpedia.org/resource/Prix_Loebner"
+        },
+        {
+          "Label": "Test de Turing",
+          "Resource": "http://fr.dbpedia.org/resource/Test_de_Turing"
+        }
+      ],
+      "question": "Est un agent qui dialogue avec un utilisateur."
+    },
+    {
+      "answer": "Trois lois de la robotique",
+      "answer_abstract": "Les Trois lois de la robotique, formul\u00e9es par l'\u00e9crivain de science-fiction Isaac Asimov, sont des r\u00e8gles auxquelles tous les robots positroniques qui apparaissent dans ses romans doivent ob\u00e9ir.",
+      "answer_resource": "http://fr.dbpedia.org/resource/Trois_lois_de_la_robotique",
+      "categories": [
+        "http://fr.dbpedia.org/resource/Cat\u00e9gorie:Concept_de_la_science-fiction",
+        "http://fr.dbpedia.org/resource/Cat\u00e9gorie:Loi_de_fiction",
+        "http://fr.dbpedia.org/resource/Cat\u00e9gorie:\u0152uvre_d'Isaac_Asimov"
+      ],
+      "distractors": [
+        {
+          "Label": "L'Incident du tricentenaire",
+          "Resource": "http://fr.dbpedia.org/resource/L'Incident_du_tricentenaire"
+        },
+        {
+          "Label": "Cerveau positronique",
+          "Resource": "http://fr.dbpedia.org/resource/Cerveau_positronique"
+        },
+        {
+          "Label": "Intelligence artificielle",
+          "Resource": "http://fr.dbpedia.org/resource/Intelligence_artificielle"
+        }
+      ],
+      "question": "Sont des r\u00e8gles auxquelles tous les robots positroniques qui apparaissent dans ses romans doivent ob\u00e9ir."
+    },
+    {
+      "answer": "Monde virtuel",
+      "answer_abstract": "Un monde virtuel est un monde cr\u00e9\u00e9 artificiellement par un logiciel informatique et pouvant h\u00e9berger une communaut\u00e9 d'utilisateurs pr\u00e9sents sous forme d'avatars ayant la capacit\u00e9 de s'y d\u00e9placer et d'y interagir. La repr\u00e9sentation de ce monde et de ses habitants est en deux ou en trois dimensions.Ce monde peut simuler le monde r\u00e9el, avec ses lois physiques telles que la gravit\u00e9, le temps, le climat, la g\u00e9ographie ou tout au contraire \u00eatre r\u00e9gie par d'autres. Les lois humaines peuvent \u00e9galement \u00eatre reproduites. La communication entre les utilisateurs se fait le plus souvent sous forme de texte (ou audio).On retrouve la plupart du temps des mondes virtuels dans les jeux en ligne massivement multijoueur et particuli\u00e8rement dans les MMORPG comme EverQuest, Ultima Online ou World of Warcraft ou dans les simulateurs de monde (qui ne sont pas vraiment des jeux puisqu'il n'y a ni r\u00e8gles ni objectifs) comme Komity, Second Life, IMVU, Mamba Nation, Active Worlds.",
+      "answer_resource": "http://fr.dbpedia.org/resource/Monde_virtuel",
+      "categories": [
+        "http://fr.dbpedia.org/resource/Cat\u00e9gorie:Application_d'Internet",
+        "http://fr.dbpedia.org/resource/Cat\u00e9gorie:Terminologie_du_jeu_vid\u00e9o",
+        "http://fr.dbpedia.org/resource/Cat\u00e9gorie:Web_social",
+        "http://fr.dbpedia.org/resource/Cat\u00e9gorie:Monde_virtuel"
+      ],
+      "distractors": [
+        {
+          "Label": "Active Worlds",
+          "Resource": "http://fr.dbpedia.org/resource/Active_Worlds"
+        },
+        {
+          "Label": "Second Life",
+          "Resource": "http://fr.dbpedia.org/resource/Second_Life"
+        },
+        {
+          "Label": "Mamba Nation",
+          "Resource": "http://fr.dbpedia.org/resource/Mamba_Nation"
+        }
+      ],
+      "question": "Est un monde cr\u00e9\u00e9 artificiellement par un logiciel informatique et pouvant h\u00e9berger une communaut\u00e9 d'utilisateurs pr\u00e9sents sous forme d'avatars ayant la capacit\u00e9 de s'y d\u00e9placer et d'y interagir."
+    },
+    {
+      "answer": "Prolog",
+      "answer_abstract": "Prolog est l\u2019un des principaux langages de programmation logique. Le nom Prolog est un acronyme de PROgrammation en LOGique. Il a \u00e9t\u00e9 cr\u00e9\u00e9 par Alain Colmerauer et Philippe Roussel vers 1972. Le but \u00e9tait de cr\u00e9er un langage de programmation o\u00f9 seraient d\u00e9finies les r\u00e8gles logiques attendues d'une solution et de laisser le compilateur la transformer en s\u00e9quence d'instructions. L'un des gains attendus \u00e9tait une facilit\u00e9 accrue de maintenance des applications, l'ajout ou la suppression de r\u00e8gles au cours du temps n'obligeant pas \u00e0 r\u00e9examiner toutes les autres.Prolog est utilis\u00e9 en intelligence artificielle et dans le traitement linguistique par ordinateur (principalement langages naturels). Ses r\u00e8gles de syntaxe et sa s\u00e9mantique sont simples et consid\u00e9r\u00e9es comme claires (un des objectifs poursuivis \u00e9tait de procurer un outil aux linguistes ignorant l\u2019informatique). Les premiers r\u00e9sultats obtenus avec Prolog suscit\u00e8rent quelque temps, dans les ann\u00e9es 1980, des recherches sur une cinqui\u00e8me g\u00e9n\u00e9ration, mat\u00e9rielle et logicielle, d'ordinateurs (nomm\u00e9e Cinqui\u00e8me g\u00e9n\u00e9ration japonaise en raison de l'engagement important du MITI sur le projet). L'effort engag\u00e9 fut important, les retomb\u00e9es plus modestes, Prolog restant juste un langage parmi d'autres dans la panoplie du programmeur, suivi plus tard d'autres pr\u00e9tendants comme Haskell.Prolog est bas\u00e9 sur le calcul des pr\u00e9dicats du premier ordre ; cependant il est restreint dans sa version initiale \u00e0 n\u2019accepter que les clauses de Horn (les versions modernes de Prolog acceptent des pr\u00e9dicats plus complexes, notamment avec le traitement de la n\u00e9gation par l'\u00e9chec). L\u2019ex\u00e9cution d\u2019un programme Prolog est effectivement une application du th\u00e9or\u00e8me prouvant par r\u00e9solution du premier ordre. Les concepts fondamentaux sont l\u2019unification, la r\u00e9cursivit\u00e9 et le retour sur trace. L'algorithme de r\u00e9solution de Prolog est bas\u00e9 sur une extension de la SLD-r\u00e9solution.On peut construire en Prolog une base de connaissances dans un ordre ind\u00e9termin\u00e9, puisque seules comptent les relations en pr\u00e9sence et non leur s\u00e9quence d'\u00e9criture. Prolog peut ensuite r\u00e9soudre des s\u00e9ries de probl\u00e8mes logiques relatifs \u00e0 une telle base de connaissances (notion base de donn\u00e9es d\u00e9ductive), probl\u00e8me similaire \u00e0 la recherche d'une issue (ou plusieurs) dans un labyrinthe de contraintes \u00e9tablies.",
+      "answer_resource": "http://fr.dbpedia.org/resource/Prolog",
+      "categories": [
+        "http://fr.dbpedia.org/resource/Cat\u00e9gorie:Intelligence_artificielle",
+        "http://fr.dbpedia.org/resource/Cat\u00e9gorie:Langage_de_d\u00e9finition_de_donn\u00e9es",
+        "http://fr.dbpedia.org/resource/Cat\u00e9gorie:Langage_de_programmation_logique",
+        "http://fr.dbpedia.org/resource/Cat\u00e9gorie:Langage_de_requ\u00eate"
+      ],
+      "distractors": [
+        {
+          "Label": "Programmation logique",
+          "Resource": "http://fr.dbpedia.org/resource/Programmation_logique"
+        },
+        {
+          "Label": "SLD-r\u00e9solution",
+          "Resource": "http://fr.dbpedia.org/resource/SLD-r\u00e9solution"
+        },
+        {
+          "Label": "Calcul des pr\u00e9dicats",
+          "Resource": "http://fr.dbpedia.org/resource/Calcul_des_pr\u00e9dicats"
+        }
+      ],
+      "question": "Est l\u2019un des principaux langages de programmation logique."
+    },
+    {
+      "answer": "ELIZA",
+      "answer_abstract": "En intelligence artificielle, ELIZA est un programme informatique \u00e9crit par Joseph Weizenbaum en 1966, qui simulait un psychoth\u00e9rapeute rog\u00e9rien en reformulant la plupart des affirmations du \u00ab patient \u00bb en questions, et en les lui posant.",
+      "answer_resource": "http://fr.dbpedia.org/resource/ELIZA",
+      "categories": [
+        "http://fr.dbpedia.org/resource/Cat\u00e9gorie:Intelligence_artificielle"
+      ],
+      "distractors": [
+        {
+          "Label": "Intelligence artificielle",
+          "Resource": "http://fr.dbpedia.org/resource/Intelligence_artificielle"
+        },
+        {
+          "Label": "Test de Turing",
+          "Resource": "http://fr.dbpedia.org/resource/Test_de_Turing"
+        },
+        {
+          "Label": "Agent conversationnel",
+          "Resource": "http://fr.dbpedia.org/resource/Agent_conversationnel"
+        }
+      ],
+      "question": "Est un programme informatique \u00e9crit par joseph weizenbaum en 1966, qui simulait un psychoth\u00e9rapeute rog\u00e9rien en reformulant la plupart des affirmations du \u00ab patient \u00bb en questions, et en les lui posant."
+    },
+    {
+      "answer": "Programmation g\u00e9n\u00e9tique",
+      "answer_abstract": "La programmation g\u00e9n\u00e9tique est une m\u00e9thode automatique inspir\u00e9e par le m\u00e9canisme de la s\u00e9lection naturelle tel qu'il a \u00e9t\u00e9 \u00e9tabli par Charles Darwin pour expliquer l'adaptation plus ou moins optimale des organismes \u00e0 leur milieu. Elle a pour but de trouver par approximations successives des programmes r\u00e9pondant au mieux \u00e0 une t\u00e2che donn\u00e9e.",
+      "answer_resource": "http://fr.dbpedia.org/resource/Programmation_g\u00e9n\u00e9tique",
+      "categories": [
+        "http://fr.dbpedia.org/resource/Cat\u00e9gorie:Informatique_th\u00e9orique",
+        "http://fr.dbpedia.org/resource/Cat\u00e9gorie:Intelligence_artificielle"
+      ],
+      "distractors": [
+        {
+          "Label": "Algorithme g\u00e9n\u00e9tique",
+          "Resource": "http://fr.dbpedia.org/resource/Algorithme_g\u00e9n\u00e9tique"
+        }
+      ],
+      "question": "Est une m\u00e9thode automatique inspir\u00e9e par le m\u00e9canisme de la s\u00e9lection naturelle tel qu'il a \u00e9t\u00e9 \u00e9tabli par charles darwin pour expliquer l'adaptation plus ou moins optimale des organismes \u00e0 leur milieu."
+    },
+    {
+      "answer": "Lisp",
+      "answer_abstract": "Lisp est la plus ancienne famille de langages imp\u00e9ratifs et fonctionnels. D\u00e9velopp\u00e9 initialement en tant que mod\u00e8le pratique pour repr\u00e9senter des programmes (par contraste avec la notion th\u00e9orique de machine de Turing), il est devenu dans les ann\u00e9es 1970 et 80 le langage de choix pour la recherche en intelligence artificielle. Les langages Lisp sont aujourd'hui utilis\u00e9s dans de nombreux domaines, de la programmation Web \u00e0 la finance, et dans certains cursus de formation en informatique.Le terme Lisp a \u00e9t\u00e9 forg\u00e9 \u00e0 partir de l'anglais \u00ab list processing \u00bb (\u00ab traitement de listes \u00bb). Tous les dialectes de Lisp partagent les m\u00eames op\u00e9rateurs de manipulation de listes cha\u00een\u00e9es simples. Lisp se distingue en outre par une syntaxe simple en notation pr\u00e9fix\u00e9e, son typage dynamique des donn\u00e9es, le support pour la programmation fonctionnelle, sa gestion automatique de la m\u00e9moire et la facult\u00e9 de manipuler le code source en tant que structure de donn\u00e9es.Les langages Lisp sont reconnaissables imm\u00e9diatement \u00e0 leur apparence. Le code source des programmes est \u00e9crit en utilisant la m\u00eame syntaxe que celle des listes \u2014 la syntaxe parenth\u00e9s\u00e9e des s-expressions. Chaque sous-expression d'un programme (ou structure de donn\u00e9es) est d\u00e9limit\u00e9e par des parenth\u00e8ses. Cela simplifie grandement l'analyse syntaxique des programmes Lisp et rend simple la m\u00e9taprogrammation \u2014 la cr\u00e9ation de programmes qui cr\u00e9ent d'autres programmes ou modifient le programme courant.Si l'on excepte le langage machine et le langage d'assemblage (ou plus commun\u00e9ment \u00ab assembleur \u00bb), Lisp est le deuxi\u00e8me langage le plus ancien (juste apr\u00e8s Fortran) parmi les langages qui se sont largement diffus\u00e9s. Lisp a beaucoup \u00e9volu\u00e9 depuis le d\u00e9but des ann\u00e9es 1960 et a ainsi donn\u00e9 naissance \u00e0 de nombreux dialectes.",
+      "answer_resource": "http://fr.dbpedia.org/resource/Lisp",
+      "categories": [
+        "http://fr.dbpedia.org/resource/Cat\u00e9gorie:Intelligence_artificielle",
+        "http://fr.dbpedia.org/resource/Cat\u00e9gorie:Langage_Lisp",
+        "http://fr.dbpedia.org/resource/Cat\u00e9gorie:Langage_de_programmation_logique"
+      ],
+      "distractors": [
+        {
+          "Label": "Clojure",
+          "Resource": "http://fr.dbpedia.org/resource/Clojure"
+        },
+        {
+          "Label": "Scheme",
+          "Resource": "http://fr.dbpedia.org/resource/Scheme"
+        },
+        {
+          "Label": "C (langage)",
+          "Resource": "http://fr.dbpedia.org/resource/C_(langage)"
+        }
+      ],
+      "question": "Est la plus ancienne famille de langages imp\u00e9ratifs et fonctionnels."
+    }
+  ]
+}
