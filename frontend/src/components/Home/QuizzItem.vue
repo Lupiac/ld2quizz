@@ -7,7 +7,7 @@
           <h4 class="post-category">{{quizz.name}}</h4>
         </div>
         <div>
-          <router-link :to="`/quizz/${quizz.id}`" class="button is-link">Discover</router-link>
+          <router-link :to="`/quizz/${quizz.id}`" class="button is-link">Découvrir</router-link>
         </div>
       </article>
     </a>

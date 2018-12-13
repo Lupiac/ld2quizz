@@ -1,56 +1,56 @@
 <template>
-  <div>
-    <div v-if="!deleted">
+  <div class="content">
+    <blockquote class="blockquote-picked" v-if="item.enabled">
       <div class="columns is-expanded level box">
         <div class="column is-10 has-text-left">
           <p>{{item.question}}</p>
         </div>
-        <div class>
-          <div class="icon is-large level-item">
+        <div>
+          <div class="icon is-spaced is-large level-item">
             <div v-on:click="deleteQuestion()">
-              <i class="fa fa-trash fa-lg space"/>
+              <i class="is-spaced fa fa-trash fa-lg space"/>
             </div>
-            <div v-on:click="expand=!expand; ">
+            <div class="is-spaced" v-on:click="expand=!expand; ">
               <div v-if="!expand">
-                <i class="fa fa-caret-square-right fa-lg"></i>
+                <i class="is-spaced fa fa-caret-square-right fa-lg"></i>
               </div>
               <div v-else class="bloc">
-                <i class="fa fa-caret-square-down fa-lg"></i>
+                <i class="is-spaced fa fa-caret-square-down fa-lg"></i>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div v-if="expand" class="has-text-left">
+      <div v-if="expand" class="has-text-left detail box">
         <p class="answer is-italic">
-          <strong>Real Answer:</strong>
+          <strong>Bonne réponse:</strong>
           {{item.answer}}
         </p>
         <div v-for="distractor in item.distractors" :key="distractor">
           <p>
-            <strong>Choice {{distractor.id}}:</strong>
+            <strong>Choix {{distractor.id}}:</strong>
             {{distractor}}
           </p>
         </div>
       </div>
-    </div>
-    <div v-if="deleted">
-      <div class="columns is-expanded level box" v-on:click="expand=!expand">
+    </blockquote>
+    <blockquote class="blockquote-not" v-else>
+      <div class="columns is-expanded level box">
         <div class="column is-10 has-text-left blurred">
           <p>{{item.question}}</p>
         </div>
         <div class>
-          <div class="icon is-large level-item space">
+          <div class="icon is-spaced is-large level-item space">
             <div v-on:click="putBack()">
-              <i class="fas fa-redo-alt fa-lg"/>
+              <i class="is-spaced fas fa-redo-alt fa-lg"/>
             </div>
-            <div>
-              <i class="fa fa-caret-square-right fa-lg"/>
+            <div class="is-spaced">
+              <i class="is-spaced fa fa-caret-square-right fa-lg"/>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </blockquote>
   </div>
 </template>
 
@@ -60,42 +60,44 @@ export default {
   name: "question-item",
   props: {
     item: Object,
-    id: Number
+    id: Number,
+    pickedTopics: Array,
+    enabled: Boolean
   },
   components: {},
-  data() {
+  data: function() {
     return {
       expand: false,
       deleted: false
     };
   },
-  created() {
-    console.log(this.$parent.$parent);
+  created() {},
+  ready() {
+    this.toDelete();
   },
   computed: {
-    toDelete: function() {
-      let toDelete = true;
-      for (let category in this.item.categories) {
-        console.log(this.$parent.$parent.pickedTopics.includes(category));
-        if (this.$parent.$parent.pickedTopics.includes(category))
-          toDelete = false;
-      }
-      if (toDelete) this.deleteQuestion();
+    isEnabled: function() {
+      return this.$parent.$parent.$parent.questions.questions[this.id].enabled;
     }
   },
   methods: {
     deleteQuestion: function() {
       this.expanded = false;
       this.deleted = true;
-      this.$parent.$parent.questions[this.id].enabled = false;
-      console.log(this.$parent.$parent.questions[this.id]);
+      this.$parent.$parent.$parent.questions.questions[this.id].enabled = false;
+      console.log(this.$parent.$parent.$parent.questions.questions[this.id]);
       /*       this.$parent.$parent.questions.splice(id, 1);
        */
     },
     putBack: function() {
       this.deleted = false;
-      this.$parent.$parent.questions[this.id].enabled = true;
-      console.log(this.$parent.$parent.questions[this.id]);
+      this.expanded = false;
+      this.$parent.$parent.$parent.questions.questions[this.id].enabled = true;
+      for (let category of this.item.categories) {
+        if (!this.$parent.$parent.pickedTopics.includes(category))
+          this.$parent.$parent.pickedTopics.push(category);
+      }
+      console.log(this.$parent.$parent.$parent.questions.questions[this.id]);
     }
   }
 };
@@ -103,14 +105,24 @@ export default {
 
 <style scoped>
 .blurred {
-  -webkit-filter: blur(1px);
-  -moz-filter: blur(1px);
-  -o-filter: blur(1px);
-  -ms-filter: blur(1px);
-  filter: blur(1px);
+  -webkit-filter: blur(0.5px);
+  -moz-filter: blur(0.5px);
+  -o-filter: blur(0.5px);
+  -ms-filter: blur(0.5px);
+  filter: blur(0.5px);
 }
-.space {
-  padding-right: 10%;
+.is-spaced {
+  margin-right: 10%;
+  margin-left: 10%;
+}
+.detail {
+  background-color: hsl(0, 0%, 96%);
+}
+.blockquote-picked {
+  border-left: 4px solid #42b983;
+}
+.blockquote-not {
+  border-left: 4px solid red;
 }
 </style>
 

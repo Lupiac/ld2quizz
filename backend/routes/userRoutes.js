@@ -17,7 +17,7 @@ const myRouter = express.Router();
 myRouter.route('/').post(function (req, res) {
     if (req.body.username == null || req.body.password == null) {
         res.statusCode = 500;
-        res.json({message: "wrong body params"});
+        res.json({message: "des identifiants sont requis en paramètre"});
         logger.log('wrong body params')
         return;
     }
@@ -26,9 +26,9 @@ myRouter.route('/').post(function (req, res) {
         res.json(result)
         logger.log('add user ' + req.body.username);
     }).catch((error) => {
+        logger.log(JSON.stringify(error))
         res.statusCode = error.errorCode;
         res.json({message: error.message});
-        logger.log(JSON.stringify(error))
     })
 });
 
@@ -41,7 +41,7 @@ myRouter.route('/').post(function (req, res) {
 myRouter.route('/:username/quizzes').get(function (req, res) {
     if (req.query.token == null) {
         res.statusCode = 500;
-        res.json({message: "wrong body params"});
+        res.json({message: "le jeton de connection est requis"});
         logger.log('wrong body params')
         return;
     }
@@ -50,26 +50,26 @@ myRouter.route('/:username/quizzes').get(function (req, res) {
         res.json(result);
         logger.log('get user quizzes');
     }).catch((error) => {
+        logger.log(JSON.stringify(error))
         res.statusCode = error.errorCode;
         res.json({message: error.message});
-        logger.log(JSON.stringify(error))
     })
 });
 
 myRouter.route('/:username').put(function (req, res) {
-    if (req.body.username == null || req.body.token == null || req.body.role == null) {
+    if (req.body.username == null || req.body.token == null || (req.body.role == null && req.body.newPassword == null) || isNaN(req.body.role)) { // need to have role or passwords or both
         res.statusCode = 500;
-        res.json({message: "wrong body params"});
+        res.json({message: "paramètres manquant"});
         logger.log('wrong body params')
         return;
     }
-    userDbUtils.updateRole(req.body.username, req.body.token, req.params.username, parseInt(req.body.role)).then((result) => {
+    userDbUtils.updateUserInformation(req.body.username, req.body.token, req.params.username, parseInt(req.body.role), req.body.oldPassword, req.body.newPassword).then((result) => {
         res.json(result);
         logger.log('update role');
     }).catch((error) => {
+        logger.log(JSON.stringify(error))
         res.statusCode = error.errorCode;
         res.json({message: error.message});
-        logger.log(JSON.stringify(error))
     })
 })
 
@@ -82,7 +82,7 @@ myRouter.route('/:username').put(function (req, res) {
 myRouter.route('/:username/quizzes/:quiz_id/questions').get(function (req, res) {
     if (req.query.token == null) {
         res.statusCode = 500;
-        res.json({message: "wrong body params"});
+        res.json({message: "le jeton de connection est requis"});
         logger.log('wrong body params')
         return;
     }
@@ -91,9 +91,27 @@ myRouter.route('/:username/quizzes/:quiz_id/questions').get(function (req, res) 
         res.json(result);
         logger.log('get questions and answers');
     }).catch((error) => {
+        logger.log(JSON.stringify(error))
         res.statusCode = error.errorCode;
         res.json({message: error.message});
+    });
+});
+
+myRouter.route('/:username/').delete(function (req, res) {
+    if (req.query.username == null || req.query.token == null) {
+        res.statusCode = 500;
+        res.json({message: "des identifiants sont requis en paramètre"});
+        logger.log('wrong body params')
+        return;
+    }
+
+    userDbUtils.deleteUser(req.query.username, req.query.token, req.params.username).then((result) => {
+        res.json(result);
+        logger.log('delete user ' + req.params.username);
+    }).catch((error) => {
         logger.log(JSON.stringify(error))
+        res.statusCode = error.errorCode;
+        res.json({message: error.message});
     });
 });
 

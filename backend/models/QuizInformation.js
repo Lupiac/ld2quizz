@@ -46,10 +46,6 @@ class QuizInformation {
     getDocumentToInsert() {
         return {quizId: this.quizId, name: this.name, image_url: this.image_url, nbQuestion: this.nbQuestion, description: this.description, categories: this.categories, creator: this.creator, taxBloom: this.taxBloom};
     }
-
-    getQuestion() {
-        return this.questions;
-    }
 }
 
 module.exports = QuizInformation;

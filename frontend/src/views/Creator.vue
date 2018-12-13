@@ -28,7 +28,13 @@ export default {
   data() {
     return {
       currentStep: "hello-creator",
-      quizz_infos: {},
+      quizz_infos: {
+        name: "",
+        description: "",
+        search: "",
+        taxBloom: [],
+        image_url: ""
+      },
       questions: {}
     };
   }
@@ -37,6 +43,6 @@ export default {
 
 <style scoped>
 .has-nav {
-  padding-top: 2rem;
+  padding-top: 1.5rem;
 }
 </style>

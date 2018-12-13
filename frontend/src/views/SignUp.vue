@@ -3,8 +3,8 @@
     <div class="hero-body">
       <div class="container has-text-centered">
         <div class="column is-4 is-offset-4">
-          <h3 class="title has-text-grey">Sign Up</h3>
-          <p class="subtitle has-text-grey">Please enter your informations to proceed.</p>
+          <h3 class="title has-text-grey">S'inscrire</h3>
+          <p class="subtitle has-text-grey">Veuillez entrer vos informations pour vous inscrire.</p>
           <div class="box">
             <figure class="avatar">
               <img src="..\assets\information.svg" class="icon-info">
@@ -16,7 +16,7 @@
                     v-model="username"
                     class="input is-large"
                     type="text"
-                    placeholder="Your Username"
+                    placeholder="Pseudo"
                   >
                 </div>
               </div>
@@ -27,7 +27,7 @@
                     v-model="password"
                     class="input is-large"
                     type="password"
-                    placeholder="Your Password"
+                    placeholder="Mot De Passe"
                     v-on:keyup.enter="register()"
                   >
                 </div>
@@ -35,13 +35,13 @@
               <button
                 class="button is-block is-info is-large is-fullwidth"
                 v-on:click="register()"
-              >Login</button>
+              >Créer compte</button>
             </div>
           </div>
           <p class="has-text-grey">
-            <a>Log In</a> &nbsp;·&nbsp;
-            <a>Forgot Password</a> &nbsp;·&nbsp;
-            <a>Need Help?</a>
+            <a>Connexion/a> &nbsp;·&nbsp;
+            <a>Mot de passe oublié</a> &nbsp;·&nbsp;
+            <a>Besion d'aide?</a>
           </p>
         </div>
       </div>

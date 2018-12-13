@@ -8,10 +8,7 @@
         <div class="level-right">
           <p class="is-size-5">{{quizz.nbQuestion}} Questions</p>
         </div>
-        <div>
-          <!--           <class="button is-link">Discover</router-link>
-          -->
-        </div>
+        <div></div>
       </article>
     </a>
   </div>
@@ -23,9 +20,6 @@ export default {
   route: "/quizz/",
   props: {
     quizz: Object
-  },
-  created() {
-    route = "/quizz/" + quizz.id;
   }
 };
 </script>

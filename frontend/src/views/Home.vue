@@ -2,15 +2,17 @@
   <div class="hero is-fullheight has-nav">
     <div class="columns is-centered">
       <div class="column is-6 is-centered box">
-        <div class="field">
-          <input
-            v-model="keywords"
-            class="input is-size-5"
-            type="text"
-            placeholder="What to learn?"
-            v-on:keyup.enter="searchQuizz()"
-          >
-          <div class="button is-link" v-on:click="searchQuizz()">Search</div>
+        <div class>
+          <div class>
+            <input
+              v-model="keywords"
+              class="input is-size-5 is-10"
+              type="text"
+              placeholder="Que voulez-vous apprendre? Ex: 'Big Data' "
+              v-on:keyup.enter="searchQuizz()"
+            >
+            <div class="button is-link" v-on:click="searchQuizz()">Chercher</div>
+          </div>
         </div>
       </div>
     </div>

@@ -1,7 +1,7 @@
 class QuizInputUser {
 
     constructor(name, image_url, questions, description, taxBloom) {
-        this.check(name, image_url, JSON.parse(questions), description, JSON.parse(taxBloom));
+        this.check(name, image_url, questions, description, taxBloom);
         this.name = name;
         this.image_url = image_url;
         this.questions = JSON.parse(questions);
@@ -19,6 +19,12 @@ class QuizInputUser {
     }
 
     check(name, image_url, questions, description, taxBloom) {
+        try {
+            questions = JSON.parse(questions);
+            taxBloom = JSON.parse(taxBloom);
+        }catch (e) {
+            throw {errorCode: 500, message: 'Json format not well formed (questions or taxBloom)'}
+        }
         if(name == null) {
             throw {errorCode: 500, message: 'param name is required'}
         }

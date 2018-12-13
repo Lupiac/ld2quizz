@@ -5,8 +5,8 @@
       -->
       <div class="container has-text-centered">
         <div class="column is-4 is-offset-4">
-          <h3 class="title has-text-grey">Log In</h3>
-          <p class="subtitle has-text-grey">Please enter your informations to proceed.</p>
+          <h3 class="title has-text-grey">Connexion</h3>
+          <p class="subtitle has-text-grey">Veuillez entrer vos informations pour vous connecter.</p>
           <div class="box">
             <figure class="avatar">
               <img src="..\assets\login.svg" class="icon-info">
@@ -18,7 +18,7 @@
                     v-model="username"
                     class="input is-large"
                     type="text"
-                    placeholder="Your Username"
+                    placeholder="Pseudo"
                     autofocus
                   >
                 </div>
@@ -30,7 +30,7 @@
                     v-model="password"
                     class="input is-large"
                     type="password"
-                    placeholder="Your Password"
+                    placeholder="Mot De Passe"
                     v-on:keyup.enter="login()"
                   >
                 </div>
@@ -38,13 +38,13 @@
               <button
                 class="button is-block is-info is-large is-fullwidth"
                 v-on:click="login()"
-              >Login</button>
+              >Connexion</button>
             </div>
           </div>
           <p class="has-text-grey">
-            <a href>Sign Up</a> &nbsp;·&nbsp;
-            <a href>Forgot Password</a> &nbsp;·&nbsp;
-            <a href>Need Help?</a>
+            <a href>Connexion</a> &nbsp;·&nbsp;
+            <a href>Mot de passe oublié</a> &nbsp;·&nbsp;
+            <a href>Besoin d'aide?</a>
           </p>
         </div>
       </div>

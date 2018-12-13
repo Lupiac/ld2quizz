@@ -15,29 +15,13 @@ const myRouter = express.Router();
  * Get information of all quizzes
  */
 myRouter.route('/').get(function(req, res) {
-    let quizzes = [];
-    let hasFilter = false;
     new Promise(function (resolve, reject) {
-        if(req.query.keywords) {
-            hasFilter = true;
-            resolve(quizDbUtils.getQuizzesByCategorie(req.query.keywords));
+        if(req.query.keywords || req.query.taxBloom) {
+            resolve(quizDbUtils.searchQuizzesByKeywords(req.query.keywords, req.query.taxBloom));
         } else {
-            resolve([])
+            resolve(quizDbUtils.getAllQuizzes())
         }
-    }).then((quizzesFiltered) => {
-        quizzes = quizzes.concat(quizzesFiltered);
-    }).then(() => {
-        if(!hasFilter) {
-            return quizDbUtils.getAllQuizzes();
-        } else {
-            return([])
-        }
-    }).then((quizzesFiltered) => {
-        quizzes = quizzes.concat(quizzesFiltered);
-        return quizDbUtils.mergeQuizzes(quizzes);
-    }).then((quizzesMerged) => {
-        quizzes = quizzesMerged;
-    }).then(() => {
+    }).then((quizzes) => {
         res.json(quizzes);
         logger.log('get quizzes')
     }).catch((error) => {
@@ -72,7 +56,7 @@ myRouter.route('/:quiz_id').get(function (req, res) {
 myRouter.route('/:quiz_id').put(function (req, res) {
     if(req.body.username == null || req.body.token == null) {
         res.statusCode = 500;
-        res.json({message: "credential params required"});
+        res.json({message: "des identifiants sont requis en paramètre"});
         logger.log('credential params required');
         return;
     }
@@ -133,7 +117,7 @@ myRouter.route('/:quiz_id/questions/:question_id').get(function (req, res) {
 myRouter.route('/:quiz_id/questions/:question_id').post(function (req, res) {
     if(req.body.answer == null) {
         res.statusCode = 500;
-        res.json({message: "wrong body param answer"});
+        res.json({message: "la réponse à soumettre est manquante"});
         logger.log('no answer in response')
         return;
     }
@@ -155,7 +139,7 @@ myRouter.route('/:quiz_id/questions/:question_id').post(function (req, res) {
 myRouter.route('/').post(function(req, res) {
     if(req.body.username == null || req.body.token == null) {
         res.statusCode = 500;
-        res.json({message: "credential params required"});
+        res.json({message: "des identifiants sont requis en paramètre"});
         logger.log('credential params required');
         return;
     }
@@ -173,6 +157,24 @@ myRouter.route('/').post(function(req, res) {
         res.json({message: error.message});
     })
 
+});
+
+myRouter.route('/:quiz_id').delete(function (req, res) {
+    if (req.query.username == null || req.query.token == null) {
+        res.statusCode = 500;
+        res.json({message: "des identifiants sont requis en paramètre"});
+        logger.log('wrong body params')
+        return;
+    }
+
+    quizDbUtils.deleteQuiz(req.query.username, req.query.token, req.params.quiz_id).then((result) => {
+        res.json(result);
+        logger.log('delete quiz ' + req.params.quiz_id);
+    }).catch((error) => {
+        logger.log(JSON.stringify(error))
+        res.statusCode = error.errorCode;
+        res.json({message: error.message});
+    });
 });
 
 module.exports = myRouter;

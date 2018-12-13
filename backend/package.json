@@ -4,6 +4,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "body-parser": "^1.18.3",
+    "crypto-js": "^3.1.9-1",
     "express": "^4.16.4",
     "nano": "^7.1.1",
     "xmlhttprequest": "^1.8.0"

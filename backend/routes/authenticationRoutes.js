@@ -16,7 +16,7 @@ const myRouter = express.Router();
 myRouter.route('/').post(function(req, res) {
     if(req.body.username == null || req.body.password == null) {
         res.statusCode = 500;
-        res.json({message: "wrong body params"});
+        res.json({message: "paramètres manquant"});
         logger.log('wrong body params')
         return;
     }
@@ -37,14 +37,14 @@ myRouter.route('/').post(function(req, res) {
  * body params: username, token
  */
 myRouter.route('/').delete(function (req, res) {
-    if(req.body.username == null || req.body.token == null) {
+    if(req.query.username == null || req.query.token == null) {
         res.statusCode = 500;
-        res.json({message: "wrong body params"});
+        res.json({message: "paramètres manquant"});
         logger.log('wrong body params')
         return;
     }
 
-    userDbUtils.logout(req.body.username, req.body.token).then((result) => {
+    userDbUtils.logout(req.query.username, req.query.token).then((result) => {
         res.json(result);
         logger.log(result.message);
     }).catch((error) => {

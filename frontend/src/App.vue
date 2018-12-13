@@ -22,17 +22,25 @@
 
         <div id="navbarBasicExample" class="navbar-menu">
           <div class="navbar-start">
-            <router-link to="/" class="navbar-item">Catalog</router-link>
+            <router-link to="/" class="navbar-item">Catalogue</router-link>
 
-            <router-link to="/creator" class="navbar-item">Create Quizz</router-link>
+            <router-link to="/creator" class="navbar-item">Générateur de Quiz</router-link>
           </div>
           <div class="navbar-end">
             <div class="navbar-item">
-              <div class="buttons">
+              <div v-if="token===''" class="buttons">
                 <router-link to="/signup" class="button is-primary">
-                  <strong>Sign up</strong>
+                  <strong>S'inscrire</strong>
                 </router-link>
-                <router-link to="/login" class="button is-light">Log in</router-link>
+                <router-link to="/login" class="button is-light">Connexion</router-link>
+              </div>
+              <div v-else-if="token!==''" class="buttons" v-on:click="disconnect()">
+                <router-link to="/" class="button is-primary">
+                  <div class="icon" style="font-size: 1.5em;">
+                    <i class="fas fa-sign-out-alt"></i>
+                  </div>
+                  <strong>Déconnexion</strong>
+                </router-link>
               </div>
             </div>
           </div>
@@ -46,11 +54,49 @@
 </template>
 
 <script>
+import Vue from "vue";
+import VueToasted from "vue-toasted";
+import axios from "axios";
+let server = "localhost:3000";
+
 export default {
   data: () => ({
     token: "",
     username: ""
-  })
+  }),
+  created() {
+    Vue.use(VueToasted, {});
+  },
+  methods: {
+    disconnect: function() {
+      axios
+        .delete(
+          "http://" +
+            server +
+            "/authentication?username=" +
+            this.username +
+            "&token=" +
+            this.token
+        )
+        .then(response => {
+          console.log(response);
+          let toast = this.$toasted.show("Vous êtes déconnecté.", {
+            theme: "primary",
+            position: "top-right",
+            duration: 2000
+          });
+          this.token = "";
+          this.username = "";
+        })
+        .catch(e => {
+          let toast = this.$toasted.error(e, {
+            theme: "primary",
+            position: "top-right",
+            duration: 2000
+          });
+        });
+    }
+  }
 };
 </script>
 

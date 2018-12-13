@@ -1,4 +1,5 @@
 const nano = require('nano')('http://localhost:5984');
+const axios = require('axios');
 
 const quizzesInformationDb = nano.db.use('quizzes_information');
 const quizzesDb = nano.db.use('quizzes');
@@ -18,7 +19,7 @@ function getAllQuizzes() {
         return result;
     }).catch((error) => {
         console.log(error);
-        throw {errorCode: 500, message: 'db problem'}
+        throw {errorCode: 500, message: 'problème de base de données'}
     });
 }
 
@@ -34,8 +35,41 @@ function getQuizzesByCategorie(categories) {
         return result;
     }).catch((error) => {
         console.log(error);
-        throw {errorCode: 500, message: 'db problem'}
+        throw {errorCode: 500, message: 'problème de base de données'}
     });
+}
+
+function searchQuizzesByKeywords(keywords, taxBloom) {
+    let params = "?q=";
+    if(keywords) {
+        params += 'search:"' + keywords + '"';
+        if(taxBloom) {
+            params += ' AND searchTaxBloom:"' + taxBloom + '"';
+        }
+    } else if(taxBloom) {
+        params += 'searchTaxBloom:"' + taxBloom + '"';
+    }
+    let result = [];
+    return axios.get('http://localhost:5985/local/quizzes_information/_design/luceneDesignDoc/by_name' + params).then((response) => {
+        console.log(response)
+        response.data.rows.forEach(function (doc) {
+            result.push({
+                id: doc.id,
+                name: doc.fields.name,
+                nbQuestion: JSON.parse(doc.fields.nbQuestion),
+                image_url: doc.fields.image_url,
+                description: doc.fields.description,
+                categories: JSON.parse(doc.fields.categories),
+                creator: doc.fields.creator,
+                taxBloom: JSON.parse(doc.fields.taxBloom)
+            })
+        })
+        return result;
+    }).catch((error) => {
+        console.log(error);
+        throw {errorCode: 500, message:"erreur de connection à l'API de génération" }
+    })
+
 }
 
 function mergeQuizzes(quizzes) {
@@ -63,7 +97,7 @@ function getQuizzesByUser(username, token) {
         if(error.errorCode) {
             throw {errorCode: error.errorCode, message: error.message}
         } else {
-            throw {errorCode: 500, message: 'db problem'}
+            throw {errorCode: 500, message: 'problème de base de données'}
         }
     })
 }
@@ -74,10 +108,10 @@ function getQuiz(quizInformationId) {
         quizInformation.constructByDbDocument(body);
         return quizInformation.getUserView();
     }).catch((error) => {
-        if(error.message === 'missing') {
-            throw {errorCode: 404, message: "no quiz with id " + quizInformationId}
+        if(error.message === 'missing' || error.message === 'deleted') {
+            throw {errorCode: 404, message: "aucun quiz avec l'id " + quizInformationId}
         } else {
-            throw {errorCode: 500, message: 'db problem'}
+            throw {errorCode: 500, message: 'problème de base de données'}
         }
     });
 }
@@ -89,18 +123,18 @@ function getQuestionsAnswers(quizInformationId, username, token) {
         return quizzesInformationDb.get(quizInformationId);
     }).then((quizInformationResult) => {
         if(user.role < 3 && username !== quizInformationResult.creator) {
-            throw {errorCode: 403, message: 'not allowed to see this content'};
+            throw {errorCode: 403, message: "vous n'êtes pas autorisé à voir ce contenu"};
         }
         return quizzesDb.get(quizInformationResult.quizId);
     }).then((quiz) => {
         return {questions: quiz.questions};
     }).catch((error) => {
-        if(error.message === 'missing') {
-            throw {errorCode: 404, message: "no quiz with id " + quizInformationId}
+        if(error.message === 'missing' || error.message === 'deleted') {
+            throw {errorCode: 404, message: "aucun quiz avec l'id " + quizInformationId}
         } else if(error.errorCode) {
             throw {errorCode: error.errorCode, message: error.message}
         } else {
-            throw {errorCode: 500, message: 'db problem'}
+            throw {errorCode: 500, message: 'problème de base de données'}
         }
     })
 }
@@ -112,8 +146,9 @@ function getQuestions(quizInformationId) {
         let questions = [];
         quiz.questions.forEach(function (question) {
             if(question.enabled) {
-                const answers = question.distractors;
+                let answers = question.distractors;
                 answers.push(question.answer);
+                answers = shuffle(answers);
                 questions.push({
                     question: question.question,
                     answers: answers,
@@ -124,12 +159,12 @@ function getQuestions(quizInformationId) {
         });
         return {questions: questions};
     }).catch((error) => {
-        if(error.message === 'missing') {
-            throw {errorCode: 404, message: "no quiz with id " + quizInformationId}
+        if(error.message === 'missing' || error.message === 'deleted') {
+            throw {errorCode: 404, message: "aucun quiz avec l'id " + quizInformationId}
         } else if(error.errorCode) {
             throw {errorCode: error.errorCode, message: error.message}
         } else {
-            throw {errorCode: 500, message: 'db problem'}
+            throw {errorCode: 500, message: 'problème de base de données'}
         }
     })
 
@@ -150,20 +185,21 @@ function getQuestion(quizInformationId, questionId) {
                     indexIteration++
                 }
             }
-            const answers = quiz.questions[indexQuestion].distractors;
+            let answers = quiz.questions[indexQuestion].distractors;
             answers.push(quiz.questions[indexQuestion].answer);
+            answers = shuffle(answers);
             return {question: quiz.questions[indexQuestion].question, answers: answers, clue: quiz.questions[indexQuestion].clue, clueResource: quiz.questions[indexQuestion].clueResource};
         } else {
-            throw {errorCode: 404, message: "no question with id " + questionId};
+            throw {errorCode: 404, message: "aucune question avec l'id " + questionId};
         }
     }).catch((error) => {
         console.log(error)
-        if(error.message === 'missing') {
-            throw {errorCode: 404, message: "no quiz with id " + quizInformationId}
+        if(error.message === 'missing' || error.message === 'deleted') {
+            throw {errorCode: 404, message: "aucun quiz avec l'id " + quizInformationId}
         } else if(error.errorCode) {
             throw {errorCode: error.errorCode, message: error.message}
         } else {
-            throw {errorCode: 500, message: 'db problem'}
+            throw {errorCode: 500, message: 'problème de base de données'}
         }
     });
 }
@@ -189,15 +225,15 @@ function getCorrection(quizInformationId, questionId, userAnswer) {
                 return {question: quiz.questions[indexQuestion].question, correction: 'incorrect', correctAnswer: quiz.questions[indexQuestion].answer, userAnswer: userAnswer};
             }
         } else {
-            throw {errorCode: 404, message: "no question with id " + questionId};
+            throw {errorCode: 404, message: "aucune question avec l'id " + questionId};
         }
     }).catch((error) => {
-        if(error.message === 'missing') {
-            throw {errorCode: 404, message: "no quiz with id " + quizInformationId}
+        if(error.message === 'missing' || error.message === 'deleted') {
+            throw {errorCode: 404, message: "aucun quiz avec l'id " + quizInformationId}
         } else if(error.errorCode) {
             throw {errorCode: error.errorCode, message: error.message}
         } else {
-            throw {errorCode: 500, message: 'db problem'}
+            throw {errorCode: 500, message: 'problème de base de données'}
         }
     });
 }
@@ -211,7 +247,7 @@ function updateQuiz(quizInformationId, quiz, username, token) {
         return quizzesInformationDb.get(quizInformationId);
     }).then((quizInformationResult) => {
         if(user.role < 3 && username !== quizInformationResult.creator) {
-            throw {errorCode: 403, message: 'not allowed to modify this quiz'};
+            throw {errorCode: 403, message: "vous n'êtes pas autorisé à modifier ce quiz"};
         }
         quizInformation = new QuizInformation();
         quizInformation.constructByDbDocument(quizInformationResult);
@@ -231,15 +267,15 @@ function updateQuiz(quizInformationId, quiz, username, token) {
             return userDbUtils.updateUser(user);
         });
     }).then(() => {
-        return {message: 'quiz updated !', quizId: quizInformation._id};
+        return {message: 'quiz mis à jour !', quizId: quizInformation._id};
     }).catch((error) => {
         console.log(error);
-        if(error.message === 'missing') {
-            throw {errorCode: 404, message: "no quiz with id " + quizInformationId}
+        if(error.message === 'missing' || error.message === 'deleted') {
+            throw {errorCode: 404, message: "aucun quiz avec l'id " + quizInformationId}
         } else if(error.errorCode) {
             throw {errorCode: error.errorCode, message: error.message};
         } else {
-            throw {errorCode: 500, message: 'db problem'};
+            throw {errorCode: 500, message: 'problème de base de données'};
         }
     });
 }
@@ -250,7 +286,7 @@ function addQuiz(quiz, username, token) {
     let user;
     return userDbUtils.verifyToken(username, token).then((userResult) => {
         if(userResult.role < 2) {
-            throw {errorCode: 403, message: 'not authorized to create quizzes'};
+            throw {errorCode: 403, message: "vous n'êtes pas autorisé à ajouter un quiz"};
         }
         user = userResult;
         return quizzesDb.insert({questions: quiz.questions});
@@ -263,15 +299,47 @@ function addQuiz(quiz, username, token) {
         user.quizzes.push(quizInfo.getUserDocumentToInsert());
         return userDbUtils.updateUser(user);
     }).then(() => {
-        return {message: 'quiz added !', quizId: quizInfo._id};
+        return {message: 'quiz ajouté !', quizId: quizInfo._id};
     }).catch((error) => {
         if(error.errorCode) {
             throw {errorCode: error.errorCode, message: error.message};
         } else {
             console.log(error);
-            throw {errorCode: 500, message: 'db problem'};
+            throw {errorCode: 500, message: 'problème de base de données'};
         }
     });
+}
+
+function deleteQuiz(username, token, quizToDelete) {
+    let user;
+    return userDbUtils.verifyToken(username, token).then((userResult) => {
+        user = userResult;
+        return quizzesInformationDb.get(quizToDelete);
+    }).then((quizToDelete) => {
+        if(user.role < 3 && username !== quizToDelete.creator) {
+            throw {errorCode: 403, message: "vous n'êtes pas autorisé à supprimer ce quiz"};
+        }
+        return quizzesInformationDb.destroy(quizToDelete._id, quizToDelete._rev);
+    }).then(() => {
+        return {message: "le quiz a été supprimé"};
+    }).catch((error) => {
+        console.log(error);
+        if(error.message === 'missing' || error.message === 'deleted') {
+            throw {errorCode: 404, message: "le quiz avec l'id " + quizToDelete + " n'existe pas"}
+        } else if(error.errorCode) {
+            throw {errorCode: error.errorCode, message: error.message}
+        } else {
+            throw {errorCode: 500, message: 'problème de base de données'}
+        }
+    })
+}
+
+function shuffle(a) {
+    for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
 }
 
 
@@ -286,5 +354,7 @@ module.exports = {
     getQuestionsAnswers,
     getQuestions,
     getQuizzesByCategorie,
-    mergeQuizzes
+    mergeQuizzes,
+    searchQuizzesByKeywords,
+    deleteQuiz
 }

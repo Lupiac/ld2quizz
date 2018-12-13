@@ -1,6 +1,6 @@
 <template>
   <div class="container content is-fluid is-family-secondary">
-    <div class="tile is-ancestor box">
+    <div class="tile is-ancestor box" style="overflow: auto;">
       <div class="tile is-vertical hero center-vert">
         <div class="tile is-child box">
           <div class="field is-horizontal level columns">
@@ -16,41 +16,57 @@
         </div>
         <div class="tile is-child box">
           <div class="field is-horizontal level columns">
-            <div class="label is-child is-normal level-item column is-one-seventh">
+            <div class="label is-child is-normal level-item column is-one-fifth has-text-left">
               <label class="title is-size-4">Description:</label>
             </div>
-            <div class="field-body">
+            <div class="field-body has-text-left">
               <div class="field">
-                <p class="control is-expanded">{{quizz.description}}</p>
+                <p class="control">{{quizz.description}}</p>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="columns is-horizontal is-flex">
+        <div class="columns is-horizontal level">
           <div class="column is-5 is-flex">
             <div class="tile is-child box">
               <div class="level">
                 <div class="is-child is-normal level-item column is-one-seventh">
-                  <p class="title is-size-4">Domains:</p>
-                  <div>
-                    <p v-for="domain in quizz.domains" :key="domain" class="is-large level-left">
-                      <i class="fa fa-circle"></i>
-                      {{domain}}
-                    </p>
-                  </div>
+                  <p class="title is-size-4">Sujets Relatifs:</p>
+                  <virtual-list class="box" :size="45" :remain="8 ">
+                    <div
+                      class="is-large level-left"
+                      v-for="(category, index) in quizz.categories"
+                      :key="index"
+                    >
+                      <i class="fa fa-circle"/>
+                      {{category}}
+                    </div>
+                  </virtual-list>
                 </div>
               </div>
             </div>
           </div>
-          <div class="column is-2 is-flex">
-            <button
-              class="button is-link is-large start-button"
-              v-on:click="$emit('change-step', {step:'question', quizz: quizz})"
-            >
-              <p>MANAGE QUIZZ</p>
+          <div class="column is-2 level-left">
+            <button class="button is-link is-large start-button" v-on:click="launch()">
+              <p>MODIFIER QUIZZ</p>
             </button>
           </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal" v-bind:class="{'is-active':isActive}">
+      <div class="modal-background" @click="close"></div>
+      <div class="modal-content">
+        <div class="box">
+          <div class="content has-text-centered fullsize">
+            <div class="control">
+              <modifier-quizz :quizz="quizz"/>
+            </div>
+            <button @click="close" class="button">Fermer</button>
+            <span>&nbsp;</span>
+          </div>
+          <button @click="close" class="modal-close"></button>
         </div>
       </div>
     </div>
@@ -60,6 +76,10 @@
 
 <script>
 // @ is an alias to /src
+import virtualList from "vue-virtual-scroll-list";
+import { Modal, ImageModal, CardModal } from "vue-bulma-modal";
+import Modifier from "@/components/Creator/Modifier.vue";
+
 import axios from "axios";
 
 let server = "localhost:3000";
@@ -68,7 +88,24 @@ export default {
   props: {
     quizz: Object
   },
-  data: () => ({})
+  components: {
+    "virtual-list": virtualList,
+    Modal,
+    ImageModal,
+    CardModal,
+    "modifier-quizz": Modifier
+  },
+  data: () => ({
+    isActive: false
+  }),
+  methods: {
+    launch: function() {
+      this.isActive = true;
+    },
+    close: function() {
+      this.isActive = false;
+    }
+  }
 };
 </script>
 
@@ -116,5 +153,8 @@ $shadow: rgba(0, 0, 0, 1.5);
 }
 .center-vert {
   margin-top: 10%;
+}
+.modal-content {
+  width: calc(95vw - 40px);
 }
 </style>

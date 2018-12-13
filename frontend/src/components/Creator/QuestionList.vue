@@ -1,38 +1,74 @@
 <template>
   <div>
-    <div class="columns">
+    <ul class="steps is-small my-step-style has-content-centered">
+      <li
+        class="steps-segment is-passed"
+        v-on:click="$emit('change-step', {currentStep: 'create-quizz',createdQuizz:$parent.quizz_infos})"
+      >
+        <span class="steps-marker">1</span>
+        <div class="steps-content">
+          <p class="is-size-5">Infos Quiz</p>
+        </div>
+      </li>
+      <li
+        class="steps-segment is-passed"
+        v-on:click="$emit('change-step', {currentStep: 'generate-questions',createdQuizz:$parent.quizz_infos})"
+      >
+        <span class="steps-marker">2</span>
+        <div class="steps-content">
+          <p class="is-size-5">Génération</p>
+        </div>
+      </li>
+      <li class="steps-segment is-active">
+        <span class="steps-marker">3</span>
+        <div class="steps-content">
+          <p class="is-size-5">Choix Questions</p>
+        </div>
+      </li>
+      <li class="steps-segment not-active">
+        <span class="steps-marker">4</span>
+        <div class="steps-content">
+          <p class="is-size-5">Sauvegarde</p>
+        </div>
+      </li>
+    </ul>
+    <div class="columns content">
       <div
         class="column is-4"
         style="height: 100%; margin-top: 0; margin-bottom: 0; max-height: 100%;"
       >
         <div class>
           <p class="is-centered is-size-3">
-            <strong>Related Topics</strong>
+            <strong>Sujets relatifs aux questions</strong>
           </p>
-          <virtual-list class="box flex has-text-right" :size="90" :remain="8">
-            <div class="is-flex is-pulled-right">
-              <div class v-on:click="pickedTopics = []">Clear All &nbsp</div>
+          <div class="box level-right column has-text-right">
+            <div class="columnsis-pulled-right has-text-info">
               <div
-                class="has-text-right"
-                v-on:click="pickedTopics = $parent.questions.categories"
-              >Pick All</div>
+                class="button is-light"
+                v-on:click="pickedTopics = []; actualiseQuestions()"
+              >Choisir Aucun</div>
+              <div
+                class="has-text-right button is-info"
+                v-on:click="pickedTopics = $parent.questions.categories; actualiseQuestions()"
+              >Choisir Tous</div>
             </div>
-
-            <div
-              class="column item has-text-left"
-              v-for="(category, index) of this.$parent.questions.categories"
-              :key="index"
-            >
-              <input
-                type="checkbox"
-                :id="category"
-                :value="category"
-                v-on:click="actualiseQuestions()"
-                v-model="pickedTopics"
+            <virtual-list class="box has-text-right" :size="80" :remain="8">
+              <div
+                class="column item has-text-left"
+                v-for="(category, index) of this.$parent.questions.categories"
+                :key="index"
               >
-              <label class="checkbox" :for="category">{{category}}</label>
-            </div>
-          </virtual-list>
+                <div v-on:click="pickTopic(category)">
+                  <input type="checkbox" :id="category" :value="category" v-model="pickedTopics">
+                  <label
+                    class="checkbox"
+                    :for="category"
+                    v-on:click="pickTopic(category)"
+                  >{{category}}</label>
+                </div>
+              </div>
+            </virtual-list>
+          </div>
         </div>
       </div>
 
@@ -40,17 +76,22 @@
         <p class="is-size-3">
           <strong>Questions</strong>
         </p>
-        <virtual-list class="box" :size="90" :remain="8">
+        <virtual-list class="box" :size="80" :remain="8">
           <div
             class="column is-narrow-desktop item"
             v-for="(question, index) of this.$parent.questions.questions"
             :key="index"
           >
-            <question-item :item="question" :id="index"/>
+            <question-item
+              :item="question"
+              :id="index"
+              :pickedTopics="pickedTopics"
+              :enabled="question.enabled"
+            />
           </div>
         </virtual-list>
         <button class="button is-link is-flex" v-on:click="saveQuizz()">
-          <p>SAVE</p>
+          <p>Suivant</p>
         </button>
       </div>
     </div>
@@ -79,32 +120,44 @@ export default {
   created() {
     this.questions = this.$parent.questions.questions;
     console.log(this.questions);
-    /*  axios
-      .post("http://" + server + "/generator", {
-        domain_description: this.$parent.quizz_infos.search,
-        username: this.$parent.$parent._data.username,
-        token: this.$parent.$parent._data.token
-      })
-      .then(response => {
-        this.$parent.questions = response.data;
-        console.log(response.data);
-      })
-      .catch(e => {
-        console.log(e);
-      }); */
   },
+  computed: {},
   methods: {
-    actualiseQuestions: function() {
-      for (let question in this.questions) {
-        let toDelete = true;
-        for (let category in question.categories) {
-          console.log(this.pickedTopics.includes(category));
-          if (this.pickedTopics.includes(category)) toDelete = false;
-        }
-        if (toDelete) {
-          questions.enabled = false;
-        }
+    pickTopic: function(category) {
+      if (!this.pickedTopics.includes(category)) {
+        this.pickedTopics.push(category);
+      } else if (
+        this.pickedTopics.length !== this.$parent.questions.categories.length
+      ) {
+        console.log(this.pickedTopics.indexOf(category));
+        this.pickedTopics.splice(this.pickedTopics.indexOf(category), 1);
       }
+      this.actualiseQuestions();
+    },
+    actualiseQuestions: function() {
+      console.log("------- ACTUALISATION -------");
+      for (let question of this.$parent.questions.questions) {
+        console.log(question);
+        let toDelete = true;
+        for (let category of question.categories) {
+          console.log(this.pickedTopics.includes(category));
+          if (this.pickedTopics.includes(category)) {
+            toDelete = false;
+            break;
+          }
+        }
+        console.log("toDelete: " + toDelete);
+        if (toDelete) {
+          question.enabled = false;
+        } else {
+          question.enabled = true;
+        }
+        console.log(question);
+
+        console.log("****************");
+      }
+      console.log("------- Fin -------");
+      this.questions = this.$parent.questions.questions;
     },
     saveQuizz: function() {
       console.log(this.questions);
@@ -116,14 +169,6 @@ export default {
         description: this.$parent.quizz_infos.description,
         search: this.$parent.quizz_infos.search
       };
-
-      console.log(this.$parent.quizz_infos.name);
-      console.log(this.$parent.quizz_infos.image_url);
-      console.log(this.$parent.quizz_infos.questions);
-      console.log(this.$parent.quizz_infos.taxBloom);
-      console.log(this.$parent.quizz_infos.description);
-      console.log(this.$parent.$parent._data.username);
-      console.log(this.$parent.$parent._data.token);
 
       axios
         .post("http://" + server + "/quizzes", {
@@ -162,5 +207,26 @@ export default {
   margin-top: 5%;
   margin-left: auto;
   margin-right: auto;
+}
+.red-quote {
+  border-left: 4px solid red;
+}
+.green-quote {
+  border-left: 4px solid #42b983;
+}
+
+.my-step-style .is-active .steps-content {
+  font-weight: bold;
+  color: black;
+}
+.my-step-style .is-passed .steps-content {
+  color: black;
+}
+.not-active .steps-content {
+  color: hsl(0, 0%, 86%);
+}
+
+.steps {
+  color: rgba(255, 255, 255, 01);
 }
 </style>

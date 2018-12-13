@@ -1,11 +1,11 @@
 <template>
   <div class="container content is-fluid is-family-secondary">
-    <div class="tile is-ancestor box hero fullsize">
+    <div class="tile is-ancestor box hero">
       <div class="tile is-vertical hero-body">
         <div class="tile is-child box">
           <div class="field is-horizontal level columns">
             <div class="label is-child is-normal level-item column is-one-seventh">
-              <label class="title is-size-1">Name:</label>
+              <label class="title is-size-1">Nom:</label>
             </div>
             <div class="field-body">
               <div class="field">
@@ -35,12 +35,18 @@
             <div class="tile is-child box">
               <div class="level">
                 <div class="is-child is-normal level-item column is-one-seventh">
-                  <p class="title is-size-4">Domains:</p>
+                  <p class="title is-size-4">Sujets Relatifs:</p>
                   <div>
-                    <p v-for="domain in quizz.domains" :key="domain" class="is-large level-left">
-                      <i class="fa fa-circle"></i>
-                      {{domain}}
-                    </p>
+                    <virtual-list class="box" :size="30" :remain="8 ">
+                      <div
+                        class="is-large level-left"
+                        v-for="(category, index) in quizz.categories"
+                        :key="index"
+                      >
+                        <i class="fa fa-circle"></i>
+                        {{category}}
+                      </div>
+                    </virtual-list>
                   </div>
                 </div>
               </div>
@@ -51,7 +57,7 @@
               class="button is-link is-large start-button"
               v-on:click="$emit('change-step', {step:'question', quizz: quizz})"
             >
-              <p>START QUIZZ</p>
+              <p>COMMENCER QUIZ</p>
             </button>
           </div>
         </div>
@@ -63,6 +69,7 @@
 
 <script>
 // @ is an alias to /src
+import virtualList from "vue-virtual-scroll-list";
 import axios from "axios";
 
 let server = "localhost:3000";
@@ -72,7 +79,9 @@ export default {
     quizz: {},
     errors: []
   }),
-
+  components: {
+    "virtual-list": virtualList
+  },
   created() {
     axios
       .get("http://" + server + "/quizzes/" + this.$route.params.id)
@@ -127,6 +136,9 @@ $shadow: rgba(0, 0, 0, 1.5);
   object-fit: cover;
 }
 
+.hero {
+  height: 50vh;
+}
 .start-button {
   font-size: 1.125em;
 }

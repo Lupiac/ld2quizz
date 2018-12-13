@@ -1,5 +1,12 @@
 # Api Quizz
 
+## Requirements
+
+This API use couchDB dans lucene-couchDB.  
+1. You need to install couchDB (http://docs.couchdb.org/en/2.2.0/install/index.html)  
+2. To install lucene-couchDB, follow the instructions in section "Build and run couchdb-lucene" and "Configure CouchDB" from this link : https://github.com/rnewson/couchdb-lucene .  
+3. run the script initDb.sh in ./resources
+
 ## Run
 1. Require npm
 2. `npm start`

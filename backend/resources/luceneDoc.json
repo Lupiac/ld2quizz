@@ -1,0 +1,10 @@
+{
+  "fulltext": {
+    "by_description": {
+      "index": "function(doc) { var ret=new Document(); ret.add(doc.description); return ret }"
+    },
+    "by_name": {
+      "index": "function(doc) { var ret=new Document(); for(var i in doc.taxBloom) {ret.add(doc.taxBloom[i], {\"field\":\"searchTaxBloom\", \"store\":\"yes\" });} ret.add(doc.name, {\"field\":\"search\", \"store\":\"yes\" }); ret.add(doc.description, {\"field\":\"search\", \"store\":\"yes\" }); ret.add(doc.name, {\"field\":\"name\", \"index\": \"not_analyzed\", \"store\":\"yes\" }); ret.add(doc.nbQuestion, {\"field\":\"nbQuestion\", \"index\": \"not_analyzed\", \"store\":\"yes\" }); ret.add(doc.image_url, {\"field\":\"image_url\", \"index\": \"not_analyzed\", \"store\":\"yes\" }); ret.add(doc.description, {\"field\":\"description\", \"index\": \"not_analyzed\", \"store\":\"yes\" }); ret.add(JSON.stringify(doc.categories), {\"field\":\"categories\", \"index\": \"not_analyzed\", \"store\":\"yes\" }); ret.add(doc.creator, {\"field\":\"creator\", \"index\": \"not_analyzed\", \"store\":\"yes\" }); ret.add(JSON.stringify(doc.taxBloom), {\"field\":\"taxBloom\", \"index\": \"not_analyzed\", \"store\":\"yes\" }); return ret }"
+    }
+  }
+}

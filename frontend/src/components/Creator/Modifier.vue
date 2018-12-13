@@ -1,0 +1,32 @@
+<template>
+  <section class="fullsize">
+    <component v-bind:is="currentStep" v-on:change-step="currentStep = $event.currentStep;"></component>
+  </section>
+</template>
+
+
+<script>
+// @ is an alias to /src
+import ModifyQuestionList from "@/components/Creator/ModifyQuestionList.vue";
+import ModifyQuizzInfos from "@/components/Creator/ModifyQuizzInfos.vue";
+
+export default {
+  name: "modifier",
+  props: {
+    quizz: Object
+  },
+  components: {
+    "modify-questions": ModifyQuestionList,
+    "modify-info": ModifyQuizzInfos
+  },
+  data() {
+    return {
+      currentStep: "modify-info",
+      quizz_infos: {}
+    };
+  }
+};
+</script>
+
+<style scoped>
+</style>

@@ -1,0 +1,193 @@
+GET /quizzes
+query parameters: keywords (optional) , taxBloom (optional)
+description: get information of all quizzes
+
+response:
+[
+    {
+        "id": "b593f0c3eda2ef20706f4cb58a001a5e",
+        "name": "Mission Apollo",
+        "nbQuestion": 1,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/9/9c/Aldrin_Apollo_11.jpg",
+        "description": "un quizz sur la mission Apollo",
+        "categories": [
+            "espace",
+            "apollo"
+        ],
+        "creator": "sebi",
+        "taxBloom": [
+            "Analyse"
+        ]
+    },
+    {
+        "id": "b593f0c3eda2ef20706f4cb58a001d6a",
+        "name": "Mission Apollo",
+        "nbQuestion": 1,
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/9/9c/Aldrin_Apollo_11.jpg",
+        "description": "un quizz sur la mission Apollo",
+        "categories": [
+            "espace",
+            "apollo"
+        ],
+        "creator": "sebi",
+        "taxBloom": [
+            "Analyse"
+        ]
+    }
+]
+
+error:
+500 {message:'erreur de connection à l'API de génération'} => means that couchdb-lucene is unavailable
+500 {message: 'problème de base de données'} => connexion problem to couchdb
+
+----------------------------
+
+POST /quizzes \
+body params:
+- name
+- image_url
+- questions [question, answer, clue, clueResource, enabled, distractors[], categories[]]
+- taxBloom[] (json array of string which only accept 'Connaissance', 'Compréhension', 'Application', 'Analyse', 'Synthèse', 'Évaluation')
+- description
+- username
+- token
+
+description: add a quiz
+
+response:
+{
+    "message": "quiz added !",
+    "quizId": "b593f0c3eda2ef20706f4cb58a001d6a"
+}
+
+error:
+500 {message: "des identifiants sont requis en paramètre"}
+401 {message: 'le jeton de connection n'est plus ou pas valide'}
+404 {message: "l'utilisateur user n'existe pas"}
+403 {message: 'vous n'êtes pas autorisé à ajouter un quiz'}
+500 {message: 'problème de base de données'} => connexion problem to couchdb
+
+
+----------------------------
+
+GET /quizzes/:quiz_id
+description: get information of a quiz
+
+response:
+{
+    "id":"b593f0c3eda2ef20706f4cb58a001d6a",
+    "name":"Mission Apollo",
+    "nbQuestion":1,
+    "image_url":"https://upload.wikimedia.org/wikipedia/commons/9/9c/Aldrin_Apollo_11.jpg",
+    "description":"un quizz sur la mission Apollo",
+    "categories":["espace","apollo"],
+    "creator":"sebi",
+    "taxBloom":["Analyse"]
+}
+
+error:
+404 {message: "aucun quiz avec l'id 555"}
+500 {message: 'problème de base de données'} => connexion problem to couchdb
+
+----------------------------
+
+GET /quizzes/:quiz_id/questions
+description: get questions of a quiz
+
+response:
+{
+    "questions": [
+        {
+            "question": "Qui a marché pour la première fois sur la lune ?",
+            "answers": [
+                "Thomas Pesquet",
+                "Harrison Schmitt",
+                "Alan Shepard",
+                "Neil Armstrong"
+            ],
+            "clue": "this is the clue",
+            "clueResource": "http://resource.clue"
+        }
+    ]
+}
+
+error:
+404 {message: "aucun quiz avec l'id 555"}
+500 {message: 'problème de base de données'} => connexion problem to couchdb
+
+----------------------------
+
+GET /quizzes/:quiz_id/questions/:question_id
+description: get a question of a quiz
+
+response:
+{
+    "question":"Qui a marché pour la première fois sur la lune ?",
+    "answers":["Thomas Pesquet","Harrison Schmitt","Alan Shepard","Neil Armstrong"],
+    "clue":"this is the clue",
+    "clueResource":"http://resource.clue"
+}
+
+error:
+404 {message: "aucune question avec l'id 7"}
+404 {message: "aucun quiz avec l'id 555"}
+500 {message: 'problème de base de données'} => connexion problem to couchdb
+
+----------------------------
+
+POST /quizzes/:quiz_id/questions/:question_id
+body params:
+- answer
+
+description: send response and get the correction
+
+response:
+{
+    "question": "Qui a marché pour la première fois sur la lune ?",
+    "correction": "correct",
+    "correctAnswer": "Neil Armstrong",
+    "userAnswer": "Neil Armstrong"
+}
+
+or
+
+{
+    "question": "Qui a marché pour la première fois sur la lune ?",
+    "correction": "incorrect",
+    "correctAnswer": "Neil Armstrong",
+    "userAnswer": "me"
+}
+
+error:
+500 {message: "la réponse à soumettre est manquante"}
+404 {message: "aucune question avec l'id 7"}
+404 {message: "aucun quiz avec l'id 555"}
+500 {message: 'problème de base de données'} => connexion problem to couchdb
+
+----------------------------
+
+PUT /quizzes/:quiz_id
+body params:
+- name
+- image_url
+- questions [question, answer, clue, clueResource, enabled, distractors[], categories[]] (enabled is a boolean, if false, the question is disabled)
+- taxBloom[] (json array of string which only accept 'Connaissance', 'Compréhension', 'Application', 'Analyse', 'Synthèse', 'Évaluation')
+- description
+- username
+- token
+
+description: update a quiz (need to have the right => be the creator of the quiz or admin)
+
+response:
+{
+    "message": "quiz updated !",
+    "quizId": "b593f0c3eda2ef20706f4cb58a001d6a"
+}
+
+error:
+500 {message: "des identifiants sont requis en paramètre"}
+401 {message: 'le jeton de connection n'est plus ou pas valide'}
+404 {message: "l'utilisateur user n'existe pas"}
+403 {message: 'vous n'êtes pas autorisé à creer un quiz}
+404 {message: "aucun quiz avec l'id 555"}
+500 {message: 'problème de base de données'} => connexion problem to couchdb
