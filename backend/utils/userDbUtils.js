@@ -7,6 +7,7 @@ function addUser(username, password) {
     return usersDb.insert({_id: username, password: crypto.SHA256(password).toString(), role: 3, quizzes: []}).then((userCreatedResult) => {
         return {message: 'user created !', username: username};
     }).catch((error) => {
+        console.log(error);
         if(error.message === 'Document update conflict.') {
             throw {errorCode: 409, message: "l'utilisateur " + username + " existe déjà"}
         } else {
@@ -32,6 +33,7 @@ function login(username, password) {
     }).then(() => {
         return {message: 'authentification réussi', token: user.token};
     }).catch((error) => {
+        console.log(error);
         if(error.message === 'missing' || error.message === 'deleted') {
             throw {errorCode: 404, message: "l'utilisateur " + username + " n'existe pas"}
         } else if(error.errorCode) {
@@ -49,6 +51,7 @@ function logout(username, token) {
             return {message: 'déconnecté'};
         })
     }).catch((error) => {
+        console.log(error);
         if(error.errorCode) {
             throw {errorCode: error.errorCode, message: error.message}
         } else {
@@ -135,6 +138,7 @@ function verifyToken(username, token) {
         }
         return user;
     }).catch((error) => {
+        console.log(error);
         if(error.message === 'missing' || error.message === 'deleted') {
             throw {errorCode: 404, message: "l'utilisateur " + username + " n'existe pas"}
         } else if(error.errorCode) {
@@ -149,6 +153,7 @@ function updateUser(userData) {
     return usersDb.insert(userData).then((userUpdated) => {
         return {message: "l'utilisateur a été mis à jour !", username: userData.username};
     }).catch((error) => {
+        console.log(error);
         if(error.message === 'missing' || error.message === 'deleted') {
             throw {errorCode: 404, message: "l'utilisateur " + userData.username + " n'existe pas"}
         } else {

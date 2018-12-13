@@ -96,6 +96,7 @@ function getQuizzesByUser(username, token) {
         });
         return result;
     }).catch((error) => {
+        console.log(error);
         if(error.errorCode) {
             throw {errorCode: error.errorCode, message: error.message}
         } else {
@@ -110,6 +111,7 @@ function getQuiz(quizInformationId) {
         quizInformation.constructByDbDocument(body);
         return quizInformation.getUserView();
     }).catch((error) => {
+        console.log(error);
         if(error.message === 'missing' || error.message === 'deleted') {
             throw {errorCode: 404, message: "aucun quiz avec l'id " + quizInformationId}
         } else {
@@ -131,6 +133,7 @@ function getQuestionsAnswers(quizInformationId, username, token) {
     }).then((quiz) => {
         return {questions: quiz.questions};
     }).catch((error) => {
+        console.log(error);
         if(error.message === 'missing' || error.message === 'deleted') {
             throw {errorCode: 404, message: "aucun quiz avec l'id " + quizInformationId}
         } else if(error.errorCode) {
@@ -161,6 +164,7 @@ function getQuestions(quizInformationId) {
         });
         return {questions: questions};
     }).catch((error) => {
+        console.log(error);
         if(error.message === 'missing' || error.message === 'deleted') {
             throw {errorCode: 404, message: "aucun quiz avec l'id " + quizInformationId}
         } else if(error.errorCode) {
@@ -230,6 +234,7 @@ function getCorrection(quizInformationId, questionId, userAnswer) {
             throw {errorCode: 404, message: "aucune question avec l'id " + questionId};
         }
     }).catch((error) => {
+        console.log(error);
         if(error.message === 'missing' || error.message === 'deleted') {
             throw {errorCode: 404, message: "aucun quiz avec l'id " + quizInformationId}
         } else if(error.errorCode) {
@@ -303,6 +308,7 @@ function addQuiz(quiz, username, token) {
     }).then(() => {
         return {message: 'quiz ajouté !', quizId: quizInfo._id};
     }).catch((error) => {
+        console.log(error);
         if(error.errorCode) {
             throw {errorCode: error.errorCode, message: error.message};
         } else {
