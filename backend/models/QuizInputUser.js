@@ -1,27 +1,20 @@
 class QuizInputUser {
 
-    constructor(name, image_url, questions, description, taxBloom) {
-        this.check(name, image_url, questions, description, taxBloom);
+    constructor(name, image_url, questions, description, taxBloom, categories) {
+        this.check(name, image_url, questions, description, taxBloom, categories);
         this.name = name;
         this.image_url = image_url;
         this.questions = JSON.parse(questions);
-        let categoriesSet = new Set();
-        this.questions.forEach(function (question) {
-            if(question.enabled) {
-                question.categories.forEach(function (categorie) {
-                    categoriesSet.add(categorie);
-                })
-            }
-        });
-        this.categories = Array.from(categoriesSet)
+        this.categories = JSON.parse(categories);
         this.description = description;
         this.taxBloom = JSON.parse(taxBloom);
     }
 
-    check(name, image_url, questions, description, taxBloom) {
+    check(name, image_url, questions, description, taxBloom, categories) {
         try {
             questions = JSON.parse(questions);
             taxBloom = JSON.parse(taxBloom);
+            categories = JSON.parse(categories);
         }catch (e) {
             throw {errorCode: 500, message: 'Json format not well formed (questions or taxBloom)'}
         }
@@ -43,6 +36,20 @@ class QuizInputUser {
         if(typeof description !== 'string'){
             throw {errorCode: 500, message: 'param description is not a string'}
         }
+        if(categories == null) {
+            throw {errorCode: 500, message: 'param categories is required'}
+        }
+        if(!Array.isArray(categories)){
+            throw {errorCode: 500, message: 'param categories is not an array'}
+        }
+        categories.forEach(function (categorie, index) {
+            if(typeof categorie.categorie !== "string") {
+                throw {errorCode: 500, message: 'categorie name n°' + index + ' is not a string'}
+            }
+            if(typeof categorie.enabled !== "boolean") {
+                throw {errorCode: 500, message: 'categorie enabled n°' + index + ' is not a boolean'}
+            }
+        });
         if(taxBloom == null) {
             throw {errorCode: 500, message: 'param taxBloom is required'}
         }

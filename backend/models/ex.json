@@ -1,0 +1,34 @@
+[
+  {
+    "question": "En quelle année le premier homme a marché sur la lune ?",
+    "answer": "1969",
+    "distractors": [
+      "2000",
+      "1979",
+      "1993"
+    ],
+    "clue": "this is the clue",
+    "clueResource": "http://resource.clue",
+    "categories": [
+      "espace",
+      "apollo"
+    ],
+    "enabled": false
+  },
+  {
+    "question": "Qui a marché pour la première fois sur la lune ?",
+    "answer": "Neil Armstrong",
+    "distractors": [
+      "Thomas Pesquet",
+      "Harrison Schmitt",
+      "Alan Shepard"
+    ],
+    "clue": "this is the clue",
+    "clueResource": "http://resource.clue",
+    "categories": [
+      "espace",
+      "apollo"
+    ],
+    "enabled": true
+  }
+]

@@ -12,9 +12,11 @@ function getAllQuizzes() {
     return quizzesInformationDb.list({include_docs: true}).then((body) => {
         let result = [];
         body.rows.forEach(function (doc) {
-            const quizInformation = new QuizInformation();
-            quizInformation.constructByDbDocument(doc.doc);
-            result.push(quizInformation.getUserView());
+            if(!doc.doc._id.includes('_design/')) {
+                const quizInformation = new QuizInformation();
+                quizInformation.constructByDbDocument(doc.doc);
+                result.push(quizInformation.getUserView());
+            }
         });
         return result;
     }).catch((error) => {
