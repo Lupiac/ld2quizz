@@ -20,7 +20,7 @@
                 v-for="(quizz, index) in quizzList"
                 :key="index"
               >
-                <quizz-item :quizz="quizz"/>
+                <quizz-item class="" :quizz="quizz"/>
               </div>
               <div v-if="quizzList.length===0">
                 <p>Vous n'avez pas encore créé de quiz</p>

@@ -43,7 +43,7 @@ class QuizInputUser {
             throw {errorCode: 500, message: 'param categories is not an array'}
         }
         categories.forEach(function (categorie, index) {
-            if(typeof categorie.categorie !== "string") {
+            if(typeof categorie.name !== "string") {
                 throw {errorCode: 500, message: 'categorie name n°' + index + ' is not a string'}
             }
             if(typeof categorie.enabled !== "boolean") {
