@@ -27,7 +27,7 @@
           </div>
         </div>
 
-        <div class="columns is-horizontal level">
+        <div class="columns is-horizontal">
           <div class="column is-5 is-flex">
             <div class="tile is-child box">
               <div class="level">
@@ -35,7 +35,7 @@
                   <p class="title is-size-4">Sujets Relatifs:</p>
                   <virtual-list class="box" :size="45" :remain="8 ">
                     <div
-                      class="is-large level-left"
+                      class="is-large level-left has-text-left"
                       v-for="(category, index) in quizz.categories"
                       :key="index"
                     >
@@ -49,7 +49,7 @@
               </div>
             </div>
           </div>
-          <div class="column is-2 level-left">
+          <div class="level-left">
             <button class="button is-link is-large start-button" v-on:click="launch()">
               <p>MODIFIER QUIZZ</p>
             </button>
