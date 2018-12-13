@@ -43,8 +43,10 @@
                         v-for="(category, index) in quizz.categories"
                         :key="index"
                       >
-                        <i class="fa fa-circle"></i>
-                        {{category}}
+                        <div v-if="category.enabled">
+                          <i class="fa fa-circle"/>
+                          {{category.name}}
+                        </div>
                       </div>
                     </virtual-list>
                   </div>

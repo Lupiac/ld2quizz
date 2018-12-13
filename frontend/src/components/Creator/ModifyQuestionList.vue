@@ -84,7 +84,7 @@
 </template>
 
 <script>
-import QuestionItem from "@/components/Creator/QuestionItem.vue";
+import QuestionItem from "@/components/Creator/ModifyQuestionItem.vue";
 
 import virtualList from "vue-virtual-scroll-list";
 import axios from "axios";

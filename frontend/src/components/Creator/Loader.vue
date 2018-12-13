@@ -1,6 +1,6 @@
 <template>
   <div>
-    <ul class="steps my-step-style has-content-centered">
+    <ul class="steps is-small my-step-style has-content-centered">
       <li
         class="steps-segment is-passed"
         v-on:click="$emit('change-step', {currentStep: 'create-quizz',createdQuizz:$parent.quizz_infos})"
