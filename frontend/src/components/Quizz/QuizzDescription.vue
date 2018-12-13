@@ -39,7 +39,7 @@
                   <div>
                     <virtual-list class="box" :size="30" :remain="8 ">
                       <div
-                        class="is-large level-left"
+                        class="is-large level-left has-text-left"
                         v-for="(category, index) in quizz.categories"
                         :key="index"
                       >

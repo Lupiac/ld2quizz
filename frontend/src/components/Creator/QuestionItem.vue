@@ -1,7 +1,7 @@
 <template>
   <div class="content">
     <blockquote class="blockquote-picked" v-if="item.enabled">
-      <div class="columns is-expanded level box">
+      <div class="columns is-expanded level box ">
         <div class="column is-10 has-text-left">
           <p>{{item.question}}</p>
         </div>

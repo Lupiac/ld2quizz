@@ -1,7 +1,7 @@
 <template>
   <div :to="`/quizz/${quizz.id}`" class="tile is-ancestor">
-    <a class="card-link tile is-child box">
-      <article class="tile is-child box image">
+    <a class="card-link tile is-child box hvr-grow">
+      <article class="tile is-child box image ">
         <div class="is-centered">
           <h4 class="post-category is-size-3">{{quizz.name}}</h4>
         </div>

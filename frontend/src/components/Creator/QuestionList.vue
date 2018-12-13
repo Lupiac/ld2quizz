@@ -2,7 +2,7 @@
   <div>
     <ul class="steps is-small my-step-style has-content-centered">
       <li
-        class="steps-segment is-passed"
+        class="steps-segment is-passed hvr-grow"
         v-on:click="$emit('change-step', {currentStep: 'create-quizz',createdQuizz:$parent.quizz_infos})"
       >
         <span class="steps-marker">1</span>
@@ -11,7 +11,7 @@
         </div>
       </li>
       <li
-        class="steps-segment is-passed"
+        class="steps-segment is-passed hvr-grow"
         v-on:click="$emit('change-step', {currentStep: 'generate-questions',createdQuizz:$parent.quizz_infos})"
       >
         <span class="steps-marker">2</span>
