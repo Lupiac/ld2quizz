@@ -62,7 +62,7 @@ myRouter.route('/:quiz_id').put(function (req, res) {
     }
 
     new Promise(function (resolve, reject) {
-        resolve(new QuizInputUser(req.body.name, req.body.image_url, req.body.questions, req.body.description, req.body.taxBloom));
+        resolve(new QuizInputUser(req.body.name, req.body.image_url, req.body.questions, req.body.description, req.body.taxBloom, req.body.categories));
     }).then((quizInputUser) => {
         return quizDbUtils.updateQuiz(req.params.quiz_id, quizInputUser, req.body.username, req.body.token);
     }).then((result) => {
@@ -145,7 +145,7 @@ myRouter.route('/').post(function(req, res) {
     }
 
     new Promise(function (resolve, reject) {
-        resolve(new QuizInputUser(req.body.name, req.body.image_url, req.body.questions, req.body.description, req.body.taxBloom));
+        resolve(new QuizInputUser(req.body.name, req.body.image_url, req.body.questions, req.body.description, req.body.taxBloom, req.body.categories));
     }).then((quizInputUser) => {
         return quizDbUtils.addQuiz(quizInputUser, req.body.username, req.body.token);
     }).then((result) => {

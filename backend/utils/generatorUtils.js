@@ -49,7 +49,11 @@ function generate(domain_description, username, token, trynumber = 0) {
             });
             questions.push({question: question.question, answer:question.answer, distractors: distractors, categories: categories, clue: question.answer_abstract, clueResource: question.answer_resource, enabled: true})
         });
-        return {questions: questions, categories: Array.from(categoriesSet)};
+        let categories = [];
+        Array.from(categoriesSet).forEach(function (categorie) {
+            categories.push({categorie: categorie, enabled: true});
+        });
+        return {questions: questions, categories: categories};
     }).catch((error) => {
         console.log(error);
         if(error.response && error.response.data.message === 'No DBpedia resource was found in provided text') {

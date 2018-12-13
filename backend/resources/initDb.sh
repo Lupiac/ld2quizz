@@ -24,6 +24,6 @@ curl -X PUT --data @generatorDoc.json 'http://localhost:5984/generator/id_graph'
 
 # curl -X PUT --data @searchView.json 'http://localhost:5984/quizzes_information/_design/searchDesignDoc'
 
-# curl -X PUT --data @luceneDoc.json 'http://localhost:5984/quizzes_information/_design/luceneDesignDoc'
+curl -X PUT --data @luceneDoc.json 'http://localhost:5984/quizzes_information/_design/luceneDesignDoc'
 
 curl -X PUT --data @adminUserDoc.json 'http://localhost:5984/users/admin'
