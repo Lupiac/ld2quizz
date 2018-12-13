@@ -1,6 +1,6 @@
 <template>
-  <div class="container content is-fluid is-family-secondary">
-    <div class="tile is-ancestor box" style="overflow: auto;">
+  <div class="container content is-fluid is-family-secondary column is-8">
+    <div class="tile is-ancestor box columns column">
       <div class="tile is-vertical hero center-vert">
         <div class="tile is-child box">
           <div class="field is-horizontal level columns">
@@ -16,12 +16,12 @@
         </div>
         <div class="tile is-child box">
           <div class="field is-horizontal level columns">
-            <div class="label is-child is-normal level-item column is-one-fifth has-text-left">
+            <div class="is-child is-normal level-item column is-one-fifth has-text-left">
               <label class="title is-size-4">Description:</label>
-            </div>
-            <div class="field-body has-text-left">
-              <div class="field">
-                <p class="control">{{quizz.description}}</p>
+              <div class="field-body has-text-left">
+                <div class="field">
+                  <p class="control">{{quizz.description}}</p>
+                </div>
               </div>
             </div>
           </div>
@@ -39,8 +39,10 @@
                       v-for="(category, index) in quizz.categories"
                       :key="index"
                     >
-                      <i class="fa fa-circle"/>
-                      {{category}}
+                      <div v-if="category.enabled">
+                        <i class="fa fa-circle"/>
+                        {{category.name}}
+                      </div>
                     </div>
                   </virtual-list>
                 </div>
@@ -152,7 +154,6 @@ $shadow: rgba(0, 0, 0, 1.5);
   font-size: 1.125em;
 }
 .center-vert {
-  margin-top: 10%;
 }
 .modal-content {
   width: calc(95vw - 40px);

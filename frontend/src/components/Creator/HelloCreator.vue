@@ -7,7 +7,7 @@
       >
         <div class="box">
           <div class="is-centered is-size-3">
-            <div class="icon add" v-on:click="createQuizz()">
+            <div class="icon add hvr-grow" v-on:click="createQuizz()">
               <i class="fa fa-plus-square fa-lg"/>
             </div>
             <strong>Mes Quiz</strong>
@@ -35,7 +35,7 @@
         <h3
           class="subtitle is-3"
         >Vous pouvez modifier un de vos quiz existant ou en créer un nouveau</h3>
-        <button class="button is-link" v-on:click="createQuizz()">Créer un Quizz</button>
+        <button class="button is-link hvr-grow" v-on:click="createQuizz()">Créer un Quizz</button>
       </div>
       <div v-else class="column is-8 level box is-flex">
         <quizz-description class="level-item is-vertical-center is-flex" :quizz="quizz_preview"/>

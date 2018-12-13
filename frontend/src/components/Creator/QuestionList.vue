@@ -49,7 +49,7 @@
               >Choisir Aucun</div>
               <div
                 class="has-text-right button is-info"
-                v-on:click="pickedTopics = $parent.questions.categories; actualiseQuestions()"
+                v-on:click="pickAll(); actualiseQuestions()"
               >Choisir Tous</div>
             </div>
             <virtual-list class="box has-text-right" :size="80" :remain="8">
@@ -58,13 +58,13 @@
                 v-for="(category, index) of this.$parent.questions.categories"
                 :key="index"
               >
-                <div v-on:click="pickTopic(category)">
-                  <input type="checkbox" :id="category" :value="category" v-model="pickedTopics">
+                <div v-on:click="pickTopic(category.name)">
+                  <input type="checkbox" :id="category.name" :value="category.name" v-model="pickedTopics">
                   <label
                     class="checkbox"
-                    :for="category"
-                    v-on:click="pickTopic(category)"
-                  >{{category}}</label>
+                    :for="category.name"
+                    v-on:click="pickTopic(category.name)"
+                  >{{category.name}}</label>
                 </div>
               </div>
             </virtual-list>
@@ -114,18 +114,30 @@ export default {
   data() {
     return {
       questions: [],
-      pickedTopics: this.$parent.questions.categories
+      pickedTopics: []
     };
   },
   created() {
     this.questions = this.$parent.questions.questions;
+    this.pickAll();
     console.log(this.questions);
   },
   computed: {},
   methods: {
+    pickAll: function() {
+      this.pickedTopics = [];
+      for (let category of this.$parent.questions.categories) {
+        if (category.enabled) {
+          this.pickedTopics.push(category.name);
+        }
+      }
+    },
     pickTopic: function(category) {
       if (!this.pickedTopics.includes(category)) {
         this.pickedTopics.push(category);
+        this.$parent.questions.categories[
+          this.$parent.questions.categories.indexOf(category)
+        ].enabled = true;
       } else if (
         this.pickedTopics.length !== this.$parent.questions.categories.length
       ) {
@@ -167,7 +179,8 @@ export default {
         questions: this.questions,
         taxBloom: this.$parent.quizz_infos.taxBloom,
         description: this.$parent.quizz_infos.description,
-        search: this.$parent.quizz_infos.search
+        search: this.$parent.quizz_infos.search,
+        categories: this.$parent.questions.categories
       };
 
       axios
@@ -178,7 +191,8 @@ export default {
           taxBloom: JSON.stringify(this.$parent.quizz_infos.taxBloom),
           description: this.$parent.quizz_infos.description,
           username: this.$parent.$parent._data.username,
-          token: this.$parent.$parent._data.token
+          token: this.$parent.$parent._data.token,
+          categories: JSON.stringify(this.$parent.questions.categories)
         })
         .then(response => {
           this.$emit("change-step", {
