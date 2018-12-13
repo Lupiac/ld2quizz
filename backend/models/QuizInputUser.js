@@ -3,6 +3,9 @@ class QuizInputUser {
     constructor(name, image_url, questions, description, taxBloom, categories) {
         this.check(name, image_url, questions, description, taxBloom, categories);
         this.name = name;
+        if(image_url == null || typeof image_url !== "string") {
+            image_url = 'https://upload.wikimedia.org/wikipedia/commons/c/c5/Quizz.png';
+        }
         this.image_url = image_url;
         this.questions = JSON.parse(questions);
         this.categories = JSON.parse(categories);
@@ -23,12 +26,6 @@ class QuizInputUser {
         }
         if(typeof name !== 'string'){
             throw {errorCode: 500, message: 'param name is not a string'}
-        }
-        if(image_url == null) {
-            throw {errorCode: 500, message: 'param image_url is required'}
-        }
-        if(typeof image_url !== 'string'){
-            throw {errorCode: 500, message: 'param image_url is not a string'}
         }
         if(description == null) {
             throw {errorCode: 500, message: 'param description is required'}
@@ -73,6 +70,11 @@ class QuizInputUser {
             }
             if(typeof question.question !== 'string') {
                 throw {errorCode: 500, message: 'param question is not a string (question index ' + index + ' )'}
+            }
+            if(question.modifiedQuestion != null) {
+                if(typeof question.modifiedQuestion !== "string") {
+                    throw {errorCode: 500, message: 'modifiedQuestion must be a string'}
+                }
             }
             if(question.answer == null) {
                 throw {errorCode: 500, message: 'answer is required (question index ' + index + ' )'}

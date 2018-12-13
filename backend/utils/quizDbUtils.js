@@ -96,6 +96,7 @@ function getQuizzesByUser(username, token) {
         });
         return result;
     }).catch((error) => {
+        console.log(error);
         if(error.errorCode) {
             throw {errorCode: error.errorCode, message: error.message}
         } else {
@@ -110,6 +111,7 @@ function getQuiz(quizInformationId) {
         quizInformation.constructByDbDocument(body);
         return quizInformation.getUserView();
     }).catch((error) => {
+        console.log(error);
         if(error.message === 'missing' || error.message === 'deleted') {
             throw {errorCode: 404, message: "aucun quiz avec l'id " + quizInformationId}
         } else {
@@ -131,6 +133,7 @@ function getQuestionsAnswers(quizInformationId, username, token) {
     }).then((quiz) => {
         return {questions: quiz.questions};
     }).catch((error) => {
+        console.log(error);
         if(error.message === 'missing' || error.message === 'deleted') {
             throw {errorCode: 404, message: "aucun quiz avec l'id " + quizInformationId}
         } else if(error.errorCode) {
@@ -153,6 +156,7 @@ function getQuestions(quizInformationId) {
                 answers = shuffle(answers);
                 questions.push({
                     question: question.question,
+                    modifiedQuestion: question.modifiedQuestion,
                     answers: answers,
                     clue: question.clue,
                     clueResource: question.clueResource
@@ -161,6 +165,7 @@ function getQuestions(quizInformationId) {
         });
         return {questions: questions};
     }).catch((error) => {
+        console.log(error);
         if(error.message === 'missing' || error.message === 'deleted') {
             throw {errorCode: 404, message: "aucun quiz avec l'id " + quizInformationId}
         } else if(error.errorCode) {
@@ -190,7 +195,7 @@ function getQuestion(quizInformationId, questionId) {
             let answers = quiz.questions[indexQuestion].distractors;
             answers.push(quiz.questions[indexQuestion].answer);
             answers = shuffle(answers);
-            return {question: quiz.questions[indexQuestion].question, answers: answers, clue: quiz.questions[indexQuestion].clue, clueResource: quiz.questions[indexQuestion].clueResource};
+            return {question: quiz.questions[indexQuestion].question, modifiedQuestion: quiz.questions[indexQuestion].modifiedQuestion, answers: answers, clue: quiz.questions[indexQuestion].clue, clueResource: quiz.questions[indexQuestion].clueResource};
         } else {
             throw {errorCode: 404, message: "aucune question avec l'id " + questionId};
         }
@@ -222,14 +227,15 @@ function getCorrection(quizInformationId, questionId, userAnswer) {
                 }
             }
             if (quiz.questions[indexQuestion].answer === userAnswer) {
-                return {question: quiz.questions[indexQuestion].question, correction: 'correct', correctAnswer: quiz.questions[indexQuestion].answer, userAnswer: userAnswer};
+                return {question: quiz.questions[indexQuestion].question, modifiedQuestion: quiz.questions[indexQuestion].modifiedQuestion, correction: 'correct', correctAnswer: quiz.questions[indexQuestion].answer, userAnswer: userAnswer};
             } else {
-                return {question: quiz.questions[indexQuestion].question, correction: 'incorrect', correctAnswer: quiz.questions[indexQuestion].answer, userAnswer: userAnswer};
+                return {question: quiz.questions[indexQuestion].question, modifiedQuestion: quiz.questions[indexQuestion].modifiedQuestion, correction: 'incorrect', correctAnswer: quiz.questions[indexQuestion].answer, userAnswer: userAnswer};
             }
         } else {
             throw {errorCode: 404, message: "aucune question avec l'id " + questionId};
         }
     }).catch((error) => {
+        console.log(error);
         if(error.message === 'missing' || error.message === 'deleted') {
             throw {errorCode: 404, message: "aucun quiz avec l'id " + quizInformationId}
         } else if(error.errorCode) {
@@ -303,6 +309,7 @@ function addQuiz(quiz, username, token) {
     }).then(() => {
         return {message: 'quiz ajouté !', quizId: quizInfo._id};
     }).catch((error) => {
+        console.log(error);
         if(error.errorCode) {
             throw {errorCode: error.errorCode, message: error.message};
         } else {
