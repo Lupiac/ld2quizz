@@ -35,7 +35,7 @@
             <div class="tile is-child box">
               <div class="field is-horizontal level columns">
                 <div class="label is-child is-normal level-item column is-one-seventh">
-                  <label class="title is-size-1-desktop">Nom:</label>
+                  <label class="title is-size-4-desktop">Nom:</label>
                 </div>
                 <div class="field-body">
                   <div class="field">
@@ -150,7 +150,7 @@ Ex: 'Voici un quiz sur le Big Data'"
           <div class="tile is-child box">
             <div class="field is-horizontal level columns">
               <div class="label is-child is-normal level-item column is-one-seventh">
-                <label class="title is-size-4">Recherche:</label>
+                <label class="title is-size-2">Recherche:</label>
               </div>
               <div class="field-body">
                 <div class="field">

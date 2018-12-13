@@ -75,7 +75,7 @@
             />
           </div>
         </virtual-list>
-        <button class="button is-link is-flex" v-on:click="update()">
+        <button class="button is-link is-flex" v-on:click="updateQuizz()">
           <p>Suivant</p>
         </button>
       </div>
@@ -161,7 +161,7 @@ export default {
       }
       console.log("------- Fin -------");
     },
-    update: function() {
+    updateQuizz: function() {
       this.$emit("change-step", { currentStep: "modify-info" });
       console.log(this.questions);
       this.$parent.quizz_infos = {

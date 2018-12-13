@@ -2,7 +2,7 @@
   <div class="container has-nav">
     <div class="results">
       <p class="is-size-2" style="margin-bottom: 2%;">
-        <strong>You have {{getScore}}/{{this.$parent.quizz.nbQuestion}}</strong>
+        <strong>Vous avez obtnenu {{getScore}}/{{this.$parent.quizz.nbQuestion}}</strong>
       </p>
       <progress
         class="progress is-primary"

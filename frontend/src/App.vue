@@ -4,7 +4,7 @@
       <nav class="navbar is-fixed-top is-dark" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
           <router-link to="/" class="navbar-item">
-            <p class="is-size-3">LD2QUIZ</p>
+            <p class="is-size-3">LOD2QUIZ</p>
           </router-link>
 
           <a
@@ -25,13 +25,14 @@
             <router-link to="/" class="navbar-item">Catalogue</router-link>
 
             <router-link to="/creator" class="navbar-item">Générateur de Quiz</router-link>
+            <router-link to="/about" class="navbar-item">A Propos</router-link>
           </div>
           <div class="navbar-end">
             <div class="navbar-item">
               <div v-if="token===''" class="buttons">
-                <router-link to="/signup" class="button is-primary">
+                <!-- <router-link to="/signup" class="button is-primary">
                   <strong>S'inscrire</strong>
-                </router-link>
+                </router-link> -->
                 <router-link to="/login" class="button is-light">Connexion</router-link>
               </div>
               <div v-else-if="token!==''" class="buttons" v-on:click="disconnect()">

@@ -39,7 +39,7 @@
             </div>
           </div>
           <p class="has-text-grey">
-            <a>Connexion/a> &nbsp;·&nbsp;
+            <a>Connexion</a> &nbsp;·&nbsp;
             <a>Mot de passe oublié</a> &nbsp;·&nbsp;
             <a>Besion d'aide?</a>
           </p>
