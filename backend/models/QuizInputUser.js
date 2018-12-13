@@ -74,6 +74,11 @@ class QuizInputUser {
             if(typeof question.question !== 'string') {
                 throw {errorCode: 500, message: 'param question is not a string (question index ' + index + ' )'}
             }
+            if(question.modifiedQuestion != null) {
+                if(typeof question.modifiedQuestion !== "string") {
+                    throw {errorCode: 500, message: 'modifiedQuestion must be a string'}
+                }
+            }
             if(question.answer == null) {
                 throw {errorCode: 500, message: 'answer is required (question index ' + index + ' )'}
             }
