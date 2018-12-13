@@ -1,10 +1,13 @@
 <template>
   <div class="container content is-fluid is-family-secondary column is-8">
+
     <div class="tile is-ancestor box columns column">
       <div class="tile is-vertical hero center-vert">
         <div class="tile is-child box">
           <div class="field is-horizontal level columns">
             <div class="field-body">
+                            <button class=" is-link" v-on:click="back()">Retour</button>
+
               <div class="field">
                 <p class="control is-expanded is-size-1 has-text-centered is-italic">
                   <strong>{{quizz.name}}</strong>
@@ -50,7 +53,7 @@
             </div>
           </div>
           <div class="level-left">
-            <button class="button is-link is-large start-button" v-on:click="launch()">
+            <button class="button is-link is-large modif-button" v-on:click="launch()">
               <p>MODIFIER QUIZZ</p>
             </button>
           </div>
@@ -102,10 +105,14 @@ export default {
   }),
   methods: {
     launch: function() {
+      this.quizz = this.$parent.quizz_preview;
       this.isActive = true;
     },
     close: function() {
       this.isActive = false;
+    },
+    back: function() {
+      this.$parent.preview=false;
     }
   }
 };
@@ -150,8 +157,9 @@ $shadow: rgba(0, 0, 0, 1.5);
   object-fit: cover;
 }
 
-.start-button {
+.modif-button {
   font-size: 1.125em;
+  margin-left: 12vw;
 }
 .center-vert {
 }

@@ -31,6 +31,25 @@
     <div class="container is-fluid is-family-secondary has-navbar-fixed-top">
       <div class="content tile is-ancestor box hero">
         <div class="tile is-vertical hero-body">
+          <div class="tile is-child box">
+            <div class="field is-horizontal level columns">
+              <div class="label is-child is-normal level-item column is-one-seventh">
+                <label class="title is-size-2">Générer à partir du texte:</label>
+              </div>
+              <div class="field-body">
+                <div class="field">
+                  <p class="control is-expanded">
+                    <textarea
+                      v-model="createdQuizz.search"
+                      class="textarea"
+                      placeholder="Entrez ce que vous voulez chercher...  
+Ex: 'Le big data, littéralement « grosses données », ou mégadonnées, parfois appelées données massives, désigne des ensembles de données devenus si volumineux qu'ils dépassent l'intuition et les capacités humaines d'analyse et même celles des outils informatiques classiques de gestion de base de données'"
+                    ></textarea>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
           <div class="box infos">
             <div class="tile is-child box">
               <div class="field is-horizontal level columns">
@@ -54,8 +73,11 @@
 
             <div class="tile is-child box">
               <div class="field is-horizontal level columns">
-                <div class="label is-child is-normal level-item column is-one-seventh">
+                <div
+                  class="label is-child is-normal level-item column is-one-seventh has-text-centered"
+                >
                   <label class="title is-size-4">Image :</label>
+                  <p>(facultatif)</p>
                 </div>
                 <div class="field-body">
                   <div class="field">
@@ -147,32 +169,8 @@ Ex: 'Voici un quiz sur le Big Data'"
             </div>
           </div>
 
-          <div class="tile is-child box">
-            <div class="field is-horizontal level columns">
-              <div class="label is-child is-normal level-item column is-one-seventh">
-                <label class="title is-size-2">Recherche:</label>
-              </div>
-              <div class="field-body">
-                <div class="field">
-                  <p class="control is-expanded">
-                    <textarea
-                      v-model="createdQuizz.search"
-                      class="textarea"
-                      placeholder="Entrez ce que vous voulez chercher...  
-Ex: 'Le big data, littéralement « grosses données », ou mégadonnées, parfois appelées données massives, désigne des ensembles de données devenus si volumineux qu'ils dépassent l'intuition et les capacités humaines d'analyse et même celles des outils informatiques classiques de gestion de base de données'"
-                    ></textarea>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
           <div class="tile is-child">
-            <button
-              class="button is-link"
-              v-on:click="$emit('change-step', {currentStep:'generate-questions', createdQuizz: createdQuizz});
-            this.$parent.quizz_infos = createdQuizz"
-            >
+            <button class="button is-link" v-on:click="generate()">
               <p>GÉNÉRER
                 <br>QUESTIONS
               </p>
@@ -186,13 +184,11 @@ Ex: 'Le big data, littéralement « grosses données », ou mégadonnées, parfo
 
 <script>
 import Vue from "vue";
-import { VueTags } from "vue-tags-component";
+import VueToasted from "vue-toasted";
 
 export default {
   name: "create-quizz",
-  components: {
-    "vue-tags": VueTags
-  },
+  components: {},
   data() {
     return {
       createdQuizz: {
@@ -205,9 +201,48 @@ export default {
     };
   },
   created() {
+    Vue.use(VueToasted, {});
     this.createdQuizz = this.$parent.quizz_infos;
   },
-  methods: {}
+  methods: {
+    generate: function() {
+      if (this.createdQuizz.search === "") {
+        let toast = this.$toasted.error(
+          "Vous devez renseigner un champ de texte pour générer des questions",
+          {
+            theme: "primary",
+            position: "top-right",
+            duration: 2000,
+            type: "error"
+          }
+        );
+      } else if (this.createdQuizz.name === "") {
+        let toast = this.$toasted.error("Votre quiz n'a pas de nom", {
+          theme: "primary",
+          position: "top-right",
+          duration: 2000,
+          type: "error"
+        });
+      } else if (this.createdQuizz.taxBloom.length ===0) {
+        let toast = this.$toasted.error(
+          "Vous devez choisir un objectif pédagogique",
+          {
+            theme: "primary",
+            position: "top-right",
+            duration: 2000,
+            type: "error"
+          }
+        );
+      } else {
+        this.$emit("change-step", {
+        currentStep: "generate-questions",
+        createdQuizz: this.createdQuizz
+      });
+      this.$parent.quizz_infos = this.createdQuizz;
+      }
+      
+    }
+  }
 };
 </script>
 

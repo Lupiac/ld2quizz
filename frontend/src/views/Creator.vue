@@ -2,7 +2,7 @@
   <section class="has-nav">
     <component
       v-bind:is="currentStep"
-      v-on:change-step="currentStep = $event.currentStep; quizz_infos = quizz_infos= $event.createdQuizz"
+      v-on:change-step="currentStep = $event.currentStep;quizz_infos= $event.createdQuizz"
     ></component>
   </section>
 </template>
@@ -35,7 +35,8 @@ export default {
         taxBloom: [],
         image_url: ""
       },
-      questions: {}
+      questions: {},
+      errors:[]
     };
   }
 };

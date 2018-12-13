@@ -14,7 +14,7 @@
         class="steps-segment is-passed hvr-grow"
         v-on:click="$emit('change-step', {currentStep: 'generate-questions',createdQuizz:$parent.quizz_infos})"
       >
-        <span class="steps-marker">2</span>
+        <span class="steps-marker ">2</span>
         <div class="steps-content">
           <p class="is-size-5">Génération</p>
         </div>
@@ -59,7 +59,12 @@
                 :key="index"
               >
                 <div v-on:click="pickTopic(category)">
-                  <input type="checkbox" :id="category.name" :value="category.name" v-model="pickedTopics">
+                  <input
+                    type="checkbox"
+                    :id="category.name"
+                    :value="category.name"
+                    v-model="pickedTopics"
+                  >
                   <label
                     class="checkbox"
                     :for="category.name"
@@ -90,9 +95,11 @@
             />
           </div>
         </virtual-list>
-        <button class="button is-link is-flex" v-on:click="saveQuizz()">
-          <p>Suivant</p>
-        </button>
+        <div class="columns">
+          <button class="button is-link is-flex save  is-centered" v-on:click="saveQuizz()">
+            <p>SAUVEGARDER QUIZ</p>
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -123,11 +130,11 @@ export default {
   },
   computed: {},
   methods: {
-    pickNone: function(){
+    pickNone: function() {
       this.pickedTopics = [];
       for (let category of this.$parent.questions.categories) {
         /* if (category.enabled) { */
-          category.enabled =false;
+        category.enabled = false;
         /* } */
       }
     },
@@ -135,8 +142,8 @@ export default {
       this.pickedTopics = [];
       for (let category of this.$parent.questions.categories) {
         /* if (category.enabled) { */
-          this.pickedTopics.push(category.name);
-          category.enabled =true;
+        this.pickedTopics.push(category.name);
+        category.enabled = true;
         /* } */
       }
     },
@@ -154,28 +161,28 @@ export default {
       this.actualiseQuestions();
     },
     actualiseQuestions: function() {
-     // console.log("------- ACTUALISATION -------");
+      // console.log("------- ACTUALISATION -------");
       for (let question of this.$parent.questions.questions) {
-      //  console.log(question);
+        //  console.log(question);
         let toDelete = true;
         for (let category of question.categories) {
-        //  console.log(this.pickedTopics.includes(category));
+          //  console.log(this.pickedTopics.includes(category));
           if (this.pickedTopics.includes(category)) {
             toDelete = false;
             break;
           }
         }
-     //   console.log("toDelete: " + toDelete);
+        //   console.log("toDelete: " + toDelete);
         if (toDelete) {
           question.enabled = false;
         } else {
           question.enabled = true;
         }
-       // console.log(question);
+        // console.log(question);
 
-       // console.log("****************");
+        // console.log("****************");
       }
-     // console.log("------- Fin -------");
+      // console.log("------- Fin -------");
       this.questions = this.$parent.questions.questions;
     },
     saveQuizz: function() {
@@ -229,6 +236,9 @@ export default {
   margin-left: auto;
   margin-right: auto;
 }
+.save{
+  margin-left: 40%;
+}
 .red-quote {
   border-left: 4px solid red;
 }
@@ -250,4 +260,5 @@ export default {
 .steps {
   color: rgba(255, 255, 255, 01);
 }
+
 </style>

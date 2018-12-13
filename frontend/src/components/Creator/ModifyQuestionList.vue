@@ -30,11 +30,11 @@
             <div class="columnsis-pulled-right has-text-info">
               <div
                 class="button is-light"
-                v-on:click="pickedTopics = []; actualiseQuestions()"
+                v-on:click="pickNone(); actualiseQuestions()"
               >Choisir Aucun</div>
               <div
                 class="has-text-right button is-info"
-                v-on:click="pickedTopics = $parent.quizz_infos.categories; actualiseQuestions()"
+                v-on:click="pickAll(); actualiseQuestions()"
               >Choisir Tous</div>
             </div>
             <virtual-list class="box has-text-right" :size="80" :remain="8">
@@ -43,13 +43,14 @@
                 v-for="(category, index) of this.$parent.quizz_infos.categories"
                 :key="index"
               >
-                <div v-on:click="pickTopic(category)">
-                  <input type="checkbox" :id="category" :value="category" v-model="pickedTopics">
-                  <label
-                    class="checkbox"
-                    :for="category"
-                    v-on:click="pickTopic(category)"
-                  >{{category}}</label>
+                <div v-on:click="pickTopic(category, index)">
+                  <input
+                    type="checkbox"
+                    :id="category.name"
+                    :value="category.name"
+                    v-model="pickedTopics"
+                  >
+                  <label class>{{category.name}}</label>
                 </div>
               </div>
             </virtual-list>
@@ -75,8 +76,8 @@
             />
           </div>
         </virtual-list>
-        <button class="button is-link is-flex" v-on:click="updateQuizz()">
-          <p>Suivant</p>
+        <button class="button update is-link is-flex" v-on:click="updateQuizz()">
+          <p>METTRE A JOUR</p>
         </button>
       </div>
     </div>
@@ -85,7 +86,8 @@
 
 <script>
 import QuestionItem from "@/components/Creator/ModifyQuestionItem.vue";
-
+import Vue from "vue";
+import VueToasted from "vue-toasted";
 import virtualList from "vue-virtual-scroll-list";
 import axios from "axios";
 let server = "localhost:3000";
@@ -103,7 +105,9 @@ export default {
     };
   },
   created() {
-    this.pickedTopics = this.$parent.quizz_infos.categories;
+    Vue.use(VueToasted, {});
+    this.actualisePickedTopics();
+
     axios
       .get(
         "http://" +
@@ -126,40 +130,77 @@ export default {
   },
   computed: {},
   methods: {
-    pickTopic: function(category) {
-      if (!this.pickedTopics.includes(category)) {
-        this.pickedTopics.push(category);
-      } else if (
-        this.pickedTopics.length !== this.$parent.quizz_infos.categories.length
-      ) {
-        console.log(this.pickedTopics.indexOf(category));
-        this.pickedTopics.splice(this.pickedTopics.indexOf(category), 1);
+    actualisePickedTopics() {
+      this.pickedTopics = [];
+      for (let category of this.$parent.quizz_infos.categories) {
+        if (category.enabled) {
+          this.pickedTopics.push(category.name);
+        }
       }
+    },
+    pickNone: function() {
+      for (let category of this.$parent.quizz_infos.categories) {
+        /* if (category.enabled) { */
+        category.enabled = false;
+        /* } */
+      }
+      this.actualisePickedTopics();
+    },
+    pickAll: function() {
+      for (let category of this.$parent.quizz_infos.categories) {
+        /* if (category.enabled) { */
+        //this.pickedTopics.push(category.name);
+        category.enabled = true;
+        /* } */
+      }
+      this.actualisePickedTopics();
+    },
+    pickTopic: function(category, index) {
+      console.log("Avant");
+      console.log(index);
+      console.log(this.$parent.quizz_infos.categories[index].enabled);
+      console.log(category);
+      if (!this.$parent.quizz_infos.categories[index].enabled) {
+        //this.pickedTopics.push(category.name);
+        // this.$parent.quizz_infos.categories[index].enabled = true;
+        this.$parent.quizz_infos.categories[index].enabled = true;
+      } else {
+        //this.pickedTopics.splice(this.pickedTopics.indexOf(category.name), 1);
+        //this.$parent.quizz_infos.categories[index].enabled = false;
+        this.$parent.quizz_infos.categories[index].enabled = false;
+      }
+      console.log("Apreès");
+
+      console.log(this.$parent.quizz_infos.categories[index].enabled);
+      console.log(category);
+      this.actualisePickedTopics();
+
       this.actualiseQuestions();
+      console.log("---------------------");
     },
     actualiseQuestions: function() {
-      console.log("------- ACTUALISATION -------");
+      //      console.log("------- ACTUALISATION -------");
       for (let question of this.questions) {
-        console.log(question);
+        //      console.log(question);
         let toDelete = true;
         for (let category of question.categories) {
-          console.log(this.pickedTopics.includes(category));
+          //      console.log(this.pickedTopics.includes(category));
           if (this.pickedTopics.includes(category)) {
             toDelete = false;
             break;
           }
         }
-        console.log("toDelete: " + toDelete);
+        //      console.log("toDelete: " + toDelete);
         if (toDelete) {
           question.enabled = false;
         } else {
           question.enabled = true;
         }
-        console.log(question);
+        //   console.log(question);
 
-        console.log("****************");
+        //   console.log("****************");
       }
-      console.log("------- Fin -------");
+      //    console.log("------- Fin -------");
     },
     updateQuizz: function() {
       this.$emit("change-step", { currentStep: "modify-info" });
@@ -171,7 +212,8 @@ export default {
         taxBloom: this.$parent.quizz_infos.taxBloom,
         description: this.$parent.quizz_infos.description,
         username: this.$parent.$parent.$parent.username,
-        token: this.$parent.$parent.$parent.token
+        token: this.$parent.$parent.$parent.token,
+        categories: this.$parent.quizz_infos.categories
       };
 
       axios
@@ -182,13 +224,22 @@ export default {
           taxBloom: JSON.stringify(this.$parent.quizz_infos.taxBloom),
           description: this.$parent.quizz_infos.description,
           username: this.$parent.quizz_infos.username,
-          token: this.$parent.quizz_infos.token
+          token: this.$parent.quizz_infos.token,
+          categories: JSON.stringify(this.$parent.quizz_infos.categories)
         })
         .then(response => {
           this.$emit("change-step", {
             currentStep: "modify-info"
           });
           this.$parent.$parent.isActive = false;
+          let toast = this.$toasted.show(
+          "Le quiz a été mis à jour",
+          {
+            theme: "primary",
+            position: "top-right",
+            duration: 2000
+          }
+        );
         })
         .catch(e => {
           console.log(e);
@@ -204,6 +255,9 @@ export default {
   margin-top: 5%;
   margin-left: auto;
   margin-right: auto;
+}
+.update {
+  margin-left: 40%;
 }
 .red-quote {
   border-left: 4px solid red;

@@ -2,13 +2,15 @@
   <div>
     <ul class="steps is-small my-step-style has-content-centered">
       <li
-        class="steps-segment is-passed hvr-grow"
+        class="steps-segment is-passed"
         v-on:click="$emit('change-step', {currentStep: 'create-quizz',createdQuizz:$parent.quizz_infos})"
       >
+      <div class="hvr-grow">
         <span class="steps-marker">1</span>
         <div class="steps-content">
           <p class="is-size-5">Infos Quiz</p>
         </div>
+      </div>
       </li>
       <li class="steps-segment is-active">
         <span class="steps-marker">2</span>
@@ -66,7 +68,8 @@ export default {
         depth: 8,
         rotation: true,
         speed: 1.5
-      }
+      },
+      errors: []
     };
   },
   created() {
@@ -86,16 +89,21 @@ export default {
         });
       })
       .catch(e => {
+        let toast = this.$toasted.error("Aucune donnée n'a été trouvée à partir du texte renseigné...  Veuillez rajouter du contexte.", {
+          theme: "primary",
+          position: "top-right",
+          duration: 2000
+        });
+        console.log(e);
         this.$emit("change-step", {
           currentStep: "create-quizz",
           createdQuizz: this.$parent.quizz_infos
         });
-        console.log(e);
       });
   },
   methods: {
     back: function() {
-      let toast = this.$toasted.show(
+      let toast = this.$toasted.error(
         "Une erreura eu lieu avec le server.\nVeuillez réessayer...",
         {
           theme: "primary",

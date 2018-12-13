@@ -15,12 +15,12 @@
           <div>
             <virtual-list class="box" :size="95" :remain="8">
               <div
-                v-on:click="preview = true; quizz_preview = quizz;"
                 class="column is-narrow-desktop item"
                 v-for="(quizz, index) in quizzList"
                 :key="index"
+                v-on:click="preview = true; quizz_preview = quizz;"
               >
-                <quizz-item class="" :quizz="quizz"/>
+                <quizz-item class :quizz="quizz"/>
               </div>
               <div v-if="quizzList.length===0">
                 <p>Vous n'avez pas encore créé de quiz</p>
@@ -30,7 +30,7 @@
         </div>
       </div>
 
-      <div v-if="!preview" class="column is-8 box" style="overflow: auto;">
+      <div v-if="!preview" class="column is-8 box" style="padding-top: 17%; overflow: auto;">
         <h1 class="title is-1">Bienvenue</h1>
         <h3
           class="subtitle is-3"

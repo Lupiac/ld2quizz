@@ -2,15 +2,21 @@
   <div class="content">
     <blockquote class="blockquote-picked" v-if="item.enabled">
       <div class="columns is-expanded level box">
-        <div class="column is-10 has-text-left">
+        <div v-if="!item.modifiedQuestion" class="column is-10 has-text-left">
           <p>{{item.question}}</p>
         </div>
+        <div v-else class="column is-10 has-text-left">
+          <p>{{item.modifiedQuestion}}</p>
+        </div>
         <div>
-          <div class="icon is-spaced is-large level-item">
-            <div v-on:click="deleteQuestion()">
+          <div class="icon is-spaced is-large level-item" style="font-size: 1.4em;">
+            <div class="hvr-grow" v-on:click="edit=!edit;">
+              <i class="far fa-edit is-spaced fa-lg space"></i>
+            </div>
+            <div class="hvr-grow" v-on:click="deleteQuestion()">
               <i class="is-spaced fa fa-trash fa-lg space"/>
             </div>
-            <div class="is-spaced" v-on:click="expand=!expand; ">
+            <div class="is-spaced hvr-grow" v-on:click="expand=!expand; ">
               <div v-if="!expand">
                 <i class="is-spaced fa fa-caret-square-right fa-lg"></i>
               </div>
@@ -21,6 +27,18 @@
           </div>
         </div>
       </div>
+      <div v-if="edit" class="has-text-left detail box">
+        <p class="answer is-italic">
+          <input
+            class="input"
+            type="text"
+            placeholder="Reformuler la question"
+            v-model="modifiedQuestion"
+          >
+          <button class="button is-link" @click="confirm()">Modifier</button>
+          <button class="button is-primary" @click="restore()">Garder Originale</button>
+        </p>
+      </div>
       <div v-if="expand" class="has-text-left detail box">
         <p class="answer is-italic">
           <strong>Bonne réponse:</strong>
@@ -28,7 +46,7 @@
         </p>
         <div v-for="distractor in item.distractors" :key="distractor">
           <p>
-            <strong>Choix {{distractor.id}}:</strong>
+            <strong>Distracteur {{distractor.id}}:</strong>
             {{distractor}}
           </p>
         </div>
@@ -40,11 +58,11 @@
           <p>{{item.question}}</p>
         </div>
         <div class>
-          <div class="icon is-spaced is-large level-item space">
-            <div v-on:click="putBack()">
+          <div class="icon is-spaced is-large level-item space" style="font-size: 1.4em;">
+            <div class="hvr-grow" v-on:click="putBack()">
               <i class="is-spaced fas fa-redo-alt fa-lg"/>
             </div>
-            <div class="is-spaced">
+            <div class="is-spaced hvr-grow">
               <i class="is-spaced fa fa-caret-square-right fa-lg"/>
             </div>
           </div>
@@ -68,7 +86,9 @@ export default {
   data: function() {
     return {
       expand: false,
-      deleted: false
+      deleted: false,
+      edit: false,
+      modifiedQuestion: ""
     };
   },
   created() {},
@@ -85,7 +105,7 @@ export default {
       this.expanded = false;
       this.deleted = true;
       this.$parent.$parent.questions[this.id].enabled = false;
-      console.log(this.$parent.$parent.questions[this.id]);
+      //console.log(this.$parent.$parent.questions[this.id]);
       /*       this.$parent.$parent.questions.splice(id, 1);
        */
     },
@@ -97,7 +117,16 @@ export default {
         if (!this.$parent.$parent.pickedTopics.includes(category))
           this.$parent.$parent.pickedTopics.push(category);
       }
-      console.log(this.$parent.$parent.questions[this.id]);
+      // console.log(this.$parent.$parent.questions[this.id]);
+    },
+    confirm: function() {
+      this.item.modifiedQuestion = this.modifiedQuestion;
+      this.edit = false;
+    },
+    restore: function() {
+      delete this.item.modifiedQuestion;
+      this.edit = false;
+      this.modifiedQuestion = "";
     }
   }
 };
