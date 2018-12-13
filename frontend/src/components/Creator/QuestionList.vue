@@ -45,7 +45,7 @@
             <div class="columnsis-pulled-right has-text-info">
               <div
                 class="button is-light"
-                v-on:click="pickedTopics = []; actualiseQuestions()"
+                v-on:click="pickNone(); actualiseQuestions()"
               >Choisir Aucun</div>
               <div
                 class="has-text-right button is-info"
@@ -58,12 +58,12 @@
                 v-for="(category, index) of this.$parent.questions.categories"
                 :key="index"
               >
-                <div v-on:click="pickTopic(category.name)">
+                <div v-on:click="pickTopic(category)">
                   <input type="checkbox" :id="category.name" :value="category.name" v-model="pickedTopics">
                   <label
                     class="checkbox"
                     :for="category.name"
-                    v-on:click="pickTopic(category.name)"
+                    v-on:click="pickTopic(category)"
                   >{{category.name}}</label>
                 </div>
               </div>
@@ -120,55 +120,62 @@ export default {
   created() {
     this.questions = this.$parent.questions.questions;
     this.pickAll();
-    console.log(this.questions);
   },
   computed: {},
   methods: {
+    pickNone: function(){
+      this.pickedTopics = [];
+      for (let category of this.$parent.questions.categories) {
+        /* if (category.enabled) { */
+          category.enabled =false;
+        /* } */
+      }
+    },
     pickAll: function() {
       this.pickedTopics = [];
       for (let category of this.$parent.questions.categories) {
-        if (category.enabled) {
+        /* if (category.enabled) { */
           this.pickedTopics.push(category.name);
-        }
+          category.enabled =true;
+        /* } */
       }
     },
     pickTopic: function(category) {
-      if (!this.pickedTopics.includes(category)) {
-        this.pickedTopics.push(category);
-        this.$parent.questions.categories[
-          this.$parent.questions.categories.indexOf(category)
-        ].enabled = true;
+      if (!this.pickedTopics.includes(category.name)) {
+        this.pickedTopics.push(category.name);
+        category.enabled = true;
       } else if (
         this.pickedTopics.length !== this.$parent.questions.categories.length
       ) {
-        console.log(this.pickedTopics.indexOf(category));
-        this.pickedTopics.splice(this.pickedTopics.indexOf(category), 1);
+        console.log(this.$parent.questions.categories.indexOf(category));
+        this.pickedTopics.splice(this.pickedTopics.indexOf(category.name), 1);
+        category.enabled = false;
       }
       this.actualiseQuestions();
     },
     actualiseQuestions: function() {
-      console.log("------- ACTUALISATION -------");
+     // console.log("------- ACTUALISATION -------");
       for (let question of this.$parent.questions.questions) {
-        console.log(question);
+      //  console.log(question);
         let toDelete = true;
         for (let category of question.categories) {
-          console.log(this.pickedTopics.includes(category));
+        //  console.log(this.pickedTopics.includes(category));
           if (this.pickedTopics.includes(category)) {
             toDelete = false;
             break;
           }
         }
-        console.log("toDelete: " + toDelete);
+     //   console.log("toDelete: " + toDelete);
         if (toDelete) {
           question.enabled = false;
         } else {
           question.enabled = true;
         }
-        console.log(question);
+       // console.log(question);
 
-        console.log("****************");
+       // console.log("****************");
       }
-      console.log("------- Fin -------");
+     // console.log("------- Fin -------");
       this.questions = this.$parent.questions.questions;
     },
     saveQuizz: function() {

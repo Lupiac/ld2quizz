@@ -51,7 +51,7 @@ function generate(domain_description, username, token, trynumber = 0) {
         });
         let categories = [];
         Array.from(categoriesSet).forEach(function (categorie) {
-            categories.push({categorie: categorie, enabled: true});
+            categories.push({name: categorie, enabled: true});
         });
         return {questions: questions, categories: categories};
     }).catch((error) => {
