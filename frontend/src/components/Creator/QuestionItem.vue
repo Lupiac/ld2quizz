@@ -65,9 +65,6 @@
             <div class="hvr-grow" v-on:click="putBack()">
               <i class="is-spaced fas fa-redo-alt fa-lg"/>
             </div>
-            <div class="is-spaced hvr-grow">
-              <i class="is-spaced fa fa-caret-square-right fa-lg"/>
-            </div>
           </div>
         </div>
       </div>

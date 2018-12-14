@@ -1,9 +1,29 @@
 <template>
   <div class="container has-nav">
     <div class="results">
-      <p class="is-size-2" style="margin-bottom: 2%;">
-        <strong>Vous avez obtenu {{getScore}}/{{this.$parent.quizz.nbQuestion}}</strong>
-      </p>
+      <div class="buttons level">
+        <router-link to="/" class="button is-size-10 is-link level-left">
+          <span class="icon is-large" style="margin-right: 2%;">
+            <i class="fas fa-angle-left"></i>
+          </span>
+          Catalogue
+        </router-link>
+        <div class="level-center level-item">
+        <p class="column is-centered is-size-2" style="margin-bottom: 2%;">
+          <strong>Vous avez obtenu {{getScore}}/{{this.$parent.quizz.nbQuestion}}</strong>
+        </p>
+      </div>
+        <a
+          class="button is-size-6 is-link is-large level-right"
+          @click="$emit('change-step', {step:'quizz-description', quizz: $parent.quizz}); $parent.userAnswers=[]"
+        >
+          <span class="icon is-large" style="margin-right: 2%;">
+            <i class="fas fa-redo-alt"></i>
+          </span>
+          Réessayer
+        </a>
+      </div>
+ 
       <progress
         class="progress is-primary"
         style="margin-bottom: 3%;"
@@ -41,7 +61,6 @@
         </div>
       </li>
     </ul>
-    <router-link to="/" class="is-size-2 button is-link is-rounded">Jouer à un autre quizz</router-link>
   </div>
 </template>
 
@@ -61,6 +80,9 @@ export default {
       }
       console.log("score = " + score);
       return score;
+    },
+    tryAgain: function() {
+      return "/quizz/" + this.$parent.quizz.id + " ";
     }
   }
 };

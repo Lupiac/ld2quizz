@@ -2,14 +2,18 @@
   <div class="container content is-fluid is-family-secondary has-nav">
     <div class="tile is-ancestor box hero fullsize">
       <div class="tile is-vertical hero-body">
-        <div class="question">
+        <div v-if="!question.modifiedQuestion" class="question">
           <strong>{{question.question}}</strong>
         </div>
+        <div v-else class="question">
+          <strong>{{question.modifiedQuestion}}</strong>
+        </div>
+
       </div>
 
       <div v-for="answer in question.answers" :key="answer" class="control level">
         <label class="radio level-item level-left">
-          <input v-model="userAnswer" :value="answer" type="radio" name="answer">
+          <input class="is-radio" v-model="userAnswer" :value="answer" type="radio" name="answer">
           <p class="answer">{{answer}}</p>
         </label>
       </div>
@@ -148,7 +152,10 @@ export default {
 .question {
   font-size: 2vw;
 }
-
+.is-radio{
+  width: 1.25vw;
+  height: 1.25vw;
+}
 .answer {
   font-size: 1.5vw;
   margin-left: 5%;

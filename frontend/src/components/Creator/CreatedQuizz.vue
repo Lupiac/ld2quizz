@@ -27,7 +27,7 @@
           </div>
         </li>
       </ul>
-      <div class="columns is-centered">
+      <div class="columns is-centered" style="margin-top: 5%;">
         <div class="column is-8 box has-text-centered">
           <h1 class="title is-1">
             <strong>{{this.$parent.quizz_infos.name}}</strong>
