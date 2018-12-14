@@ -104,7 +104,7 @@ export default {
   methods: {
     searchQuizz: function() {
       axios
-        .get("http://" + server + "/quizzes?keywords=" + this.keywords+"&taxBloom="+bloomFilter)
+        .get("http://" + server + "/quizzes?keywords=" + this.keywords+"&taxBloom="+this.bloomFilter)
         .then(response => {
           console.log(response.data);
           this.quizzList = response.data;
