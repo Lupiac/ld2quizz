@@ -69,7 +69,7 @@ function searchQuizzesByKeywords(keywords, taxBloom) {
         return result;
     }).catch((error) => {
         console.log(error);
-        throw {errorCode: 500, message:"erreur de connection à l'API de génération" }
+        throw {errorCode: 500, message:"problème de base de données" }
     })
 
 }
