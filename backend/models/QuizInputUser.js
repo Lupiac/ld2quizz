@@ -3,7 +3,7 @@ class QuizInputUser {
     constructor(name, image_url, questions, description, taxBloom, categories) {
         this.check(name, image_url, questions, description, taxBloom, categories);
         this.name = name;
-        if(image_url == null || typeof image_url !== "string") {
+        if(image_url == null || image_url === "") {
             image_url = 'https://upload.wikimedia.org/wikipedia/commons/c/c5/Quizz.png';
         }
         this.image_url = image_url;

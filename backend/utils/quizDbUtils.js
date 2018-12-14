@@ -272,8 +272,8 @@ function updateQuiz(quizInformationId, quiz, username, token) {
             if(quizInfo._id === quizInformation._id) {
                 user.quizzes[index] = quizInformation.getUserDocumentToInsert();
             }
-            return userDbUtils.updateUser(user);
         });
+        return userDbUtils.updateUser(user);
     }).then(() => {
         return {message: 'quiz mis à jour !', quizId: quizInformation._id};
     }).catch((error) => {

@@ -7,7 +7,7 @@
           <p class="subtitle has-text-grey">Veuillez entrer vos informations pour vous inscrire.</p>
           <div class="box">
             <figure class="avatar">
-              <img src="..\assets\information.svg" class="icon-info">
+              <img src="../assets/information.svg" class="icon-info">
             </figure>
             <div>
               <div class="field">

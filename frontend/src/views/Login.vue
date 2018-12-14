@@ -9,7 +9,7 @@
           <p class="subtitle has-text-grey">Veuillez entrer vos informations pour vous connecter.</p>
           <div class="box">
             <figure class="avatar">
-              <img src="..\assets\login.svg" class="icon-info">
+              <img src="../assets/login.svg" class="icon-info">
             </figure>
             <div>
               <div class="field">
