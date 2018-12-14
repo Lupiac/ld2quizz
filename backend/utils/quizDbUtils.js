@@ -44,16 +44,24 @@ function getQuizzesByCategorie(categories) {
 function searchQuizzesByKeywords(keywords, taxBloom) {
     let params = "?q=";
     if(keywords) {
-        params += 'search:"' + keywords + '"';
+        params += 'search:"' + encodeURI(keywords) + '"';
         if(taxBloom) {
-            params += ' AND searchTaxBloom:"' + taxBloom + '"';
+            taxBloom.split(' ').forEach(function (tax) {
+                params += ' AND searchTaxBloom:"' + encodeURI(tax) + '"';
+            })
         }
     } else if(taxBloom) {
-        params += 'searchTaxBloom:"' + taxBloom + '"';
+        taxBloom.split(' ').forEach(function (tax, index) {
+            if(index == 0) {
+                params += 'searchTaxBloom:"' + encodeURI(tax) + '"';
+            } else {
+                params += ' AND searchTaxBloom:"' + encodeURI(tax) + '"';
+            }
+        })
     }
+    params += ' AND searchTaxBloom:"' + "Analyse" + '"';
     let result = [];
     return axios.get('http://localhost:5985/local/quizzes_information/_design/luceneDesignDoc/by_name' + params).then((response) => {
-        console.log(response)
         response.data.rows.forEach(function (doc) {
             result.push({
                 id: doc.id,
@@ -69,7 +77,7 @@ function searchQuizzesByKeywords(keywords, taxBloom) {
         return result;
     }).catch((error) => {
         console.log(error);
-        throw {errorCode: 500, message:"erreur de connection à l'API de génération" }
+        throw {errorCode: 500, message:"problème de base de données" }
     })
 
 }
