@@ -44,16 +44,15 @@ function getQuizzesByCategorie(categories) {
 function searchQuizzesByKeywords(keywords, taxBloom) {
     let params = "?q=";
     if(keywords) {
-        params += 'search:"' + keywords + '"';
+        params += 'search:"' + encodeURI(keywords) + '"';
         if(taxBloom) {
-            params += ' AND searchTaxBloom:"' + taxBloom + '"';
+            params += ' AND searchTaxBloom:"' + encodeURI(taxBloom) + '"';
         }
     } else if(taxBloom) {
-        params += 'searchTaxBloom:"' + taxBloom + '"';
+        params += 'searchTaxBloom:"' + encodeURI(taxBloom) + '"';
     }
     let result = [];
     return axios.get('http://localhost:5985/local/quizzes_information/_design/luceneDesignDoc/by_name' + params).then((response) => {
-        console.log(response)
         response.data.rows.forEach(function (doc) {
             result.push({
                 id: doc.id,
