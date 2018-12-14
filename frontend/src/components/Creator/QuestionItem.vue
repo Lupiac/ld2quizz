@@ -2,10 +2,7 @@
   <div class="content">
     <blockquote class="blockquote-picked" v-if="item.enabled">
       <div class="columns is-expanded level box">
-        <div
-          v-if="!item.modifiedQuestion"
-          class="column is-10 has-text-left"
-        >
+        <div v-if="!item.modifiedQuestion" class="column is-10 has-text-left">
           <p>{{item.question}}</p>
         </div>
         <div v-else class="column is-10 has-text-left">
@@ -37,6 +34,7 @@
             type="text"
             placeholder="Reformuler la question"
             v-model="modifiedQuestion"
+            v-on:keyup.enter="confirm()"
           >
           <button class="button is-link" @click="confirm()">Modifier</button>
           <button class="button is-primary" @click="restore()">Garder Originale</button>
@@ -126,7 +124,7 @@ export default {
     restore: function() {
       delete this.item.modifiedQuestion;
       this.edit = false;
-      this.modifiedQuestion="";
+      this.modifiedQuestion = "";
     }
   }
 };

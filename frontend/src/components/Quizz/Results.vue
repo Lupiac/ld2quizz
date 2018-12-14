@@ -32,7 +32,7 @@
       >{{getScore}}</progress>
     </div>
     <ul class="steps is-vertical">
-      <li v-for="answer in $parent.userAnswers" :key="answer" class="steps-segment">
+      <li v-for="(answer, index) in $parent.userAnswers" :key="index" class="steps-segment">
         <div v-if="answer.correction === 'correct'">
           <span href="#" class="steps-marker"/>
           <div class="steps-content has-text-left">

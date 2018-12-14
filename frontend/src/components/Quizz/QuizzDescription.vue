@@ -4,6 +4,9 @@
       <div class="tile is-vertical hero-body">
         <div class="tile is-child box">
           <div class="field is-horizontal level columns">
+            <div class=" level-item" >
+                <a class=" button is-link" style="margin-top: 0%; margin-bottom: 0%" href="/">Retour</a>
+              </div>
             <div class="label is-child is-normal level-item column is-one-seventh">
               <label class="title is-size-1">Nom:</label>
             </div>

@@ -17,13 +17,9 @@
 <script>
 export default {
   name: "quizz-item",
-  route: "/quizz/",
   props: {
     quizz: Object,
     index: Number
-  },
-  created() {
-    route = "/quizz/" + quizz.id;
   }
 };
 </script>

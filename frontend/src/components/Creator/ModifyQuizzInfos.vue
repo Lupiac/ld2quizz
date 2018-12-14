@@ -139,7 +139,6 @@ Ex: 'Voici un quiz sur le Big Data'"
 <script>
 import Vue from "vue";
 import VueToasted from "vue-toasted";
-import { VueTags } from "vue-tags-component";
 
 export default {
   name: "modify-info",
@@ -147,7 +146,6 @@ export default {
     quizz: Object
   },
   components: {
-    "vue-tags": VueTags
   },
   data() {
     return {
