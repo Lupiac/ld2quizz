@@ -13,7 +13,7 @@
         </div>
         <div>
           <div class="icon is-spaced is-large level-item" style="font-size: 1.4em;">
-            <div class="hvr-grow" v-on:click="edit=!edit;">
+            <div class="hvr-grow is-spaced" v-on:click="edit=!edit;">
               <i class="far fa-edit is-spaced fa-lg space"></i>
             </div>
             <div class="hvr-grow" v-on:click="deleteQuestion()">

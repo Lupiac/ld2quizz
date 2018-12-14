@@ -1,6 +1,6 @@
 <template>
   <section class="fullsize">
-    <component v-bind:is="currentStep" v-on:change-step="currentStep = $event.currentStep;"></component>
+    <component :quizz="quizz" v-bind:is="currentStep" v-on:change-step="currentStep = $event.currentStep;"></component>
   </section>
 </template>
 

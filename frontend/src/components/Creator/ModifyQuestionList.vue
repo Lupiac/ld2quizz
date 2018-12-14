@@ -94,6 +94,9 @@ let server = "localhost:3000";
 
 export default {
   name: "modify-questions",
+  props: {
+    quizz: Object
+  },
   components: {
     "virtual-list": virtualList,
     "question-item": QuestionItem

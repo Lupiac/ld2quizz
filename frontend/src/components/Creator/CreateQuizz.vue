@@ -223,17 +223,7 @@ export default {
           duration: 2000,
           type: "error"
         });
-      } else if (this.createdQuizz.taxBloom.length ===0) {
-        let toast = this.$toasted.error(
-          "Vous devez choisir un objectif pédagogique",
-          {
-            theme: "primary",
-            position: "top-right",
-            duration: 2000,
-            type: "error"
-          }
-        );
-      } else {
+      }else {
         this.$emit("change-step", {
         currentStep: "generate-questions",
         createdQuizz: this.createdQuizz

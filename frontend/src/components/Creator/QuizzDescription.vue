@@ -1,12 +1,14 @@
 <template>
   <div class="container content is-fluid is-family-secondary column is-8">
-
     <div class="tile is-ancestor box columns column">
       <div class="tile is-vertical hero center-vert">
         <div class="tile is-child box">
           <div class="field is-horizontal level columns">
+            <div class=" level-item" >
+                <a class=" button is-link" style="margin-top: 0%; margin-bottom: 0%" v-on:click="back()">Fermer</a>
+              </div>
             <div class="field-body">
-                            <button class=" is-link" v-on:click="back()">Retour</button>
+              
 
               <div class="field">
                 <p class="control is-expanded is-size-1 has-text-centered is-italic">
@@ -112,7 +114,7 @@ export default {
       this.isActive = false;
     },
     back: function() {
-      this.$parent.preview=false;
+      this.$parent.preview = false;
     }
   }
 };

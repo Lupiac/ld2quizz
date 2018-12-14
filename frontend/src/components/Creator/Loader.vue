@@ -92,7 +92,7 @@ export default {
         let toast = this.$toasted.error("Aucune donnée n'a été trouvée à partir du texte renseigné...  Veuillez rajouter du contexte.", {
           theme: "primary",
           position: "top-right",
-          duration: 2000
+          duration: 5000
         });
         console.log(e);
         this.$emit("change-step", {
@@ -108,7 +108,7 @@ export default {
         {
           theme: "primary",
           position: "top-right",
-          duration: 2000
+          duration: 4000
         }
       );
       this.$emit("create-quizz", {

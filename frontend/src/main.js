@@ -4,6 +4,7 @@ import router from './router'
 import './../node_modules/bulma/css/bulma.css'
 import './../node_modules/bulma-o-steps/bulma-steps.css'
 
+
 Vue.config.productionTip = false
 
 new Vue({

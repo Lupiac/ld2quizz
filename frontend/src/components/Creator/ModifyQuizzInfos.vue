@@ -29,7 +29,7 @@
                   <div class="field">
                     <p class="control is-expanded">
                       <input
-                        v-model="createdQuizz.name"
+                        v-model="quizz.name"
                         class="input is-size-2"
                         type="text"
                         placeholder="Entrez le nom du quiz  Ex: 'Big Data'"
@@ -49,7 +49,7 @@
                   <div class="field">
                     <p class="control is-expanded">
                       <input
-                        v-model="createdQuizz.image_url"
+                        v-model="quizz.image_url"
                         class="input"
                         type="text"
                         placeholder="Entrez l'URL d'une image"
@@ -69,7 +69,7 @@
                   <div class="field">
                     <p class="control is-expanded">
                       <textarea
-                        v-model="createdQuizz.description"
+                        v-model="quizz.description"
                         class="textarea"
                         placeholder="Entrez la description de votre quiz...  
 Ex: 'Voici un quiz sur le Big Data'"
@@ -91,42 +91,32 @@ Ex: 'Voici un quiz sur le Big Data'"
                       type="checkbox"
                       id="Connaissance"
                       value="Connaissance"
-                      v-model="createdQuizz.taxBloom"
+                      v-model="quizz.taxBloom"
                     >
                     <label class="checkbox" for="Connaissance">Connaissance</label>
                     <input
                       type="checkbox"
                       id="Compréhension"
                       value="Compréhension"
-                      v-model="createdQuizz.taxBloom"
+                      v-model="quizz.taxBloom"
                     >
                     <label class="checkbox" for="Compréhension">Compréhension</label>
                     <input
                       type="checkbox"
                       id="Application"
                       value="Application"
-                      v-model="createdQuizz.taxBloom"
+                      v-model="quizz.taxBloom"
                     >
                     <label class="checkbox" for="Application">Application</label>
-                    <input
-                      type="checkbox"
-                      id="Analyse"
-                      value="Analyse"
-                      v-model="createdQuizz.taxBloom"
-                    >
+                    <input type="checkbox" id="Analyse" value="Analyse" v-model="quizz.taxBloom">
                     <label class="checkbox" for="Analyse">Analyse</label>
-                    <input
-                      type="checkbox"
-                      id="Synthèse"
-                      value="Synthèse"
-                      v-model="createdQuizz.taxBloom"
-                    >
+                    <input type="checkbox" id="Synthèse" value="Synthèse" v-model="quizz.taxBloom">
                     <label class="checkbox" for="Synthèse">Synthèse</label>
                     <input
                       type="checkbox"
                       id="Évaluation"
                       value="Évaluation"
-                      v-model="createdQuizz.taxBloom"
+                      v-model="quizz.taxBloom"
                     >
                     <label class="checkbox" for="Évaluation">Évaluation</label>
                   </div>
@@ -136,10 +126,7 @@ Ex: 'Voici un quiz sur le Big Data'"
           </div>
 
           <div class="tile is-child has-content-centered">
-            <button
-              class="button is-link"
-              v-on:click="$emit('change-step', {currentStep:'modify-questions'}); $parent.quizz_infos= createdQuizz"
-            >
+            <button class="button is-link" v-on:click="next()">
               <p>SUIVANTS</p>
             </button>
           </div>
@@ -151,10 +138,14 @@ Ex: 'Voici un quiz sur le Big Data'"
 
 <script>
 import Vue from "vue";
+import VueToasted from "vue-toasted";
 import { VueTags } from "vue-tags-component";
 
 export default {
   name: "modify-info",
+  props: {
+    quizz: Object
+  },
   components: {
     "vue-tags": VueTags
   },
@@ -169,9 +160,26 @@ export default {
     };
   },
   created() {
-    this.createdQuizz = this.$parent.quizz;
+    Vue.use(VueToasted, {});
+
+    this.createdQuizz = this.quizz;
   },
-  methods: {}
+  methods: {
+    next: function() {
+      if (this.quizz.name === "") {
+        let toast = this.$toasted.error("Votre quiz n'a pas de nom", {
+          theme: "primary",
+          position: "top-right",
+          duration: 2000,
+          type: "error"
+        });
+      } else {
+        this.$parent.quizz_infos = this.quizz;
+        this.$emit("change-step", { currentStep: "modify-questions" });
+        
+      }
+    }
+  }
 };
 </script>
 

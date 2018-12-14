@@ -18,9 +18,10 @@
                 class="column is-narrow-desktop item"
                 v-for="(quizz, index) in quizzList"
                 :key="index"
-                v-on:click="preview = true; quizz_preview = quizz;"
               >
+              <div v-on:click="preview = true; quizz_preview = quizz;">
                 <quizz-item class :quizz="quizz"/>
+              </div>
               </div>
               <div v-if="quizzList.length===0">
                 <p>Vous n'avez pas encore créé de quiz</p>
