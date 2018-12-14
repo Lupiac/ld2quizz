@@ -10,7 +10,11 @@ class QuizInputUser {
         this.questions = JSON.parse(questions);
         this.categories = JSON.parse(categories);
         this.description = description;
-        this.taxBloom = JSON.parse(taxBloom);
+        if(taxBloom == null || JSON.parse(taxBloom).length == 0) {
+            this.taxBloom = ['Connaissance', 'Compréhension', 'Application', 'Analyse', 'Synthèse', 'Évaluation'];
+        } else {
+            this.taxBloom = JSON.parse(taxBloom);
+        }
     }
 
     check(name, image_url, questions, description, taxBloom, categories) {
@@ -47,17 +51,16 @@ class QuizInputUser {
                 throw {errorCode: 500, message: 'categorie enabled n°' + index + ' is not a boolean'}
             }
         });
-        if(taxBloom == null) {
-            throw {errorCode: 500, message: 'param taxBloom is required'}
-        }
-        if(!Array.isArray(taxBloom)){
-            throw {errorCode: 500, message: 'param taxBloom is not an array'}
-        }
-        taxBloom.forEach(function (tax, index) {
-            if(tax !== 'Connaissance' && tax !== 'Compréhension' && tax !== 'Application' && tax !== 'Analyse' && tax !== 'Synthèse' && tax !== 'Évaluation') {
-                throw {errorCode: 500, message: 'taxBloom n°' + index + ' is not a valid one'}
+        if(taxBloom != null) {
+            if(!Array.isArray(taxBloom)) {
+                throw {errorCode: 500, message: 'param taxBloom is not an array'}
             }
-        });
+            taxBloom.forEach(function (tax, index) {
+                if(tax !== 'Connaissance' && tax !== 'Compréhension' && tax !== 'Application' && tax !== 'Analyse' && tax !== 'Synthèse' && tax !== 'Évaluation') {
+                    throw {errorCode: 500, message: 'taxBloom n°' + index + ' is not a valid one'}
+                }
+            });
+        }
         if(questions == null) {
             throw {errorCode: 500, message: 'param questions is required'}
         }
