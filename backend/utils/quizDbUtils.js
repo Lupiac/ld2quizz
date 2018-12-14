@@ -46,11 +46,20 @@ function searchQuizzesByKeywords(keywords, taxBloom) {
     if(keywords) {
         params += 'search:"' + encodeURI(keywords) + '"';
         if(taxBloom) {
-            params += ' AND searchTaxBloom:"' + encodeURI(taxBloom) + '"';
+            taxBloom.split(' ').forEach(function (tax) {
+                params += ' AND searchTaxBloom:"' + encodeURI(tax) + '"';
+            })
         }
     } else if(taxBloom) {
-        params += 'searchTaxBloom:"' + encodeURI(taxBloom) + '"';
+        taxBloom.split(' ').forEach(function (tax, index) {
+            if(index == 0) {
+                params += 'searchTaxBloom:"' + encodeURI(tax) + '"';
+            } else {
+                params += ' AND searchTaxBloom:"' + encodeURI(tax) + '"';
+            }
+        })
     }
+    params += ' AND searchTaxBloom:"' + "Analyse" + '"';
     let result = [];
     return axios.get('http://localhost:5985/local/quizzes_information/_design/luceneDesignDoc/by_name' + params).then((response) => {
         response.data.rows.forEach(function (doc) {
