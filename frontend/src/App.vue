@@ -33,14 +33,16 @@
                 <!-- <router-link to="/signup" class="button is-primary">
                   <strong>S'inscrire</strong>
                 </router-link> -->
-                <router-link to="/login" class="button is-light">Connexion</router-link>
+                <router-link to="/login" class="button is-primary"><strong>Connexion</strong> </router-link>
               </div>
               <div v-else-if="token!==''" class="buttons" v-on:click="disconnect()">
-                <router-link to="/" class="button is-primary">
+                <router-link to="/">
+                <div class="button is-primary">
                   <div class="icon" style="font-size: 1.5em;">
                     <i class="fas fa-sign-out-alt"></i>
                   </div>
                   <strong>Déconnexion</strong>
+                </div>
                 </router-link>
               </div>
             </div>
