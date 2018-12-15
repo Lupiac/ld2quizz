@@ -6,7 +6,7 @@
           <span class="icon is-large" style="margin-right: 2%;">
             <i class="fas fa-angle-left"></i>
           </span>
-          Catalogue
+          Catalogue de quiz
         </router-link>
         <div class="level-center level-item">
         <p class="column is-centered is-size-2" style="margin-bottom: 2%;">
@@ -20,7 +20,7 @@
           <span class="icon is-large" style="margin-right: 2%;">
             <i class="fas fa-redo-alt"></i>
           </span>
-          Réessayer
+          Réessayer le quiz
         </a>
       </div>
  

@@ -1,22 +1,27 @@
 <template>
   <div>
-    <ul class="steps is-small my-step-style has-content-centered">
-      <li
-        class="steps-segment is-passed"
-        v-on:click="$emit('change-step', {currentStep: 'modify-info',quizz:$parent.quizz})"
-      >
-        <span class="steps-marker">1</span>
-        <div class="steps-content">
-          <p class="is-size-5">Infos Quiz</p>
-        </div>
-      </li>
-      <li class="steps-segment is-active">
-        <span class="steps-marker">2</span>
-        <div class="steps-content">
-          <p class="is-size-5">Questions</p>
-        </div>
-      </li>
-    </ul>
+    <div class="columns">
+      <ul class="column is-11 steps is-small my-step-style has-content-centered">
+        <li
+          class="steps-segment is-passed"
+          v-on:click="$emit('change-step', {currentStep: 'modify-info',quizz:$parent.quizz})"
+        >
+          <span class="steps-marker">1</span>
+          <div class="steps-content">
+            <p class="is-size-5">Infos Quiz</p>
+          </div>
+        </li>
+        <li class="steps-segment is-active">
+          <span class="steps-marker">2</span>
+          <div class="steps-content">
+            <p class="is-size-5">Questions</p>
+          </div>
+        </li>
+      </ul>
+      <div class="hvr-grow is-spaced" v-on:click="close()" style="font-size: 2.75em;">
+        <i class="far fa-window-close fa-lg"></i>
+      </div>
+    </div>
     <div class="columns content">
       <div
         class="column is-4"
@@ -235,18 +240,18 @@ export default {
             currentStep: "modify-info"
           });
           this.$parent.$parent.isActive = false;
-          let toast = this.$toasted.show(
-          "Le quiz a été mis à jour",
-          {
+          let toast = this.$toasted.show("Le quiz a été mis à jour", {
             theme: "primary",
             position: "top-right",
             duration: 2000
-          }
-        );
+          });
         })
         .catch(e => {
           console.log(e);
         });
+    },
+    close: function() {
+      this.$parent.$parent.isActive = false;
     }
   }
 };

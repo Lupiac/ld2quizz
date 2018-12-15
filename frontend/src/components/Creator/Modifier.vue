@@ -1,6 +1,10 @@
 <template>
-  <section class="fullsize">
-    <component :quizz="quizz" v-bind:is="currentStep" v-on:change-step="currentStep = $event.currentStep;"></component>
+  <section class="fullsize ">
+    <component
+      :quizz="quizz"
+      v-bind:is="currentStep"
+      v-on:change-step="currentStep = $event.currentStep;"
+    ></component>
   </section>
 </template>
 
@@ -24,6 +28,11 @@ export default {
       currentStep: "modify-info",
       quizz_infos: {}
     };
+  },
+  methods: {
+    close: function() {
+      this.$parent.isActive = false;
+    }
   }
 };
 </script>

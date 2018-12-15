@@ -93,7 +93,7 @@ export default {
               token: response.data.token,
               username: this.username
             });
-            this.$router.push("creator");
+            this.$router.push("/myquizzes");
           })
           .catch(e => {
             console.log(e);

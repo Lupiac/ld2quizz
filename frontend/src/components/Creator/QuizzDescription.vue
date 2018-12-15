@@ -5,7 +5,7 @@
         <div class="tile is-child box">
           <div class="field is-horizontal level columns">
             <div class=" level-item" >
-                <a class=" button is-link" style="margin-top: 0%; margin-bottom: 0%" v-on:click="back()">Fermer</a>
+                <a class=" button is-link" style="margin-top: 0%; margin-bottom: 0%;" v-on:click="back()">Fermer Aperçu</a>
               </div>
             <div class="field-body">
               
@@ -73,7 +73,7 @@
             <button @click="close" class="button">Fermer</button>
             <span>&nbsp;</span>
           </div>
-          <button @click="close" class="modal-close"></button>
+          <button @click="close" class="modal-close" ></button>
         </div>
       </div>
     </div>

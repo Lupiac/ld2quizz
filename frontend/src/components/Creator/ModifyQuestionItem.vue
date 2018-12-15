@@ -10,7 +10,7 @@
         </div>
         <div>
           <div class="is-spaced is-large level-item" style="font-size: 1.4em;">
-            <div class="hvr-grow is-spaced" v-on:click="edit=!edit;">
+            <div class="hvr-grow is-spaced" v-on:click="edit=!edit; placeholder()">
               <i class="far fa-edit is-spaced fa-lg space"></i>
             </div>
             <div class="hvr-grow" v-on:click="deleteQuestion()">
@@ -29,14 +29,15 @@
       </div>
       <div v-if="edit" class="has-text-left detail box">
         <p class="answer is-italic">
-          <input
-            class="input"
+          <textarea
+            class=" textarea"
             type="text"
             placeholder="Reformuler la question"
             v-model="modifiedQuestion"
-          >
+            v-on:keyup.enter="confirm()"
+          />
           <button class="button is-link" @click="confirm()">Modifier</button>
-          <button class="button is-primary" @click="restore()">Garder Originale</button>
+          <button class="button is-primary" @click="restore()">Remettre Originale</button>
         </p>
       </div>
       <div v-if="expand" class="has-text-left detail box">
@@ -124,6 +125,13 @@ export default {
       delete this.item.modifiedQuestion;
       this.edit = false;
       this.modifiedQuestion = "";
+    },
+    placeholder: function(){
+      if(!this.item.modifiedQuestion){
+        this.modifiedQuestion = this.item.question;
+      } else {
+        this.modifiedQuestion = this.item.modifiedQuestion;
+      }
     }
   }
 };

@@ -177,7 +177,9 @@ body {
     grid-template-columns: 1fr 2fr;
     grid-template-rows: 1fr;
   }
-
+  .box {
+    border-color: transparent;
+  }
   @media (max-width: 40rem) {
     .blog-card {
       grid-template-columns: auto;

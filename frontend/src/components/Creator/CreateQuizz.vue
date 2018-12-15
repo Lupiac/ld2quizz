@@ -54,7 +54,7 @@ Ex: 'Le big data, littéralement « grosses données », ou mégadonnées, parfo
             <div class="tile is-child box">
               <div class="field is-horizontal level columns">
                 <div class="label is-child is-normal level-item column is-one-seventh">
-                  <label class="title is-size-4-desktop">Nom:</label>
+                  <label class="title is-size-4-desktop">Nom du quizz:</label>
                 </div>
                 <div class="field-body">
                   <div class="field">
@@ -212,7 +212,7 @@ export default {
           {
             theme: "primary",
             position: "top-right",
-            duration: 2000,
+            duration: 5000,
             type: "error"
           }
         );
@@ -220,7 +220,7 @@ export default {
         let toast = this.$toasted.error("Votre quiz n'a pas de nom", {
           theme: "primary",
           position: "top-right",
-          duration: 2000,
+          duration: 5000,
           type: "error"
         });
       }else {

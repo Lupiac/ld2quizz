@@ -24,7 +24,8 @@
           <div class="navbar-start">
             <router-link to="/" class="navbar-item">Catalogue</router-link>
 
-            <router-link to="/creator" class="navbar-item">Générateur de Quiz</router-link>
+            <router-link v-if="token!==''" to="/generator" class="navbar-item">Générateur de Quiz</router-link>
+            <router-link v-if="token!==''" to="/myquizzes" class="navbar-item">Mes quiz</router-link>
             <router-link to="/about" class="navbar-item">A Propos</router-link>
           </div>
           <div class="navbar-end">

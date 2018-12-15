@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div>
-      <ul class="steps is-small my-step-style has-content-centered">
+    <div class="columns">
+      <ul class="column is-11 steps is-small my-step-style has-content-centered">
         <li class="steps-segment is-active">
           <span class="steps-marker">1</span>
           <div class="steps-content">
@@ -15,6 +15,9 @@
           </div>
         </li>
       </ul>
+      <div class="hvr-grow is-spaced" v-on:click="close()" style="font-size: 2.75em;">
+        <i class="far fa-window-close fa-lg"></i>
+      </div>
     </div>
     <div class="container is-fluid is-family-secondary has-navbar-fixed-top">
       <div class="content tile is-ancestor box hero">
@@ -23,7 +26,7 @@
             <div class="tile is-child box">
               <div class="field is-horizontal level columns">
                 <div class="label is-child is-normal level-item column is-one-seventh">
-                  <label class="title is-size-1-desktop">Nom:</label>
+                  <label class="title is-size-1-desktop">Nom du quizz:</label>
                 </div>
                 <div class="field-body">
                   <div class="field">
@@ -127,7 +130,7 @@ Ex: 'Voici un quiz sur le Big Data'"
 
           <div class="tile is-child has-content-centered">
             <button class="button is-link" v-on:click="next()">
-              <p>SUIVANTS</p>
+              <p>MODIFIER QUESTIONS</p>
             </button>
           </div>
         </div>
@@ -145,8 +148,7 @@ export default {
   props: {
     quizz: Object
   },
-  components: {
-  },
+  components: {},
   data() {
     return {
       createdQuizz: {
@@ -174,8 +176,10 @@ export default {
       } else {
         this.$parent.quizz_infos = this.quizz;
         this.$emit("change-step", { currentStep: "modify-questions" });
-        
       }
+    },
+    close: function() {
+      this.$parent.$parent.isActive = false;
     }
   }
 };

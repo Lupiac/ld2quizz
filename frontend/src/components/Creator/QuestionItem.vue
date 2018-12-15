@@ -10,7 +10,7 @@
         </div>
         <div>
           <div class="icon is-spaced is-large level-item" style="font-size: 1.4em;">
-            <div class="hvr-grow is-spaced" v-on:click="edit=!edit;">
+            <div class="hvr-grow is-spaced" v-on:click="edit=!edit; placeholder()">
               <i class="far fa-edit is-spaced fa-lg space"></i>
             </div>
             <div class="hvr-grow" v-on:click="deleteQuestion()">
@@ -125,6 +125,13 @@ export default {
       delete this.item.modifiedQuestion;
       this.edit = false;
       this.modifiedQuestion = "";
+    },
+    placeholder: function(){
+      if(!this.item.modifiedQuestion){
+        this.modifiedQuestion = this.item.question;
+      } else {
+        this.modifiedQuestion = this.item.modifiedQuestion;
+      }
     }
   }
 };
