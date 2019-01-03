@@ -60,6 +60,12 @@ myRouter.route('/:username/quizzes').get(function (req, res) {
     })
 });
 
+/**
+ * route PUT /users/:username
+ * Modify user's account
+ * params: username
+ * query params: token, username, role, newPassword
+ */
 myRouter.route('/:username').put(function (req, res) {
     logger.log('requête de modification des paramètres utilisateur de ' + req.body.username);
 
@@ -105,6 +111,12 @@ myRouter.route('/:username/quizzes/:quiz_id/questions').get(function (req, res) 
     });
 });
 
+/**
+ * route DELETE /users/:username
+ * Delete user
+ * params: username
+ * query params: username, token
+ */
 myRouter.route('/:username/').delete(function (req, res) {
     logger.log("requête de suppression de l'utilisateur " + req.query.username);
 

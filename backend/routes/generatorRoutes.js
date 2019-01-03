@@ -4,6 +4,11 @@ const logger = require('../utils/logger');
 
 const myRouter = express.Router();
 
+/**
+ * route POST /generator
+ * Generate quiz
+ * body params: username, token, domain_description
+ */
 myRouter.route('/').post(function (req, res) {
     logger.log('requête de génération de quiz');
 
