@@ -192,7 +192,6 @@ module.exports = {
     verifyToken,
     logout,
     updateUser,
-    updateRole,
     deleteUser,
     updateUserInformation
 }

@@ -27,22 +27,6 @@ function getAllQuizzes() {
     });
 }
 
-function getQuizzesByCategorie(categories) {
-    const keywordsTab = categories.split(' ');
-    return quizzesInformationDb.view('searchDesignDoc', 'search-view', {keys: keywordsTab}).then((body) => {
-        let result = [];
-        body.rows.forEach(function (doc) {
-            const quizInformation = new QuizInformation();
-            quizInformation.constructByDbDocument(doc.value);
-            result.push(quizInformation.getUserView());
-        });
-        return result;
-    }).catch((error) => {
-        console.log(error);
-        throw {errorCode: 500, message: 'problème de base de données'}
-    });
-}
-
 function searchQuizzesByKeywords(keywords, taxBloom) {
     let params = "?q=";
     if(keywords) {
@@ -82,18 +66,6 @@ function searchQuizzesByKeywords(keywords, taxBloom) {
         throw {errorCode: 500, message:"problème de base de données" }
     })
 
-}
-
-function mergeQuizzes(quizzes) {
-    const set = new Set();
-    const result = [];
-    quizzes.forEach(function(quiz) {
-        if(!set.has(quiz.id) && quiz.name) {
-            result.push(quiz);
-            set.add(quiz.id);
-        }
-    })
-    return result;
 }
 
 function getQuizzesByUser(username, token) {
@@ -372,8 +344,6 @@ module.exports = {
     updateQuiz,
     getQuestionsAnswers,
     getQuestions,
-    getQuizzesByCategorie,
-    mergeQuizzes,
     searchQuizzesByKeywords,
     deleteQuiz
 }
