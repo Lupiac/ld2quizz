@@ -1,4 +1,6 @@
-const nano = require('nano')('http://localhost:5984');
+const config = require('../config');
+
+const nano = require('nano')(config.couchdbHost);
 const crypto = require('crypto-js')
 
 const usersDb = nano.db.use('users');

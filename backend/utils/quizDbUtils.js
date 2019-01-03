@@ -1,4 +1,6 @@
-const nano = require('nano')('http://localhost:5984');
+const config = require('../config');
+
+const nano = require('nano')(config.couchdbHost);
 const axios = require('axios');
 
 const quizzesInformationDb = nano.db.use('quizzes_information');
@@ -61,7 +63,7 @@ function searchQuizzesByKeywords(keywords, taxBloom) {
     }
     params += ' AND searchTaxBloom:"' + "Analyse" + '"';
     let result = [];
-    return axios.get('http://localhost:5985/local/quizzes_information/_design/luceneDesignDoc/by_name' + params).then((response) => {
+    return axios.get(config.couchdbLuceneHost + '/local/quizzes_information/_design/luceneDesignDoc/by_name' + params).then((response) => {
         response.data.rows.forEach(function (doc) {
             result.push({
                 id: doc.id,
