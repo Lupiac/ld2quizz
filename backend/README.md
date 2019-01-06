@@ -19,6 +19,8 @@ The server starts on localhost:3000
 
 ## Routes
 
+In this section you can find all routes that can be used. You can find more precisely with example of request in the file routes.txt or postman requests in resources/Quizz.postman_collection.json file.
+
 ### Quizzes
 
 GET /quizzes  
