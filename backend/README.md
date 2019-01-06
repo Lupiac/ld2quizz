@@ -11,6 +11,8 @@ This API use couchDB, lucene-couchDB and the API lod2quiz.
 3. Open the file config.js and fill the different hosts and parameters like couchDB host, couchDB lucene host, generator API and the authentication header.
 4. Run the script initDb.sh in ./resources to init the database.
 
+The script create a first user admin with password as password. You can change it by using PUT request on /users/admin described in "Routes" section.
+
 ## Run
 1. Run CouchDB
 2. Run couchDB-lucene
