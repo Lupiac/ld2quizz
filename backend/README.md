@@ -12,8 +12,10 @@ This API use couchDB, lucene-couchDB and the API lod2quiz.
 4. Run the script initDb.sh in ./resources to init the database.
 
 ## Run
-1. Require npm
-2. `npm start`
+1. Run CouchDB
+2. Run couchDB-lucene
+3. Require npm
+4. `npm start`
 
 The server starts on localhost:3000
 
