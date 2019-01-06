@@ -6,7 +6,7 @@ const crypto = require('crypto-js')
 const usersDb = nano.db.use('users');
 
 function addUser(username, password) {
-    return usersDb.insert({_id: username, password: crypto.SHA256(password).toString(), role: 3, quizzes: []}).then((userCreatedResult) => {
+    return usersDb.insert({_id: username, password: crypto.SHA256(password).toString(), role: 1, quizzes: []}).then((userCreatedResult) => {
         return {message: 'user created !', username: username};
     }).catch((error) => {
         console.log(error);
