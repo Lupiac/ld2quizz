@@ -64,7 +64,7 @@ function logout(username, token) {
 
 function updateUserInformation(username, token, usernameToUpdate, role, oldPassword, newPassword) {
     return new Promise(function (resolve, reject) {
-        if(role != null) {
+        if(role != null && !isNaN(role)) {
             resolve(updateRole(username, token, usernameToUpdate, role));
         }
         resolve()

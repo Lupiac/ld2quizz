@@ -6,78 +6,6 @@
 	},
 	"item": [
 		{
-			"name": "add quiz",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"value": "application/x-www-form-urlencoded",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "urlencoded",
-					"urlencoded": [
-						{
-							"key": "name",
-							"value": "test",
-							"type": "text"
-						},
-						{
-							"key": "image_url",
-							"value": "https://upload.wikimedia.org/wikipedia/commons/c/c5/Quizz.png",
-							"type": "text"
-						},
-						{
-							"key": "nbQuestion",
-							"value": "1",
-							"type": "text"
-						},
-						{
-							"key": "questions",
-							"value": "[{\"question\": \"2+2 ?\",\"response\": \"4\",\"distractors\": [\"22\",\"8\",\"2\"]}]",
-							"type": "text"
-						},
-						{
-							"key": "description",
-							"value": "this is a mathematics quizz",
-							"type": "text"
-						},
-						{
-							"key": "domains",
-							"value": "[\"maths\", \"arithmetic\"]",
-							"type": "text"
-						},
-						{
-							"key": "username",
-							"value": "sebi3",
-							"type": "text"
-						},
-						{
-							"key": "token",
-							"value": "1111",
-							"type": "text"
-						}
-					]
-				},
-				"url": {
-					"raw": "http://localhost:3000/quizzes/",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"quizzes",
-						""
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "send answer",
 			"request": {
 				"method": "POST",
@@ -94,13 +22,13 @@
 					"urlencoded": [
 						{
 							"key": "answer",
-							"value": "1969",
+							"value": "me",
 							"type": "text"
 						}
 					]
 				},
 				"url": {
-					"raw": "http://localhost:3000/quizzes/1f0f3f9b54768ed5e8583b4bab006f95/questions/0",
+					"raw": "http://localhost:3000/quizzes/f55eeea63e984953a91a50481b00054e/questions/0",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -108,76 +36,9 @@
 					"port": "3000",
 					"path": [
 						"quizzes",
-						"1f0f3f9b54768ed5e8583b4bab006f95",
+						"f55eeea63e984953a91a50481b00054e",
 						"questions",
 						"0"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "add Math Quiz",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"value": "application/x-www-form-urlencoded",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "urlencoded",
-					"urlencoded": [
-						{
-							"key": "name",
-							"value": "maths",
-							"type": "text"
-						},
-						{
-							"key": "image_url",
-							"value": "https://upload.wikimedia.org/wikipedia/commons/c/c5/Quizz.png",
-							"type": "text"
-						},
-						{
-							"key": "questions",
-							"value": "[{\"question\": \"2+2 ?\",\"answer\": \"4\",\"distractors\": [\"22\",\"8\",\"2\"], \"clue\": \"a clue\", \"clueResource\": \"http:clue.com\"},{\"question\": \"3*3 ?\",\"answer\": \"9\",\"distractors\": [\"33\",\"6\",\"13\"], \"clue\": \"a clue\", \"clueResource\": \"http:clue.com\"}]",
-							"type": "text"
-						},
-						{
-							"key": "description",
-							"value": "un quizz de mathèmatiques",
-							"type": "text"
-						},
-						{
-							"key": "categories",
-							"value": "[\"mathèmatiques\", \"arithmetique\"]",
-							"type": "text"
-						},
-						{
-							"key": "username",
-							"value": "sebi",
-							"type": "text"
-						},
-						{
-							"key": "token",
-							"value": "1111",
-							"type": "text"
-						}
-					]
-				},
-				"url": {
-					"raw": "http://localhost:3000/quizzes/",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"quizzes",
-						""
 					]
 				}
 			},
@@ -220,84 +81,22 @@
 						},
 						{
 							"key": "username",
-							"value": "sebi",
+							"value": "admin",
 							"type": "text"
 						},
 						{
 							"key": "token",
-							"value": "1111",
+							"value": "y93bax1kdw8mugrggp605996wmrvuajh7grzqqds67b",
 							"type": "text"
 						},
 						{
 							"key": "taxBloom",
 							"value": "[\"Analyse\"]",
 							"type": "text"
-						}
-					]
-				},
-				"url": {
-					"raw": "http://localhost:3000/quizzes/",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"quizzes",
-						""
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "add Space not well formed",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"type": "text",
-						"value": "application/x-www-form-urlencoded"
-					}
-				],
-				"body": {
-					"mode": "urlencoded",
-					"urlencoded": [
-						{
-							"key": "name",
-							"value": "Mission Apollo",
-							"type": "text"
-						},
-						{
-							"key": "image_url",
-							"value": "https://upload.wikimedia.org/wikipedia/commons/9/9c/Aldrin_Apollo_11.jpg",
-							"type": "text"
-						},
-						{
-							"key": "questions",
-							"value": "[{\"question\": \"En quelle année le premier homme a marché sur la lune ?\",\"answer\": \"1969\",\"distractors\": [\"2000\",\"1979\",\"1993\"]},{\"question\": \"Qui a marché pour la première fois sur la lune ?\",\"answer\": \"Neil Armstrong\",\"distractors\": [4,\"Harrison Schmitt\",\"Alan Shepard\"]}]",
-							"type": "text"
-						},
-						{
-							"key": "description",
-							"value": "un quizz sur la mission Apollo",
-							"type": "text"
 						},
 						{
 							"key": "categories",
-							"value": "[\"espace\", \"apollo\"]",
-							"type": "text"
-						},
-						{
-							"key": "username",
-							"value": "sebi3",
-							"type": "text"
-						},
-						{
-							"key": "token",
-							"value": "1111",
+							"value": "[{\"name\": \"espace\", \"enabled\": true},  {\"name\": \"apollo\",\"enabled\": true}]",
 							"type": "text"
 						}
 					]
@@ -344,7 +143,7 @@
 						},
 						{
 							"key": "questions",
-							"value": "[{\"question\": \"EEn quelle année le premier homme a marché sur la lune ?\",\"answer\": \"1969\",\"distractors\": [\"2000\",\"1979\",\"1993\"], \"clue\": \"this is the clue\", \"clueResource\": \"http://resource.clue\", \"categories\": [\"espace\", \"apollo\", \"histoire\"], \"enabled\": true},{\"question\": \"Qui a marché pour la première fois sur la lune ?\",\"answer\": \"Neil Armstrong\",\"distractors\": [\"Thomas Pesquet\",\"Harrison Schmitt\",\"Alan Shepard\"], \"clue\": \"this is the clue\", \"clueResource\": \"http://resource.clue\", \"categories\": [\"espace\", \"apollo\"], \"enabled\": true}]",
+							"value": "[\n  {\n    \"question\": \"EEn quelle année le premier homme a marché sur la lune ?\",\n    \"answer\": \"1969\",\n    \"distractors\": [\n      \"2000\",\n      \"1979\",\n      \"1993\"\n    ],\n    \"clue\": \"this is the clue\",\n    \"clueResource\": \"http://resource.clue\",\n    \"categories\": [\"espace\", \"apollo\"],\n    \"enabled\": false\n  },\n  {\n    \"question\": \"Qui a marché pour la première fois sur la lune ?\",\n    \"answer\": \"Neil Armstrong\",\n    \"distractors\": [\n      \"Thomas Pesquet\",\n      \"Harrison Schmitt\",\n      \"Alan Shepard\"\n    ],\n    \"clue\": \"this is the clue\",\n    \"clueResource\": \"http://resource.clue\",\n    \"categories\": [\"espace\", \"apollo\"],\n    \"enabled\": true\n  }\n]\n",
 							"type": "text"
 						},
 						{
@@ -354,23 +153,28 @@
 						},
 						{
 							"key": "username",
-							"value": "sebi",
+							"value": "admin",
 							"type": "text"
 						},
 						{
 							"key": "token",
-							"value": "1111",
+							"value": "y93bax1kdw8mugrggp605996wmrvuajh7grzqqds67b",
 							"type": "text"
 						},
 						{
 							"key": "taxBloom",
-							"value": "[\"Analyse\", \"Analyse\"]",
+							"value": "[\"Analyse\"]",
+							"type": "text"
+						},
+						{
+							"key": "categories",
+							"value": "[{\"name\": \"espace\", \"enabled\": true},  {\"name\": \"apollo\",\"enabled\": true}]",
 							"type": "text"
 						}
 					]
 				},
 				"url": {
-					"raw": "http://localhost:3000/quizzes/1f0f3f9b54768ed5e8583b4bab006f95",
+					"raw": "http://localhost:3000/quizzes/f55eeea63e984953a91a50481b00054e",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -378,7 +182,7 @@
 					"port": "3000",
 					"path": [
 						"quizzes",
-						"1f0f3f9b54768ed5e8583b4bab006f95"
+						"f55eeea63e984953a91a50481b00054e"
 					]
 				}
 			},
@@ -394,7 +198,7 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:3000/quizzes?keywords=apollo+espace",
+					"raw": "http://localhost:3000/quizzes?keywords=BasketBall Z&taxBloom=Application Synthèse",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -406,7 +210,11 @@
 					"query": [
 						{
 							"key": "keywords",
-							"value": "apollo+espace"
+							"value": "BasketBall Z"
+						},
+						{
+							"key": "taxBloom",
+							"value": "Application Synthèse"
 						}
 					]
 				}
@@ -430,12 +238,12 @@
 					"urlencoded": [
 						{
 							"key": "username",
-							"value": "sebi",
+							"value": "Bobé",
 							"type": "text"
 						},
 						{
 							"key": "password",
-							"value": "1234",
+							"value": "password",
 							"type": "text"
 						}
 					]
@@ -471,12 +279,12 @@
 					"urlencoded": [
 						{
 							"key": "username",
-							"value": "sebi",
+							"value": "admin",
 							"type": "text"
 						},
 						{
 							"key": "password",
-							"value": "1234",
+							"value": "password",
 							"type": "text"
 						}
 					]
@@ -507,23 +315,9 @@
 						"type": "text"
 					}
 				],
-				"body": {
-					"mode": "urlencoded",
-					"urlencoded": [
-						{
-							"key": "username",
-							"value": "sebi",
-							"type": "text"
-						},
-						{
-							"key": "token",
-							"value": "1111",
-							"type": "text"
-						}
-					]
-				},
+				"body": {},
 				"url": {
-					"raw": "localhost:3000/authentication/",
+					"raw": "localhost:3000/authentication/?username=sebi&token=1111",
 					"host": [
 						"localhost"
 					],
@@ -531,6 +325,16 @@
 					"path": [
 						"authentication",
 						""
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "sebi"
+						},
+						{
+							"key": "token",
+							"value": "1111"
+						}
 					]
 				}
 			},
@@ -553,20 +357,20 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "localhost:3000/users/sebi/quizzes?token=1111",
+					"raw": "localhost:3000/users/Bobé/quizzes?token=7n1hy9m6w05cp7xazwerrl4rz7zmh7p1259k9ysydv9i",
 					"host": [
 						"localhost"
 					],
 					"port": "3000",
 					"path": [
 						"users",
-						"sebi",
+						"Bobé",
 						"quizzes"
 					],
 					"query": [
 						{
 							"key": "token",
-							"value": "1111"
+							"value": "7n1hy9m6w05cp7xazwerrl4rz7zmh7p1259k9ysydv9i"
 						}
 					]
 				}
@@ -629,14 +433,14 @@
 				],
 				"body": {},
 				"url": {
-					"raw": "localhost:3000/quizzes/1f0f3f9b54768ed5e8583b4bab006f95/questions",
+					"raw": "localhost:3000/quizzes/2594af1f31a90a492479c3bde90031cc/questions",
 					"host": [
 						"localhost"
 					],
 					"port": "3000",
 					"path": [
 						"quizzes",
-						"1f0f3f9b54768ed5e8583b4bab006f95",
+						"2594af1f31a90a492479c3bde90031cc",
 						"questions"
 					]
 				}
@@ -660,17 +464,17 @@
 					"urlencoded": [
 						{
 							"key": "domain_description",
-							"value": "hello",
+							"value": "Big data",
 							"type": "text"
 						},
 						{
 							"key": "username",
-							"value": "sebi",
+							"value": "admin",
 							"type": "text"
 						},
 						{
 							"key": "token",
-							"value": "1111",
+							"value": "y93bax1kdw8mugrggp605996wmrvuajh7grzqqds67b",
 							"type": "text"
 						}
 					]
@@ -698,7 +502,7 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "localhost:3000/users/Bob?username=sebi&token=1111",
+					"raw": "localhost:3000/users/Bob?username=admin&token=8z4crb7o9ov256w6eicfrsuygjsya1d7uvm49md4grn",
 					"host": [
 						"localhost"
 					],
@@ -710,11 +514,11 @@
 					"query": [
 						{
 							"key": "username",
-							"value": "sebi"
+							"value": "admin"
 						},
 						{
 							"key": "token",
-							"value": "1111"
+							"value": "8z4crb7o9ov256w6eicfrsuygjsya1d7uvm49md4grn"
 						}
 					]
 				}
@@ -731,7 +535,7 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:3000/quizzes/bb9b183c6054e259fb3429682c001dfb?username=sebi&token=1111",
+					"raw": "http://localhost:3000/quizzes/ad7188f2b8db6bcb9687692f470033e4?username=admin&token=7o4epgq4l69icivhzvig3yhcge2043injifil0ltnu",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -739,16 +543,16 @@
 					"port": "3000",
 					"path": [
 						"quizzes",
-						"bb9b183c6054e259fb3429682c001dfb"
+						"ad7188f2b8db6bcb9687692f470033e4"
 					],
 					"query": [
 						{
 							"key": "username",
-							"value": "sebi"
+							"value": "admin"
 						},
 						{
 							"key": "token",
-							"value": "1111"
+							"value": "7o4epgq4l69icivhzvig3yhcge2043injifil0ltnu"
 						}
 					]
 				}
@@ -777,42 +581,36 @@
 						},
 						{
 							"key": "token",
-							"value": "zuehk5xjxngn3qm48gwe9928urnehx94dnqbsc835os",
+							"value": "734d2motga8vnfo6n64qk3288x1uwrzbtw1oot2q6r",
 							"type": "text"
 						},
 						{
 							"key": "role",
-							"value": "2",
+							"value": "3",
+							"type": "text"
+						},
+						{
+							"key": "oldPassword",
+							"value": "password",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "newPassword",
+							"value": "password",
 							"type": "text"
 						}
 					]
 				},
 				"url": {
-					"raw": "localhost:3000/users/Bob",
+					"raw": "localhost:3000/users/admin",
 					"host": [
 						"localhost"
 					],
 					"port": "3000",
 					"path": [
 						"users",
-						"Bob"
-					],
-					"query": [
-						{
-							"key": "username",
-							"value": "admin",
-							"disabled": true
-						},
-						{
-							"key": "token",
-							"value": "zuehk5xjxngn3qm48gwe9928urnehx94dnqbsc835os",
-							"disabled": true
-						},
-						{
-							"key": "role",
-							"value": "3",
-							"disabled": true
-						}
+						"admin"
 					]
 				}
 			},

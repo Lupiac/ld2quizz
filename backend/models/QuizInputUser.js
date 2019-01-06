@@ -45,7 +45,7 @@ class QuizInputUser {
         }
         categories.forEach(function (categorie, index) {
             if(typeof categorie.name !== "string") {
-                throw {errorCode: 500, message: "le nom de na catégorie n°" + index + " n'est pas un string"}
+                throw {errorCode: 500, message: "le nom de la catégorie n°" + index + " n'est pas un string"}
             }
             if(typeof categorie.enabled !== "boolean") {
                 throw {errorCode: 500, message: "enabled de la catégories n°" + index + " n'est pas un booleen"}

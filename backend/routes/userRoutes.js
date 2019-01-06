@@ -69,7 +69,7 @@ myRouter.route('/:username/quizzes').get(function (req, res) {
 myRouter.route('/:username').put(function (req, res) {
     logger.log('requête de modification des paramètres utilisateur de ' + req.body.username);
 
-    if (req.body.username == null || req.body.token == null || (req.body.role == null && req.body.newPassword == null) || isNaN(req.body.role)) { // need to have role or passwords or both
+    if (req.body.username == null || req.body.token == null || (req.body.role == null && req.body.newPassword == null) || (req.body.role != null && isNaN(req.body.role))) { // need to have role or passwords or both
         res.statusCode = 500;
         res.json({message: "paramètres manquant"});
         logger.log('paramètres manquant')
