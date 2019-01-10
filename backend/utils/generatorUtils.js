@@ -1,4 +1,6 @@
-const nano = require('nano')('http://localhost:5984');
+const config = require('../config');
+
+const nano = require('nano')(config.couchdbHost);
 const generatorDb = nano.db.use('generator');
 
 const axios = require('axios');
@@ -19,16 +21,16 @@ function generate(domain_description, username, token, trynumber = 0) {
         return generatorDb.insert(id_graph);
     }).then(() => {
         // generate graph from domain
-        return axios.post('http://51.77.145.11/lod2quiz/api/v1/subgraph?named_graph=http://lod2quiz.ai/quiz/' + id_graph_value + '&domain_description=' + domain_description, {}, {
+        return axios.post(config.quizGeneratorHost + '/subgraph?named_graph=http://lod2quiz.ai/quiz/' + id_graph_value + '&domain_description=' + domain_description, {}, {
             headers: {
-                Authorization: 'Basic YXBpYWNjZXNzOmhkcURWVEhiUzdxanVzN1Q='
+                Authorization: config.authorizationHeaderGenerator
             }
         });
     }).then(() => {
         // get quiz from graph
-        return axios.get('http://51.77.145.11/lod2quiz/api/v1/quiz?named_graph=http://lod2quiz.ai/quiz/' + id_graph_value, {
+        return axios.get(config.quizGeneratorHost + '/quiz?named_graph=http://lod2quiz.ai/quiz/' + id_graph_value, {
             headers: {
-                Authorization: 'Basic YXBpYWNjZXNzOmhkcURWVEhiUzdxanVzN1Q='
+                Authorization: config.authorizationHeaderGenerator
             }
         })
     }).then((response) => {

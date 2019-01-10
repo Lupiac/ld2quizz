@@ -1,7 +1,0 @@
-{
-  "views": {
-    "search-view": {
-      "map": "function (doc) {\n  for (var index in doc.categories) {\n    var wordTab = doc.categories[index].split(' ');\n    for(var word in wordTab) {\n      emit(wordTab[word], doc);\n    }\n  }\n}"
-    }
-  }
-}

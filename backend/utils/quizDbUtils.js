@@ -1,4 +1,6 @@
-const nano = require('nano')('http://localhost:5984');
+const config = require('../config');
+
+const nano = require('nano')(config.couchdbHost);
 const axios = require('axios');
 
 const quizzesInformationDb = nano.db.use('quizzes_information');
@@ -17,22 +19,6 @@ function getAllQuizzes() {
                 quizInformation.constructByDbDocument(doc.doc);
                 result.push(quizInformation.getUserView());
             }
-        });
-        return result;
-    }).catch((error) => {
-        console.log(error);
-        throw {errorCode: 500, message: 'problème de base de données'}
-    });
-}
-
-function getQuizzesByCategorie(categories) {
-    const keywordsTab = categories.split(' ');
-    return quizzesInformationDb.view('searchDesignDoc', 'search-view', {keys: keywordsTab}).then((body) => {
-        let result = [];
-        body.rows.forEach(function (doc) {
-            const quizInformation = new QuizInformation();
-            quizInformation.constructByDbDocument(doc.value);
-            result.push(quizInformation.getUserView());
         });
         return result;
     }).catch((error) => {
@@ -61,7 +47,7 @@ function searchQuizzesByKeywords(keywords, taxBloom) {
     }
     params += ' AND searchTaxBloom:"' + "Analyse" + '"';
     let result = [];
-    return axios.get('http://localhost:5985/local/quizzes_information/_design/luceneDesignDoc/by_name' + params).then((response) => {
+    return axios.get(config.couchdbLuceneHost + '/local/quizzes_information/_design/luceneDesignDoc/by_name' + params).then((response) => {
         response.data.rows.forEach(function (doc) {
             result.push({
                 id: doc.id,
@@ -80,18 +66,6 @@ function searchQuizzesByKeywords(keywords, taxBloom) {
         throw {errorCode: 500, message:"problème de base de données" }
     })
 
-}
-
-function mergeQuizzes(quizzes) {
-    const set = new Set();
-    const result = [];
-    quizzes.forEach(function(quiz) {
-        if(!set.has(quiz.id) && quiz.name) {
-            result.push(quiz);
-            set.add(quiz.id);
-        }
-    })
-    return result;
 }
 
 function getQuizzesByUser(username, token) {
@@ -370,8 +344,6 @@ module.exports = {
     updateQuiz,
     getQuestionsAnswers,
     getQuestions,
-    getQuizzesByCategorie,
-    mergeQuizzes,
     searchQuizzesByKeywords,
     deleteQuiz
 }

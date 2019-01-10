@@ -1,7 +1,8 @@
+const config = require('./config');
 const app = require('./router');
 
-const hostname = 'localhost';
-const port = 3000;
+const hostname = config.hostname;
+const port = config.port;
 
 app.listen(port, hostname, function(){
     console.log("server started at " + hostname + ":" + port);

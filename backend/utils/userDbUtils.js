@@ -1,10 +1,12 @@
-const nano = require('nano')('http://localhost:5984');
+const config = require('../config');
+
+const nano = require('nano')(config.couchdbHost);
 const crypto = require('crypto-js')
 
 const usersDb = nano.db.use('users');
 
 function addUser(username, password) {
-    return usersDb.insert({_id: username, password: crypto.SHA256(password).toString(), role: 3, quizzes: []}).then((userCreatedResult) => {
+    return usersDb.insert({_id: username, password: crypto.SHA256(password).toString(), role: 1, quizzes: []}).then((userCreatedResult) => {
         return {message: 'user created !', username: username};
     }).catch((error) => {
         console.log(error);
@@ -62,7 +64,7 @@ function logout(username, token) {
 
 function updateUserInformation(username, token, usernameToUpdate, role, oldPassword, newPassword) {
     return new Promise(function (resolve, reject) {
-        if(role != null) {
+        if(role != null && !isNaN(role)) {
             resolve(updateRole(username, token, usernameToUpdate, role));
         }
         resolve()
@@ -190,7 +192,6 @@ module.exports = {
     verifyToken,
     logout,
     updateUser,
-    updateRole,
     deleteUser,
     updateUserInformation
 }
