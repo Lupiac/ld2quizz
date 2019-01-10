@@ -1,4 +1,4 @@
-# testing-vue
+# LOD2QUIZZ
 
 ## Requirements
 You need NPM and NodeJS to develop and run the project
@@ -14,6 +14,7 @@ The files in the _*/dist*_ folder are supposed be served by an HTTP server
 You can deploy the built content in the dist directory to any static file server
 
 Run: _npm run build_ to create and fill the folder with the built content
+More details here: https://cli.vuejs.org/guide/deployment.html#general-guidelines
 
 ## Project setup
 ```
