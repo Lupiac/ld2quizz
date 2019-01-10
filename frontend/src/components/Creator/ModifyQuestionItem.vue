@@ -55,8 +55,11 @@
     </blockquote>
     <blockquote class="blockquote-not" v-else>
       <div class="columns is-expanded level box">
-        <div class="column is-10 has-text-left blurred">
+        <div v-if="!item.modifiedQuestion" class="column is-10 has-text-left">
           <p>{{item.question}}</p>
+        </div>
+        <div v-else class="column is-10 has-text-left">
+          <p>{{item.modifiedQuestion}}</p>
         </div>
         <div class>
           <div class="icon is-spaced is-large level-item space" style="font-size: 1.4em;">

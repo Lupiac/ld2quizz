@@ -10,7 +10,7 @@
         </div>
         <div>
           <div class="icon is-spaced is-large level-item" style="font-size: 1.4em;">
-            <div class="hvr-grow is-spaced" v-on:click="edit=!edit; placeholder()">
+            <div class="hvr-grow " v-on:click="edit=!edit; placeholder()">
               <i class="far fa-edit is-spaced fa-lg space"></i>
             </div>
             <div class="hvr-grow" v-on:click="deleteQuestion()">
@@ -55,8 +55,11 @@
     </blockquote>
     <blockquote class="blockquote-not" v-else>
       <div class="columns is-expanded level box">
-        <div class="column is-10 has-text-left blurred">
+        <div v-if="!item.modifiedQuestion" class="column is-10 has-text-left">
           <p>{{item.question}}</p>
+        </div>
+        <div v-else class="column is-10 has-text-left">
+          <p>{{item.modifiedQuestion}}</p>
         </div>
         <div class>
           <div class="icon is-spaced is-large level-item space" style="font-size: 1.4em;">
