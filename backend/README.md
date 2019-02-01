@@ -85,16 +85,22 @@ $ cd /home/user/folder/couchdb-lucene/target/couchdb-lucene-2.1.0-SNAPSHOT
 $ ./bin/run
 ```
 3. Install npm
-`$ sudo apt install npm`
+```
+$ sudo apt install npm
+```
 4. Install crypto-js module on the backend directory
 ```
 $ cd /home/user/folder/backend
 $ npm install crypto-js
 ```
 4. Start the lod2quiz backend!
-`$ npm start`
+```
+$ npm start
+```
 5. The server should be now running on _localhost:3000_
-`server started at localhost:3000`
+```
+server started at localhost:3000
+```
 
 ## Routes
 
