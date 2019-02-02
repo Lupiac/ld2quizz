@@ -45,7 +45,6 @@ function searchQuizzesByKeywords(keywords, taxBloom) {
             }
         })
     }
-    params += ' AND searchTaxBloom:"' + "Analyse" + '"';
     let result = [];
     return axios.get(config.couchdbLuceneHost + '/local/quizzes_information/_design/luceneDesignDoc/by_name' + params).then((response) => {
         response.data.rows.forEach(function (doc) {
