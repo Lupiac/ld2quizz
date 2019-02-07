@@ -116,7 +116,8 @@ function updatePassword(username, token, usernameToUpdate, oldPassword, newPassw
         user = userResult;
         return usersDb.get(usernameToUpdate);
     }).then((userToUpdate) => {
-        if(user.role < 3 && crypto.SHA256(oldPassword).toString() !== usernameToUpdate.password) {
+        if(user.role < 3 && crypto.SHA256(oldPassword).toString() !== userToUpdate.password) {
+            console.log(usernameToUpdate.password);
             throw {errorCode: 403, message: "l'ancien mot de passe est incorrect"};
         }
         userToUpdate.password = crypto.SHA256(newPassword).toString();

@@ -194,6 +194,7 @@ query params:
 - username (account which will do the modification)
 - role (optional)
 - newPassword (optional)
+- oldPassword (if the user wants to change its own password)
 
 description: update role or password of an account. Password can be modified by owner of the account but the role can only be update by an admin.
 
@@ -208,6 +209,30 @@ body params:
 
 description: generate quiz and get questions
 
+## Administration Request
+
+When you deploy the app for the first time, a default user is created:
+- username: admin
+- password: password
+
+To create an account without the frontend:
+```
+$ curl --header "Content-Type: application/json" --request POST --data '{"username": "Alice", "password": "123456"}' http://localhost:3000/users
+```
+
+This account is level 1 and can't create quizzes.
+
+To upgrade this account:
+- You need to connect to an admin account (level like admin)
+```
+$ curl --header "Content-Type: application/json" --request POST --data '{"username": "admin", "password": "password"}' http://localhost:3000/authentication
+```
+- Then, you can update the role of Alice thanks to privilege of admin.
+Use the token get with the previous command.
+```
+$ curl --header "Content-Type: application/json" --request PUT --data '{"role": 2, "token": "d66u9i9610p6u52ko6afgi92day8fxtqni7b0l27md1j", "username":"admin"}' http://localhost:3000/users/Alice
+```
+  
 ## About
 
 lod2quiz API is made by Oscar RODRIGUEZ ROCHA.
