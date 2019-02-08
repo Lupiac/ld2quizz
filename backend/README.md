@@ -209,7 +209,7 @@ body params:
 
 description: generate quiz and get questions
 
-## Administration Request
+## Administration Requests
 
 When you deploy the app for the first time, a default user is created:
 - username: admin
