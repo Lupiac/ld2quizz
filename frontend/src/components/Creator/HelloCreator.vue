@@ -53,7 +53,6 @@ import Vue from "vue";
 import VueToasted from "vue-toasted";
 
 import axios from "axios";
-let server = "localhost:3000";
 
 export default {
   name: "hello-creator",
@@ -79,8 +78,6 @@ export default {
     if (this.username != "" && this.token != "") {
       axios
         .get(
-          "http://" +
-            server +
             "/users/" +
             this.username +
             "/quizzes?token=" +

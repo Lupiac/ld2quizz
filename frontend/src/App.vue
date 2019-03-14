@@ -61,7 +61,6 @@
 import Vue from "vue";
 import VueToasted from "vue-toasted";
 import axios from "axios";
-let server = "localhost:3000";
 
 export default {
   data: () => ({
@@ -75,8 +74,6 @@ export default {
     disconnect: function() {
       axios
         .delete(
-          "http://" +
-            server +
             "/authentication?username=" +
             this.username +
             "&token=" +
@@ -107,7 +104,7 @@ export default {
 <style lang="sass">
   @import '../node_modules/bulma/bulma.sass'
   @import 'mq'
-  
+
 
 </style>
 

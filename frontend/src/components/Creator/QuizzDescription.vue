@@ -8,7 +8,7 @@
                 <a class=" button is-link" style="margin-top: 0%; margin-bottom: 0%;" v-on:click="back()">Fermer Aperçu</a>
               </div>
             <div class="field-body">
-              
+
 
               <div class="field">
                 <p class="control is-expanded is-size-1 has-text-centered is-italic">
@@ -89,7 +89,6 @@ import Modifier from "@/components/Creator/Modifier.vue";
 
 import axios from "axios";
 
-let server = "localhost:3000";
 export default {
   name: "quizz-description",
   props: {

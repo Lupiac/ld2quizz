@@ -61,7 +61,6 @@ import axios from "axios";
 import Vue from "vue";
 import VueToasted from "vue-toasted";
 
-let server = "localhost:3000";
 export default {
   name: "question",
   data: () => ({
@@ -76,7 +75,7 @@ export default {
     register() {
       if (this.username != "" && this.password != "") {
         axios
-          .post("http://" + server + "/users", {
+          .post("/users", {
             username: this.username,
             password: this.password
           })
