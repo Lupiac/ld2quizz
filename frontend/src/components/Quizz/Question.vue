@@ -57,6 +57,7 @@
 import axios from "axios";
 import { Modal, ImageModal, CardModal } from "vue-bulma-modal";
 
+let server = "localhost:3000";
 export default {
   name: "question",
   props: {
@@ -82,6 +83,8 @@ export default {
     getQuestion: function() {
       axios
         .get(
+          "http://" +
+            server +
             "/quizzes/" +
             this.$route.params.id +
             "/questions/" +
@@ -101,6 +104,8 @@ export default {
       if (this.userAnswer.length > 0) {
         axios
           .post(
+            "http://" +
+              server +
               "/quizzes/" +
               this.$route.params.id +
               "/questions/" +

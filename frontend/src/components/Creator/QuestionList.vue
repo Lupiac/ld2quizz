@@ -110,6 +110,7 @@ import QuestionItem from "@/components/Creator/QuestionItem.vue";
 
 import virtualList from "vue-virtual-scroll-list";
 import axios from "axios";
+let server = "localhost:3000";
 
 export default {
   name: "detail-questions",
@@ -197,7 +198,7 @@ export default {
       };
 
       axios
-        .post("/quizzes", {
+        .post("http://" + server + "/quizzes", {
           name: this.$parent.quizz_infos.name,
           image_url: this.$parent.quizz_infos.image_url,
           questions: JSON.stringify(this.$parent.quizz_infos.questions),

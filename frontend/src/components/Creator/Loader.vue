@@ -52,6 +52,7 @@ import Spinner from "@/components/Creator/Spinner.vue";
 import Vue from "vue";
 import VueToasted from "vue-toasted";
 import axios from "axios";
+let server = "localhost:3000";
 
 export default {
   name: "generate-questions",
@@ -74,7 +75,7 @@ export default {
   created() {
     Vue.use(VueToasted, {});
     axios
-      .post("/generator", {
+      .post("http://" + server + "/generator", {
         domain_description: this.$parent.quizz_infos.search,
         username: this.$parent.$parent._data.username,
         token: this.$parent.$parent._data.token

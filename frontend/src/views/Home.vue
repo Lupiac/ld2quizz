@@ -56,6 +56,7 @@ import Dropdown from "bp-vuejs-dropdown";
 
 import axios from "axios";
 
+let server = "localhost:3000";
 export default {
   name: "home",
   components: {
@@ -82,7 +83,7 @@ export default {
     Vue.use(Dropdown);
 
     axios
-      .get("/quizzes")
+      .get("http://" + server + "/quizzes")
       .then(response => {
         console.log(response.data);
         this.quizzList = response.data;
@@ -103,7 +104,7 @@ export default {
   methods: {
     searchQuizz: function() {
       axios
-        .get("/quizzes?keywords=" + this.keywords+"&taxBloom="+this.bloomFilter)
+        .get("http://" + server + "/quizzes?keywords=" + this.keywords+"&taxBloom="+this.bloomFilter)
         .then(response => {
           console.log(response.data);
           this.quizzList = response.data;
@@ -125,3 +126,4 @@ export default {
   align-items: center;
 }
 </style>
+

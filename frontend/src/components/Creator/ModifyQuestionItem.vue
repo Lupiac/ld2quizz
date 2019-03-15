@@ -162,3 +162,4 @@ export default {
   border-left: 4px solid red;
 }
 </style>
+

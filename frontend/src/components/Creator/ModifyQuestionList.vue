@@ -95,6 +95,7 @@ import Vue from "vue";
 import VueToasted from "vue-toasted";
 import virtualList from "vue-virtual-scroll-list";
 import axios from "axios";
+let server = "localhost:3000";
 
 export default {
   name: "modify-questions",
@@ -117,6 +118,8 @@ export default {
 
     axios
       .get(
+        "http://" +
+          server +
           "/users/" +
           this.$parent.$parent.$parent.username +
           "/quizzes/" +
@@ -222,7 +225,7 @@ export default {
       };
 
       axios
-        .put("/quizzes/" + this.$parent.quizz.id, {
+        .put("http://" + server + "/quizzes/" + this.$parent.quizz.id, {
           name: this.$parent.quizz_infos.name,
           image_url: this.$parent.quizz_infos.image_url,
           questions: JSON.stringify(this.$parent.quizz_infos.questions),

@@ -63,7 +63,7 @@
 import axios from "axios";
 import Vue from "vue";
 import VueToasted from "vue-toasted";
-
+let server = "localhost:3000";
 export default {
   name: "question",
   data: () => ({
@@ -78,7 +78,7 @@ export default {
     login() {
       if (this.username != "" && this.password != "") {
         axios
-          .post("/authentication", {
+          .post("http://" + server + "/authentication", {
             username: this.username,
             password: this.password
           })

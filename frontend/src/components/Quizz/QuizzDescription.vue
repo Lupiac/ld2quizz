@@ -77,6 +77,7 @@
 import virtualList from "vue-virtual-scroll-list";
 import axios from "axios";
 
+let server = "localhost:3000";
 export default {
   name: "quizz-description",
   data: () => ({
@@ -88,7 +89,7 @@ export default {
   },
   created() {
     axios
-      .get("/quizzes/" + this.$route.params.id)
+      .get("http://" + server + "/quizzes/" + this.$route.params.id)
       .then(response => {
         console.log(response.data);
         this.quizz = response.data;
